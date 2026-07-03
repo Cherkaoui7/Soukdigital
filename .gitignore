@@ -46,3 +46,9 @@ dist/
 htmlcov/
 conversion_history.json
 nul
+
+# Env files
+.env
+.env.*
+
+!.env.example
