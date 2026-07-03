@@ -1,19 +1,71 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from sqlalchemy.orm import Session
 from typing import List
-from backend.db.session import get_db
+import datetime
+import asyncio
+
+from backend.db.session import get_db, SessionLocal
 from backend.schemas.generation import GenerationCreate, GenerationResponse
-from backend.models.generation import ImageGeneration
-from backend.worker import generate_image_task
+from backend.models.generation import ImageGeneration, GenerationStatus
+from backend.services.ai import ai_service
+from backend.services.storage import storage_service
 
 router = APIRouter()
 
+def process_image_generation(generation_id: int):
+    """
+    Background task to process image generation using Fal.ai and save locally.
+    """
+    db: Session = SessionLocal()
+    generation = db.query(ImageGeneration).filter(ImageGeneration.id == generation_id).first()
+    
+    if not generation:
+        db.close()
+        return
+
+    generation.status = GenerationStatus.PROCESSING.value
+    db.commit()
+
+    try:
+        # Run async ai_service in sync context (BackgroundTasks run in separate thread)
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+            
+        image_bytes_list = loop.run_until_complete(
+            ai_service.generate_image(
+                prompt=generation.prompt,
+                style=generation.style,
+                aspect_ratio=generation.aspect_ratio,
+                num_inference_steps=generation.num_inference_steps,
+                guidance_scale=generation.guidance_scale,
+                seed=generation.seed
+            )
+        )
+        loop.close()
+
+        urls = []
+        for img_bytes in image_bytes_list:
+            url = storage_service.upload_image_bytes(img_bytes)
+            urls.append(url)
+
+        generation.result_urls = urls
+        generation.status = GenerationStatus.COMPLETED.value
+        generation.completed_at = datetime.datetime.utcnow()
+        db.commit()
+
+    except Exception as e:
+        generation.status = GenerationStatus.FAILED.value
+        generation.error_message = str(e)
+        generation.completed_at = datetime.datetime.utcnow()
+        db.commit()
+    finally:
+        db.close()
+
 @router.post("/generate", response_model=GenerationResponse)
-def create_generation(gen_in: GenerationCreate, db: Session = Depends(get_db)):
+def create_generation(gen_in: GenerationCreate, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
     """
     Start a new image generation task.
     """
-    # Create DB record
     generation = ImageGeneration(
         prompt=gen_in.prompt,
         negative_prompt=gen_in.negative_prompt,
@@ -29,13 +81,8 @@ def create_generation(gen_in: GenerationCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(generation)
 
-    # Dispatch Celery task
-    task = generate_image_task.delay(generation.id)
-    
-    # Save task ID
-    generation.task_id = task.id
-    db.commit()
-    db.refresh(generation)
+    # Use FastAPI BackgroundTasks instead of Celery
+    background_tasks.add_task(process_image_generation, generation.id)
 
     return generation
 
