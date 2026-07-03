@@ -1,0 +1,13 @@
+[
+    {
+        "source_file": "C:\\Users\\USER\\Downloads\\Souk Digital Marketplace\\svg_to_img\\tests\\assets\\simple.svg",
+        "output_file": "C:\\Users\\USER\\Downloads\\Souk Digital Marketplace\\svg_to_img\\tests\\output\\performance.png",
+        "output_format": "PNG",
+        "width": 100,
+        "height": 100,
+        "dpi": 96,
+        "success": true,
+        "duration_seconds": 0.007337300000472169,
+        "timestamp": "2026-07-03T12:39:16"
+    }
+]
