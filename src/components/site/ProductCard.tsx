@@ -15,12 +15,8 @@ export function ProductCard({ product }: { product: Product }) {
   const outOfStock = product.stock <= 0;
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl bg-card border border-border/60 transition-all hover:-translate-y-1 hover:shadow-souk">
-      <Link
-        to="/produits/$slug"
-        params={{ slug: product.slug }}
-        className="relative block aspect-[4/5] overflow-hidden bg-muted"
-      >
+    <article className="group relative flex flex-col overflow-hidden rounded-2xl bg-card border border-border/60 transition-all hover:-translate-y-1 hover:shadow-souk">
+      <div className="relative block aspect-[4/5] overflow-hidden bg-muted">
         {product.image_url ? (
           // eslint-disable-next-line jsx-a11y/img-redundant-alt
           <img
@@ -52,8 +48,8 @@ export function ProductCard({ product }: { product: Product }) {
             ★ Souk
           </span>
         )}
-        <WishlistButton productId={product.id} className="absolute top-3 end-3" />
-      </Link>
+        <WishlistButton productId={product.id} className="absolute top-3 end-3 z-10" />
+      </div>
 
       <div className="flex flex-1 flex-col p-4">
         <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
@@ -62,7 +58,7 @@ export function ProductCard({ product }: { product: Product }) {
         <Link
           to="/produits/$slug"
           params={{ slug: product.slug }}
-          className="mt-1 font-display text-lg font-semibold leading-tight text-foreground hover:text-primary transition-colors line-clamp-2"
+          className="mt-1 font-display text-lg font-semibold leading-tight text-foreground hover:text-primary transition-colors line-clamp-2 before:absolute before:inset-0"
         >
           {name}
         </Link>
@@ -88,7 +84,7 @@ export function ProductCard({ product }: { product: Product }) {
               })
             }
             disabled={outOfStock}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:scale-110 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="relative z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:scale-110 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label={outOfStock ? t("product.outOfStock") : t("product.addToCart")}
           >
             <ShoppingBag className="h-4 w-4" />
