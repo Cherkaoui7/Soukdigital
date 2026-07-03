@@ -16,18 +16,18 @@ Le projet inclut également un **Convertisseur SVG**, une application de bureau 
 - Panier persistant (localStorage + Cloud)
 - Checkout avec **Paiement à la livraison (COD)** et **CMI simulé**
 - Suivi de commande **Amana** avec timeline visuelle
-- Wishlist / Favoris (/favoris)
+- Wishlist / Favoris (`/favoris`)
 - Avis clients avec modération admin
 
 ### 🗣️ Négociation virtuelle — *Hajj Brahim*
 - Chat IA (Gemini 2.5 Flash via Lovable AI Gateway) qui incarne un marchand marocain
-- Respect d'un prix plancher (min_price_mad) défini par l'admin
+- Respect d'un prix plancher (`min_price_mad`) défini par l'admin
 - Prix négocié sauvegardé et appliqué au panier
 
 ### 🏅 Carte Zellige — Fidélité
 - **1 point offert par tranche de 10 MAD** dépensée
 - Paliers : Bronze → Silver (-5%) → Gold (-10%)
-- Page dédiée /fidelite avec historique et progression visuelle
+- Page dédiée `/fidelite` avec historique et progression visuelle
 
 ### 🖼️ Convertisseur SVG (Application Bureau)
 - Application de bureau pour convertir des fichiers SVG en images matricielles (PNG, JPEG, WEBP) ou PDF.
@@ -45,8 +45,8 @@ Le projet inclut également un **Convertisseur SVG**, une application de bureau 
 - Direction RTL automatique en arabe
 - Typographie **Noto Sans Arabic**
 
-### 🔐 Back-office admin (/admin)
-- Gestion produits (CRUD + upload images vers bucket privé product-images)
+### 🔐 Back-office admin (`/admin`)
+- Gestion produits (CRUD + upload images vers bucket privé `product-images`)
 - Gestion catégories & artisans
 - Gestion commandes + saisie n° tracking Amana
 - Modération des avis
@@ -80,44 +80,44 @@ Le projet inclut également un **Convertisseur SVG**, une application de bureau 
 
 **Prérequis :** Node.js >= 20 ou Bun >= 1.1, compte Lovable Cloud.
 
-`ash
+```bash
 git clone <url-du-repo>
 cd souk-digital
 bun install
-`
+```
 
-Le fichier .env est **auto-généré par Lovable Cloud**. Ne l'éditez pas manuellement.
+Le fichier `.env` est **auto-généré par Lovable Cloud**. Ne l'éditez pas manuellement.
 Lancer en développement :
-`ash
+```bash
 bun run dev
-`
+```
 L'app démarre sur **http://localhost:8080**.
 
 ### 2. Convertisseur SVG (Desktop)
 
 **Prérequis :** Python 3.10+
 
-`ash
+```bash
 cd svg_to_img
 pip install -r requirements.txt
-`
+```
 
 **Pour lancer l'application :**
-`ash
+```bash
 python app.py
-`
+```
 
 **Pour lancer les tests :**
-`ash
+```bash
 pip install -r requirements-dev.txt
 pytest tests/
-`
+```
 
 **Pour compiler l'exécutable :**
-`ash
+```bash
 pyinstaller --name SVGConverter --windowed --onefile app.py
-`
-L'exécutable sera généré dans le dossier dist/.
+```
+L'exécutable sera généré dans le dossier `dist/`.
 
 ---
 
@@ -125,12 +125,12 @@ L'exécutable sera généré dans le dossier dist/.
 
 ### 👤 Plateforme Web (Visiteur)
 1. Choisir la langue (FR / AR / EN) via le sélecteur du header.
-2. Parcourir le catalogue /catalogue — filtrer par ville, artisan, prix.
+2. Parcourir le catalogue `/catalogue` — filtrer par ville, artisan, prix.
 3. Ouvrir une fiche produit -> cliquer **"Négocier avec Hajj Brahim"** 💬
 4. Ajouter au panier -> checkout en **paiement à la livraison** ou carte CMI.
 
 ### 🖼️ Convertisseur SVG
-1. Ouvrez l'application SVGConverter.
+1. Ouvrez l'application `SVGConverter`.
 2. Importez un fichier SVG depuis votre ordinateur.
 3. Choisissez le format de sortie souhaité et ajustez la qualité.
 4. Cliquez sur Convertir pour exporter l'image.
@@ -139,7 +139,7 @@ L'exécutable sera généré dans le dossier dist/.
 
 ## 📁 Structure globale du projet
 
-`
+```text
 .
 ├── src/                    # Code source de la plateforme e-commerce Web
 │   ├── routes/             # File-based routing (TanStack)
@@ -152,7 +152,7 @@ L'exécutable sera généré dans le dossier dist/.
 │   ├── ui/                 # Composants d'interface (CustomTkinter)
 │   └── tests/              # Tests unitaires et d'intégration
 └── README.md               # Ce fichier
-`
+```
 
 ---
 
