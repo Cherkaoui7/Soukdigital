@@ -48,7 +48,7 @@ export function ProductCard({ product }: { product: Product }) {
             ★ Souk
           </span>
         )}
-        <WishlistButton productId={product.id} className="absolute top-3 end-3 z-10" />
+        <WishlistButton productId={product.id} className="absolute top-3 end-3 z-20" />
       </div>
 
       <div className="flex flex-1 flex-col p-4">
@@ -58,7 +58,7 @@ export function ProductCard({ product }: { product: Product }) {
         <Link
           to="/produits/$slug"
           params={{ slug: product.slug }}
-          className="mt-1 font-display text-lg font-semibold leading-tight text-foreground hover:text-primary transition-colors line-clamp-2 before:absolute before:inset-0"
+          className="mt-1 font-display text-lg font-semibold leading-tight text-foreground hover:text-primary transition-colors line-clamp-2 before:absolute before:inset-0 before:content-[''] before:z-10"
         >
           {name}
         </Link>
@@ -84,7 +84,7 @@ export function ProductCard({ product }: { product: Product }) {
               })
             }
             disabled={outOfStock}
-            className="relative z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:scale-110 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="relative z-20 inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:scale-110 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label={outOfStock ? t("product.outOfStock") : t("product.addToCart")}
           >
             <ShoppingBag className="h-4 w-4" />
