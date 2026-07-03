@@ -61,6 +61,12 @@ export function SiteHeader() {
           >
             {t("nav.artisans")}
           </Link>
+          <Link
+            to="/ai-studio"
+            className="relative font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary hover:opacity-80 transition-opacity after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300"
+          >
+            AI Studio ✨
+          </Link>
           <a
             href="/#categories"
             className="relative text-foreground/80 hover:text-primary transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all after:duration-300"
@@ -164,6 +170,9 @@ export function SiteHeader() {
           </Link>
           <Link to="/artisans" onClick={() => setOpen(false)} className="block text-sm font-medium">
             {t("nav.artisans")}
+          </Link>
+          <Link to="/ai-studio" onClick={() => setOpen(false)} className="block text-sm font-bold text-primary">
+            AI Studio ✨
           </Link>
           {user ? (
             <>

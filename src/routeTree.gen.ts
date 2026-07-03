@@ -18,11 +18,13 @@ import { Route as CompteRouteImport } from './routes/compte'
 import { Route as CommandeRouteImport } from './routes/commande'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ArtisansRouteImport } from './routes/artisans'
+import { Route as AiStudioRouteImport } from './routes/ai-studio'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SuiviTrackingRouteImport } from './routes/suivi.$tracking'
 import { Route as ProduitsSlugRouteImport } from './routes/produits.$slug'
 import { Route as ArtisansSlugRouteImport } from './routes/artisans.$slug'
+import { Route as AiStudioImageGeneratorRouteImport } from './routes/ai-studio.image-generator'
 import { Route as PaiementCmiOrderIdRouteImport } from './routes/paiement.cmi.$orderId'
 import { Route as ApiOgProductSlugRouteImport } from './routes/api/og.product.$slug'
 
@@ -71,6 +73,11 @@ const ArtisansRoute = ArtisansRouteImport.update({
   path: '/artisans',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiStudioRoute = AiStudioRouteImport.update({
+  id: '/ai-studio',
+  path: '/ai-studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -96,6 +103,11 @@ const ArtisansSlugRoute = ArtisansSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ArtisansRoute,
 } as any)
+const AiStudioImageGeneratorRoute = AiStudioImageGeneratorRouteImport.update({
+  id: '/image-generator',
+  path: '/image-generator',
+  getParentRoute: () => AiStudioRoute,
+} as any)
 const PaiementCmiOrderIdRoute = PaiementCmiOrderIdRouteImport.update({
   id: '/paiement/cmi/$orderId',
   path: '/paiement/cmi/$orderId',
@@ -110,6 +122,7 @@ const ApiOgProductSlugRoute = ApiOgProductSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/ai-studio': typeof AiStudioRouteWithChildren
   '/artisans': typeof ArtisansRouteWithChildren
   '/auth': typeof AuthRoute
   '/commande': typeof CommandeRoute
@@ -119,6 +132,7 @@ export interface FileRoutesByFullPath {
   '/panier': typeof PanierRoute
   '/produits': typeof ProduitsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ai-studio/image-generator': typeof AiStudioImageGeneratorRoute
   '/artisans/$slug': typeof ArtisansSlugRoute
   '/produits/$slug': typeof ProduitsSlugRoute
   '/suivi/$tracking': typeof SuiviTrackingRoute
@@ -128,6 +142,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/ai-studio': typeof AiStudioRouteWithChildren
   '/artisans': typeof ArtisansRouteWithChildren
   '/auth': typeof AuthRoute
   '/commande': typeof CommandeRoute
@@ -137,6 +152,7 @@ export interface FileRoutesByTo {
   '/panier': typeof PanierRoute
   '/produits': typeof ProduitsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ai-studio/image-generator': typeof AiStudioImageGeneratorRoute
   '/artisans/$slug': typeof ArtisansSlugRoute
   '/produits/$slug': typeof ProduitsSlugRoute
   '/suivi/$tracking': typeof SuiviTrackingRoute
@@ -147,6 +163,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/ai-studio': typeof AiStudioRouteWithChildren
   '/artisans': typeof ArtisansRouteWithChildren
   '/auth': typeof AuthRoute
   '/commande': typeof CommandeRoute
@@ -156,6 +173,7 @@ export interface FileRoutesById {
   '/panier': typeof PanierRoute
   '/produits': typeof ProduitsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ai-studio/image-generator': typeof AiStudioImageGeneratorRoute
   '/artisans/$slug': typeof ArtisansSlugRoute
   '/produits/$slug': typeof ProduitsSlugRoute
   '/suivi/$tracking': typeof SuiviTrackingRoute
@@ -167,6 +185,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/admin'
+    | '/ai-studio'
     | '/artisans'
     | '/auth'
     | '/commande'
@@ -176,6 +195,7 @@ export interface FileRouteTypes {
     | '/panier'
     | '/produits'
     | '/sitemap.xml'
+    | '/ai-studio/image-generator'
     | '/artisans/$slug'
     | '/produits/$slug'
     | '/suivi/$tracking'
@@ -185,6 +205,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/admin'
+    | '/ai-studio'
     | '/artisans'
     | '/auth'
     | '/commande'
@@ -194,6 +215,7 @@ export interface FileRouteTypes {
     | '/panier'
     | '/produits'
     | '/sitemap.xml'
+    | '/ai-studio/image-generator'
     | '/artisans/$slug'
     | '/produits/$slug'
     | '/suivi/$tracking'
@@ -203,6 +225,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/admin'
+    | '/ai-studio'
     | '/artisans'
     | '/auth'
     | '/commande'
@@ -212,6 +235,7 @@ export interface FileRouteTypes {
     | '/panier'
     | '/produits'
     | '/sitemap.xml'
+    | '/ai-studio/image-generator'
     | '/artisans/$slug'
     | '/produits/$slug'
     | '/suivi/$tracking'
@@ -222,6 +246,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRoute
+  AiStudioRoute: typeof AiStudioRouteWithChildren
   ArtisansRoute: typeof ArtisansRouteWithChildren
   AuthRoute: typeof AuthRoute
   CommandeRoute: typeof CommandeRoute
@@ -301,6 +326,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArtisansRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ai-studio': {
+      id: '/ai-studio'
+      path: '/ai-studio'
+      fullPath: '/ai-studio'
+      preLoaderRoute: typeof AiStudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin': {
       id: '/admin'
       path: '/admin'
@@ -336,6 +368,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArtisansSlugRouteImport
       parentRoute: typeof ArtisansRoute
     }
+    '/ai-studio/image-generator': {
+      id: '/ai-studio/image-generator'
+      path: '/image-generator'
+      fullPath: '/ai-studio/image-generator'
+      preLoaderRoute: typeof AiStudioImageGeneratorRouteImport
+      parentRoute: typeof AiStudioRoute
+    }
     '/paiement/cmi/$orderId': {
       id: '/paiement/cmi/$orderId'
       path: '/paiement/cmi/$orderId'
@@ -352,6 +391,18 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface AiStudioRouteChildren {
+  AiStudioImageGeneratorRoute: typeof AiStudioImageGeneratorRoute
+}
+
+const AiStudioRouteChildren: AiStudioRouteChildren = {
+  AiStudioImageGeneratorRoute: AiStudioImageGeneratorRoute,
+}
+
+const AiStudioRouteWithChildren = AiStudioRoute._addFileChildren(
+  AiStudioRouteChildren,
+)
 
 interface ArtisansRouteChildren {
   ArtisansSlugRoute: typeof ArtisansSlugRoute
@@ -380,6 +431,7 @@ const ProduitsRouteWithChildren = ProduitsRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
+  AiStudioRoute: AiStudioRouteWithChildren,
   ArtisansRoute: ArtisansRouteWithChildren,
   AuthRoute: AuthRoute,
   CommandeRoute: CommandeRoute,
