@@ -82,7 +82,11 @@ cd souk-digital
 bun install
 ```
 
-Le fichier `.env` est **auto-généré par Lovable Cloud**. Ne l'éditez pas manuellement.
+Configurez vos variables d'environnement en copiant le fichier d'exemple :
+```bash
+cp .env.example .env
+```
+Ouvrez ensuite le fichier `.env` et ajoutez vos clés Supabase.
 Lancer en développement :
 ```bash
 bun run dev
