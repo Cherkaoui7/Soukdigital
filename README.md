@@ -1,8 +1,8 @@
-﻿# 🕌 Souk Digital & Convertisseur SVG
+# 🕌 Souk Digital & Convertisseur SVG
 
 > Plateforme e-commerce 100% marocaine qui transpose l'expérience du souk traditionnel dans le monde numérique, accompagnée de son outil de bureau pour la conversion d'images SVG.
 
-Souk Digital réunit les **maâlems** (maîtres artisans) de Fès, Marrakech, Essaouira, Safi, Tétouan et Chefchaouen autour d'une expérience d'achat authentique : négociation virtuelle avec **Hajj Brahim**, carte de fidélité **Zellige**, paiement à la livraison, suivi Amana, et interface multilingue **Darija / Français / English**.
+Souk Digital réunit les **maâlems** (maîtres artisans) de Fès, Marrakech, Essaouira, Safi, Tétouan et Chefchaouen autour d'une expérience d'achat authentique : carte de fidélité **Zellige**, paiement à la livraison, suivi Amana, et interface multilingue **Darija / Français / English**.
 
 Le projet inclut également un **Convertisseur SVG**, une application de bureau performante pour gérer et convertir vos fichiers graphiques vectoriels.
 
@@ -19,10 +19,6 @@ Le projet inclut également un **Convertisseur SVG**, une application de bureau 
 - Wishlist / Favoris (`/favoris`)
 - Avis clients avec modération admin
 
-### 🗣️ Négociation virtuelle — *Hajj Brahim*
-- Chat IA (Gemini 2.5 Flash via Lovable AI Gateway) qui incarne un marchand marocain
-- Respect d'un prix plancher (`min_price_mad`) défini par l'admin
-- Prix négocié sauvegardé et appliqué au panier
 
 ### 🏅 Carte Zellige — Fidélité
 - **1 point offert par tranche de 10 MAD** dépensée
@@ -63,7 +59,7 @@ Le projet inclut également un **Convertisseur SVG**, une application de bureau 
 | Framework | **TanStack Start v1** (React 19 + Vite 7) |
 | Styling | **Tailwind CSS v4** + shadcn/ui + Radix |
 | Backend | **Lovable Cloud** (Supabase) — Postgres, Auth, Storage, RLS |
-| IA | **Lovable AI Gateway** (Gemini 2.5 Flash, gpt-image-2) |
+
 
 ### Desktop (Convertisseur SVG)
 | Composant | Technologie |
@@ -125,8 +121,7 @@ L'exécutable sera généré dans le dossier `dist/`.
 
 ### 👤 Plateforme Web (Visiteur)
 1. Choisir la langue (FR / AR / EN) via le sélecteur du header.
-2. Parcourir le catalogue `/catalogue` — filtrer par ville, artisan, prix.
-3. Ouvrir une fiche produit -> cliquer **"Négocier avec Hajj Brahim"** 💬
+3. Ouvrir une fiche produit.
 4. Ajouter au panier -> checkout en **paiement à la livraison** ou carte CMI.
 
 ### 🖼️ Convertisseur SVG
@@ -144,7 +139,7 @@ L'exécutable sera généré dans le dossier `dist/`.
 ├── src/                    # Code source de la plateforme e-commerce Web
 │   ├── routes/             # File-based routing (TanStack)
 │   ├── components/         # Composants UI React
-│   ├── lib/                # Logique métier, i18n, fonctions IA
+│   ├── lib/                # Logique métier, i18n
 │   └── styles.css          # Tokens design system Marocain
 ├── svg_to_img/             # Application bureau Convertisseur SVG (Python)
 │   ├── app.py              # Point d'entrée de l'application

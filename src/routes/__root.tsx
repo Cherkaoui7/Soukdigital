@@ -17,8 +17,6 @@ import { I18nProvider } from "@/lib/i18n";
 import { CartProvider } from "@/lib/cart";
 import { AuthProvider } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
-import { SoukChat } from "@/components/site/SoukChat";
-
 
 function NotFoundComponent() {
   return (
@@ -130,7 +128,6 @@ function RootComponent() {
         <AuthProvider>
           <CartProvider>
             <Outlet />
-            <SoukChat />
           </CartProvider>
 
         </AuthProvider>

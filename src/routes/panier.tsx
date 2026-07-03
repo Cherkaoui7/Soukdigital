@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Minus, Plus, Trash2, ShoppingBag, Handshake } from "lucide-react";
+import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { useCart } from "@/lib/cart";
@@ -48,18 +48,7 @@ function CartPage() {
                     <Link to="/produits/$slug" params={{ slug: item.slug }} className="font-display text-lg font-semibold text-foreground hover:text-primary line-clamp-2">
                       {item.name}
                     </Link>
-                    {item.negotiationId && item.originalPrice && item.originalPrice > item.price ? (
-                      <p className="mt-1 flex items-center gap-2 text-sm">
-                        <span className="inline-flex items-center gap-1 rounded-full bg-secondary/15 px-2 py-0.5 text-xs font-bold text-secondary">
-                          <Handshake className="h-3 w-3" /> {t("cart.negotiated")}
-                        </span>
-                        <span className="font-semibold text-primary">{formatPrice(item.price, locale as Locale)}</span>
-                        <span className="text-muted-foreground line-through">{formatPrice(item.originalPrice, locale as Locale)}</span>
-                        <span className="text-muted-foreground">× {item.quantity}</span>
-                      </p>
-                    ) : (
-                      <p className="mt-1 text-sm text-muted-foreground">{formatPrice(item.price, locale as Locale)} × {item.quantity}</p>
-                    )}
+                    <p className="mt-1 text-sm text-muted-foreground">{formatPrice(item.price, locale as Locale)} × {item.quantity}</p>
                     <div className="mt-auto flex items-center justify-between gap-3">
                       <div className="inline-flex items-center rounded-full border border-border bg-background">
                         <button

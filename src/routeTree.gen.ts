@@ -24,7 +24,6 @@ import { Route as SuiviTrackingRouteImport } from './routes/suivi.$tracking'
 import { Route as ProduitsSlugRouteImport } from './routes/produits.$slug'
 import { Route as ArtisansSlugRouteImport } from './routes/artisans.$slug'
 import { Route as PaiementCmiOrderIdRouteImport } from './routes/paiement.cmi.$orderId'
-import { Route as ApiChatSoukRouteImport } from './routes/api/chat.souk'
 import { Route as ApiOgProductSlugRouteImport } from './routes/api/og.product.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -102,11 +101,6 @@ const PaiementCmiOrderIdRoute = PaiementCmiOrderIdRouteImport.update({
   path: '/paiement/cmi/$orderId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiChatSoukRoute = ApiChatSoukRouteImport.update({
-  id: '/api/chat/souk',
-  path: '/api/chat/souk',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiOgProductSlugRoute = ApiOgProductSlugRouteImport.update({
   id: '/api/og/product/$slug',
   path: '/api/og/product/$slug',
@@ -128,7 +122,6 @@ export interface FileRoutesByFullPath {
   '/artisans/$slug': typeof ArtisansSlugRoute
   '/produits/$slug': typeof ProduitsSlugRoute
   '/suivi/$tracking': typeof SuiviTrackingRoute
-  '/api/chat/souk': typeof ApiChatSoukRoute
   '/paiement/cmi/$orderId': typeof PaiementCmiOrderIdRoute
   '/api/og/product/$slug': typeof ApiOgProductSlugRoute
 }
@@ -147,7 +140,6 @@ export interface FileRoutesByTo {
   '/artisans/$slug': typeof ArtisansSlugRoute
   '/produits/$slug': typeof ProduitsSlugRoute
   '/suivi/$tracking': typeof SuiviTrackingRoute
-  '/api/chat/souk': typeof ApiChatSoukRoute
   '/paiement/cmi/$orderId': typeof PaiementCmiOrderIdRoute
   '/api/og/product/$slug': typeof ApiOgProductSlugRoute
 }
@@ -167,7 +159,6 @@ export interface FileRoutesById {
   '/artisans/$slug': typeof ArtisansSlugRoute
   '/produits/$slug': typeof ProduitsSlugRoute
   '/suivi/$tracking': typeof SuiviTrackingRoute
-  '/api/chat/souk': typeof ApiChatSoukRoute
   '/paiement/cmi/$orderId': typeof PaiementCmiOrderIdRoute
   '/api/og/product/$slug': typeof ApiOgProductSlugRoute
 }
@@ -188,7 +179,6 @@ export interface FileRouteTypes {
     | '/artisans/$slug'
     | '/produits/$slug'
     | '/suivi/$tracking'
-    | '/api/chat/souk'
     | '/paiement/cmi/$orderId'
     | '/api/og/product/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -207,7 +197,6 @@ export interface FileRouteTypes {
     | '/artisans/$slug'
     | '/produits/$slug'
     | '/suivi/$tracking'
-    | '/api/chat/souk'
     | '/paiement/cmi/$orderId'
     | '/api/og/product/$slug'
   id:
@@ -226,7 +215,6 @@ export interface FileRouteTypes {
     | '/artisans/$slug'
     | '/produits/$slug'
     | '/suivi/$tracking'
-    | '/api/chat/souk'
     | '/paiement/cmi/$orderId'
     | '/api/og/product/$slug'
   fileRoutesById: FileRoutesById
@@ -244,7 +232,6 @@ export interface RootRouteChildren {
   ProduitsRoute: typeof ProduitsRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SuiviTrackingRoute: typeof SuiviTrackingRoute
-  ApiChatSoukRoute: typeof ApiChatSoukRoute
   PaiementCmiOrderIdRoute: typeof PaiementCmiOrderIdRoute
   ApiOgProductSlugRoute: typeof ApiOgProductSlugRoute
 }
@@ -356,13 +343,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PaiementCmiOrderIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/chat/souk': {
-      id: '/api/chat/souk'
-      path: '/api/chat/souk'
-      fullPath: '/api/chat/souk'
-      preLoaderRoute: typeof ApiChatSoukRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/og/product/$slug': {
       id: '/api/og/product/$slug'
       path: '/api/og/product/$slug'
@@ -410,7 +390,6 @@ const rootRouteChildren: RootRouteChildren = {
   ProduitsRoute: ProduitsRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SuiviTrackingRoute: SuiviTrackingRoute,
-  ApiChatSoukRoute: ApiChatSoukRoute,
   PaiementCmiOrderIdRoute: PaiementCmiOrderIdRoute,
   ApiOgProductSlugRoute: ApiOgProductSlugRoute,
 }

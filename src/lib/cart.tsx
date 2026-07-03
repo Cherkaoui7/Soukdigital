@@ -5,8 +5,6 @@ export type CartItem = {
   slug: string;
   name: string;
   price: number;
-  originalPrice?: number;
-  negotiationId?: string;
   image: string | null;
   quantity: number;
 };

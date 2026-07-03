@@ -1,11 +1,10 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { ArrowLeft, MapPin, Sparkles, ShoppingBag, Handshake } from "lucide-react";
+import { ArrowLeft, MapPin, Sparkles, ShoppingBag } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { NegotiationDialog } from "@/components/site/NegotiationDialog";
 import { ProductReviews } from "@/components/site/ProductReviews";
 import { ProductRecommendations } from "@/components/site/ProductRecommendations";
 import { WishlistButton } from "@/components/site/WishlistButton";
@@ -63,7 +62,6 @@ function ProductDetail() {
   const { add } = useCart();
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [negOpen, setNegOpen] = useState(false);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ["product", slug],
@@ -228,41 +226,13 @@ function ProductDetail() {
             >
               {t("product.buyNow")}
             </button>
-            <button
-              disabled={outOfStock}
-              onClick={() => {
-                if (!user) {
-                  navigate({ to: "/auth", search: { redirect: `/produits/${product.slug}` } });
-                  return;
-                }
-                setNegOpen(true);
-              }}
-              className="inline-flex items-center gap-2 rounded-full border-2 border-secondary bg-secondary/10 px-6 py-3 text-sm font-semibold text-secondary hover:bg-secondary hover:text-secondary-foreground disabled:opacity-40 transition-colors"
-            >
-              <Handshake className="h-4 w-4" /> {t("negotiate.cta")}
-            </button>
             <WishlistButton productId={product.id} variant="pill" />
           </div>
-          <p className="mt-3 text-xs text-muted-foreground">{t("negotiate.hint")}</p>
         </div>
       </div>
 
       <ProductReviews productId={product.id} />
       <ProductRecommendations productId={product.id} />
-
-      {product && (
-        <NegotiationDialog
-          open={negOpen}
-          onClose={() => setNegOpen(false)}
-          product={{
-            id: product.id,
-            slug: product.slug,
-            name,
-            price: Number(product.price_mad),
-            image: product.image_url,
-          }}
-        />
-      )}
 
       <SiteFooter />
     </div>
