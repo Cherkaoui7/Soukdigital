@@ -11,6 +11,7 @@ Le projet inclut également un **Convertisseur SVG**, une application de bureau 
 ## ✨ Fonctionnalités
 
 ### 🛍️ E-commerce (Souk Digital)
+
 - Catalogue produits multilingue (FR / AR / EN) avec prix en **MAD**
 - Fiches produit détaillées avec provenance, artisan, matériaux
 - Panier persistant (localStorage + Cloud)
@@ -19,29 +20,33 @@ Le projet inclut également un **Convertisseur SVG**, une application de bureau 
 - Wishlist / Favoris (`/favoris`)
 - Avis clients avec modération admin
 
-
 ### 🏅 Carte Zellige — Fidélité
+
 - **1 point offert par tranche de 10 MAD** dépensée
 - Paliers : Bronze → Silver (-5%) → Gold (-10%)
 - Page dédiée `/fidelite` avec historique et progression visuelle
 
 ### 🖼️ Convertisseur SVG (Application Bureau)
+
 - Application de bureau pour convertir des fichiers SVG en images matricielles (PNG, JPEG, WEBP) ou PDF.
 - Interface graphique moderne développée avec **CustomTkinter**.
 - Gestion de l'historique des conversions et système de préréglages (presets).
 - Application autonome compilée en exécutable (via PyInstaller).
 
 ### 🔎 Recherche Darija
+
 - Translittération tolérante (7→ح, 9→ق, 3→ع, etc.)
 - Filtres catalogue : ville, artisan, fourchette de prix
 - Recherche multilingue FR / AR / Darija latinisée
 
 ### 🌍 Multilingue & RTL
+
 - Sélecteur de langue FR / AR / EN
 - Direction RTL automatique en arabe
 - Typographie **Noto Sans Arabic**
 
 ### 🔐 Back-office admin (`/admin`)
+
 - Gestion produits (CRUD + upload images vers bucket privé `product-images`)
 - Gestion catégories & artisans
 - Gestion commandes + saisie n° tracking Amana
@@ -54,19 +59,20 @@ Le projet inclut également un **Convertisseur SVG**, une application de bureau 
 ## 🧱 Stack technique
 
 ### Web (E-commerce)
-| Couche | Technologie |
-|--------|-------------|
-| Framework | **TanStack Start v1** (React 19 + Vite 7) |
-| Styling | **Tailwind CSS v4** + shadcn/ui + Radix |
-| Backend | **Lovable Cloud** (Supabase) — Postgres, Auth, Storage, RLS |
 
+| Couche    | Technologie                                     |
+| --------- | ----------------------------------------------- |
+| Framework | **TanStack Start v1** (React 19 + Vite 7) |
+| Styling   | **Tailwind CSS v4** + shadcn/ui + Radix   |
+| Backend   | Supabase — Postgres, Auth, Storage, RLS        |
 
 ### Desktop (Convertisseur SVG)
-| Composant | Technologie |
-|-----------|-------------|
-| Langage | **Python 3.10+** |
+
+| Composant       | Technologie                       |
+| --------------- | --------------------------------- |
+| Langage         | **Python 3.10+**            |
 | Interface (GUI) | **CustomTkinter** / Tkinter |
-| Empaquetage | **PyInstaller** |
+| Empaquetage     | **PyInstaller**             |
 
 ---
 
@@ -83,9 +89,11 @@ bun install
 ```
 
 Configurez vos variables d'environnement en copiant le fichier d'exemple :
+
 ```bash
 cp .env.example .env
 ```
+
 Ouvrez ensuite le fichier `.env` et ajoutez vos clés Supabase, comme ceci :
 
 ```env
@@ -96,10 +104,13 @@ VITE_SUPABASE_PROJECT_ID="your_supabase_project_id"
 VITE_SUPABASE_PUBLISHABLE_KEY="your_supabase_publishable_key"
 VITE_SUPABASE_URL="your_supabase_url"
 ```
+
 Lancer en développement :
+
 ```bash
 bun run dev
 ```
+
 L'app démarre sur **http://localhost:8080**.
 
 ### 2. Convertisseur SVG (Desktop)
@@ -112,20 +123,24 @@ pip install -r requirements.txt
 ```
 
 **Pour lancer l'application :**
+
 ```bash
 python app.py
 ```
 
 **Pour lancer les tests :**
+
 ```bash
 pip install -r requirements-dev.txt
 pytest tests/
 ```
 
 **Pour compiler l'exécutable :**
+
 ```bash
 pyinstaller --name SVGConverter --windowed --onefile app.py
 ```
+
 L'exécutable sera généré dans le dossier `dist/`.
 
 ---
@@ -133,11 +148,13 @@ L'exécutable sera généré dans le dossier `dist/`.
 ## 📖 Utilisation
 
 ### 👤 Plateforme Web (Visiteur)
+
 1. Choisir la langue (FR / AR / EN) via le sélecteur du header.
-3. Ouvrir une fiche produit.
-4. Ajouter au panier -> checkout en **paiement à la livraison** ou carte CMI.
+2. Ouvrir une fiche produit.
+3. Ajouter au panier -> checkout en **paiement à la livraison** ou carte CMI.
 
 ### 🖼️ Convertisseur SVG
+
 1. Ouvrez l'application `SVGConverter`.
 2. Importez un fichier SVG depuis votre ordinateur.
 3. Choisissez le format de sortie souhaité et ajustez la qualité.
