@@ -1,0 +1,240 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <!-- Warm parchment background -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5f0e8"/>
+      <stop offset="100%" stop-color="#e8dece"/>
+    </linearGradient>
+    <!-- Deep jewel caftan fabric -->
+    <linearGradient id="caftan-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2e1a5e"/>
+      <stop offset="35%" stop-color="#3d2275"/>
+      <stop offset="65%" stop-color="#2e1a5e"/>
+      <stop offset="100%" stop-color="#1e0f42"/>
+    </linearGradient>
+    <!-- Caftan side sheen -->
+    <linearGradient id="caftan-sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1e0f42"/>
+      <stop offset="20%" stop-color="#4a2e90"/>
+      <stop offset="50%" stop-color="#5a38aa"/>
+      <stop offset="80%" stop-color="#4a2e90"/>
+      <stop offset="100%" stop-color="#1e0f42"/>
+    </linearGradient>
+    <!-- Gold embroidery gradient -->
+    <linearGradient id="gold-emb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0d060"/>
+      <stop offset="50%" stop-color="#d4a843"/>
+      <stop offset="100%" stop-color="#b8901a"/>
+    </linearGradient>
+    <!-- Arch gradient -->
+    <linearGradient id="arch-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2b2fa0" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#2b2fa0" stop-opacity="0.05"/>
+    </linearGradient>
+    <!-- Shadow filter -->
+    <filter id="shadow">
+      <feDropShadow dx="4" dy="8" stdDeviation="10" flood-color="#00000045"/>
+    </filter>
+    <filter id="softshadow">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="#00000030"/>
+    </filter>
+    <!-- Gold glow -->
+    <filter id="gold-glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Zellige border -->
+    <pattern id="zellige-border" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <rect width="30" height="30" fill="#2b2fa0"/>
+      <polygon points="15,3 27,15 15,27 3,15" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+      <polygon points="15,9 21,15 15,21 9,15" fill="#3a8a6e" opacity="0.6"/>
+      <circle cx="15" cy="15" r="2" fill="#d4a843"/>
+    </pattern>
+    <!-- Arabesque wall pattern -->
+    <pattern id="wall-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#f5f0e8"/>
+      <circle cx="20" cy="20" r="8" fill="none" stroke="#d4a843" stroke-width="0.5" opacity="0.3"/>
+      <circle cx="0" cy="0" r="8" fill="none" stroke="#d4a843" stroke-width="0.5" opacity="0.2"/>
+      <circle cx="40" cy="0" r="8" fill="none" stroke="#d4a843" stroke-width="0.5" opacity="0.2"/>
+      <circle cx="0" cy="40" r="8" fill="none" stroke="#d4a843" stroke-width="0.5" opacity="0.2"/>
+      <circle cx="40" cy="40" r="8" fill="none" stroke="#d4a843" stroke-width="0.5" opacity="0.2"/>
+    </pattern>
+  </defs>
+
+  <!-- Background wall -->
+  <rect width="600" height="800" fill="url(#wall-pattern)"/>
+  <rect width="600" height="800" fill="url(#bg)" opacity="0.85"/>
+
+  <!-- Zellige border -->
+  <rect x="0" y="0" width="600" height="800" fill="url(#zellige-border)"/>
+  <rect x="28" y="28" width="544" height="744" fill="url(#bg)" opacity="0.95"/>
+
+  <!-- Gold border lines -->
+  <rect x="28" y="28" width="544" height="744" fill="none" stroke="#d4a843" stroke-width="2.5"/>
+  <rect x="36" y="36" width="528" height="728" fill="none" stroke="#d4a843" stroke-width="0.8" stroke-dasharray="8,5"/>
+
+  <!-- ===== HORSESHOE ARCH FRAME ===== -->
+  <!-- Arch fill -->
+  <path d="M120,760 L120,340 Q120,140 300,90 Q480,140 480,340 L480,760 Z" fill="url(#arch-grad)"/>
+  <!-- Arch outline - double line -->
+  <path d="M120,760 L120,340 Q120,120 300,75 Q480,120 480,340 L480,760" fill="none" stroke="#2b2fa0" stroke-width="4" opacity="0.7"/>
+  <path d="M110,760 L110,345 Q110,110 300,62 Q490,110 490,345 L490,760" fill="none" stroke="#d4a843" stroke-width="2.5" opacity="0.8"/>
+  <path d="M130,760 L130,338 Q130,132 300,88 Q470,132 470,338 L470,760" fill="none" stroke="#d4a843" stroke-width="1" opacity="0.5"/>
+
+  <!-- Arch keystone ornament -->
+  <polygon points="300,58 315,78 300,88 285,78" fill="#d4a843"/>
+  <circle cx="300" cy="68" r="6" fill="#2b2fa0"/>
+  <circle cx="300" cy="68" r="3" fill="#d4a843"/>
+
+  <!-- Arch column capitals (top of columns) -->
+  <!-- Left capital -->
+  <rect x="100" y="330" width="30" height="20" rx="3" fill="#d4a843" opacity="0.8"/>
+  <rect x="95" y="345" width="40" height="8" rx="2" fill="#b8901a"/>
+  <!-- Right capital -->
+  <rect x="470" y="330" width="30" height="20" rx="3" fill="#d4a843" opacity="0.8"/>
+  <rect x="465" y="345" width="40" height="8" rx="2" fill="#b8901a"/>
+
+  <!-- Column shafts -->
+  <rect x="108" y="350" width="14" height="412" fill="#c8bea0" opacity="0.6"/>
+  <rect x="478" y="350" width="14" height="412" fill="#c8bea0" opacity="0.6"/>
+
+  <!-- Muqarnas decoration inside arch top -->
+  <!-- Stalactite-like ornaments inside the arch crown -->
+  <g fill="#d4a843" opacity="0.5">
+    <path d="M200,130 L210,150 L220,130 L230,155 L240,130 L250,150 L260,130 L270,145 L280,130 L290,148 L300,128 L310,148 L320,130 L330,145 L340,130 L350,150 L360,130 L370,155 L380,130 L390,150 L400,130" fill="none" stroke="#d4a843" stroke-width="1.5" opacity="0.4"/>
+    <path d="M220,128 L225,118 L230,128" />
+    <path d="M260,128 L265,118 L270,128" />
+    <path d="M300,128 L305,115 L310,128" />
+    <path d="M340,128 L345,118 L350,128" />
+    <path d="M380,128 L385,118 L390,128" />
+  </g>
+
+  <!-- Geometric panel above arch -->
+  <rect x="130" y="100" width="340" height="30" fill="#2b2fa0" opacity="0.15" rx="3"/>
+  <!-- Small zellige diamonds in panel -->
+  <g fill="#d4a843" opacity="0.6">
+    <polygon points="180,115 188,108 196,115 188,122"/>
+    <polygon points="220,115 228,108 236,115 228,122"/>
+    <polygon points="260,115 268,108 276,115 268,122"/>
+    <polygon points="300,115 308,108 316,115 308,122"/>
+    <polygon points="340,115 348,108 356,115 348,122"/>
+    <polygon points="380,115 388,108 396,115 388,122"/>
+    <polygon points="420,115 428,108 436,115 428,122"/>
+  </g>
+
+  <!-- ===== CAFTAN ===== -->
+  <!-- Main caftan body - elegant silhouette -->
+  <!-- Outer fabric with folds -->
+  <path d="M190,200
+           C185,200 178,210 175,225
+           C170,250 168,280 165,320
+           C160,370 155,430 150,490
+           C145,540 142,590 140,630
+           C138,660 136,690 135,720
+           L465,720
+           C464,690 462,660 460,630
+           C458,590 455,540 450,490
+           C445,430 440,370 435,320
+           C432,280 430,250 425,225
+           C422,210 415,200 410,200 Z" fill="url(#caftan-sheen)" filter="url(#shadow)"/>
+
+  <!-- Caftan center panel (slightly lighter) -->
+  <path d="M255,200 C250,215 248,250 246,300 C244,360 243,420 243,480 C243,540 244,600 244,660 L356,660 C356,600 357,540 357,480 C357,420 356,360 354,300 C352,250 350,215 345,200 Z" fill="#3d2275" opacity="0.7"/>
+
+  <!-- ===== SFIFA EMBROIDERY (gold border trim) ===== -->
+  <!-- Central front opening (sfifa) -->
+  <!-- Neck opening V-shape with embroidery -->
+  <path d="M270,200 Q300,240 330,200" fill="none" stroke="url(#gold-emb)" stroke-width="5" filter="url(#gold-glow)"/>
+  <!-- Embroidery dots along neckline -->
+  <g fill="#d4a843">
+    <circle cx="275" cy="207" r="2.5"/>
+    <circle cx="285" cy="215" r="2.5"/>
+    <circle cx="295" cy="220" r="2.5"/>
+    <circle cx="305" cy="220" r="2.5"/>
+    <circle cx="315" cy="215" r="2.5"/>
+    <circle cx="325" cy="207" r="2.5"/>
+  </g>
+
+  <!-- Central vertical gold sfifa (embroidered border stripe) -->
+  <path d="M296,230 L304,230 L304,680 L296,680 Z" fill="#d4a843" opacity="0.15"/>
+  <path d="M299,230 L301,230 L301,680 L299,680 Z" fill="#d4a843" opacity="0.3"/>
+  <!-- Sfifa chain stitching -->
+  <path d="M300,235 L300,675" stroke="#d4a843" stroke-width="2" stroke-dasharray="4,4" opacity="0.6"/>
+  <!-- Sfifa ornamental nodes -->
+  <g fill="#d4a843" filter="url(#gold-glow)">
+    <polygon points="300,250 306,258 300,266 294,258"/>
+    <polygon points="300,290 306,298 300,306 294,298"/>
+    <polygon points="300,330 306,338 300,346 294,338"/>
+    <polygon points="300,370 306,378 300,386 294,378"/>
+    <polygon points="300,410 306,418 300,426 294,418"/>
+    <polygon points="300,450 306,458 300,466 294,458"/>
+    <polygon points="300,490 306,498 300,506 294,498"/>
+    <polygon points="300,530 306,538 300,546 294,538"/>
+    <polygon points="300,570 306,578 300,586 294,578"/>
+    <polygon points="300,610 306,618 300,626 294,618"/>
+    <polygon points="300,650 306,658 300,666 294,658"/>
+  </g>
+
+  <!-- Hem embroidery (bottom border band) -->
+  <rect x="140" y="695" width="320" height="25" fill="url(#gold-emb)" opacity="0.25"/>
+  <!-- Intricate hem pattern -->
+  <path d="M145,695 L155,680 L165,695 L175,680 L185,695 L195,680 L205,695 L215,680 L225,695 L235,680 L245,695 L255,680 L265,695 L275,680 L285,695 L295,680 L305,695 L315,680 L325,695 L335,680 L345,695 L355,680 L365,695 L375,680 L385,695 L395,680 L405,695 L415,680 L425,695 L435,680 L445,695 L455,680 L460,695" fill="none" stroke="#d4a843" stroke-width="2"/>
+  <!-- Hem diamonds -->
+  <g fill="#d4a843" opacity="0.8">
+    <polygon points="165,707 173,700 181,707 173,714"/>
+    <polygon points="205,707 213,700 221,707 213,714"/>
+    <polygon points="245,707 253,700 261,707 253,714"/>
+    <polygon points="285,707 293,700 301,707 293,714"/>
+    <polygon points="325,707 333,700 341,707 333,714"/>
+    <polygon points="365,707 373,700 381,707 373,714"/>
+    <polygon points="405,707 413,700 421,707 413,714"/>
+    <polygon points="445,707 453,700 461,707 453,714"/>
+  </g>
+  <line x1="140" y1="720" x2="460" y2="720" stroke="#d4a843" stroke-width="1.5"/>
+
+  <!-- Sleeve embroidery borders -->
+  <!-- Left sleeve cuff area -->
+  <path d="M148,480 L175,480" stroke="#d4a843" stroke-width="3" opacity="0.7"/>
+  <path d="M148,490 L175,490" stroke="#d4a843" stroke-width="1" opacity="0.5"/>
+  <!-- Right sleeve cuff area -->
+  <path d="M425,480 L452,480" stroke="#d4a843" stroke-width="3" opacity="0.7"/>
+  <path d="M425,490 L452,490" stroke="#d4a843" stroke-width="1" opacity="0.5"/>
+
+  <!-- Large chest embroidery panel (main decorative feature) -->
+  <!-- Central chest medallion -->
+  <circle cx="300" cy="310" r="45" fill="none" stroke="#d4a843" stroke-width="2" opacity="0.6" filter="url(#gold-glow)"/>
+  <circle cx="300" cy="310" r="35" fill="none" stroke="#d4a843" stroke-width="1.5" opacity="0.5"/>
+  <!-- 8-pointed star inside circle -->
+  <g transform="translate(300,310)" fill="#d4a843" opacity="0.7">
+    <polygon points="0,-32 8,-8 32,0 8,8 0,32 -8,8 -32,0 -8,-8"/>
+    <polygon points="0,-32 8,-8 32,0 8,8 0,32 -8,8 -32,0 -8,-8" transform="rotate(45)"/>
+  </g>
+  <circle cx="300" cy="310" r="12" fill="#2e1a5e"/>
+  <circle cx="300" cy="310" r="6" fill="#d4a843" opacity="0.9"/>
+
+  <!-- Arabesque embroidery flanking the central medallion -->
+  <!-- Left arabesque -->
+  <path d="M210,290 Q220,275 230,290 Q240,305 250,290" fill="none" stroke="#d4a843" stroke-width="2" opacity="0.6"/>
+  <path d="M210,310 Q225,295 240,310 Q225,325 210,310" fill="none" stroke="#d4a843" stroke-width="1.5" opacity="0.5"/>
+  <!-- Right arabesque -->
+  <path d="M350,290 Q360,275 370,290 Q380,305 390,290" fill="none" stroke="#d4a843" stroke-width="2" opacity="0.6"/>
+  <path d="M360,310 Q375,295 390,310 Q375,325 360,310" fill="none" stroke="#d4a843" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Fabric sheen/highlight -->
+  <path d="M225,200 Q215,350 220,550 Q220,650 222,720" fill="none" stroke="white" stroke-width="8" opacity="0.06" stroke-linecap="round"/>
+  <path d="M250,200 Q242,350 245,550" fill="none" stroke="white" stroke-width="4" opacity="0.05" stroke-linecap="round"/>
+
+  <!-- ===== LABEL AREA ===== -->
+  <!-- Decorative divider above label -->
+  <rect x="36" y="718" width="528" height="54" fill="#2e1a5e" opacity="0.92"/>
+  <line x1="50" y1="726" x2="550" y2="726" stroke="#d4a843" stroke-width="1.2"/>
+  <line x1="50" y1="762" x2="550" y2="762" stroke="#d4a843" stroke-width="1.2"/>
+  <!-- Gold ornaments -->
+  <g fill="#d4a843">
+    <polygon points="300,722 306,727 300,732 294,727"/>
+    <polygon points="180,722 186,727 180,732 174,727"/>
+    <polygon points="420,722 426,727 420,732 414,727"/>
+  </g>
+  <text x="300" y="745" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#d4a843" text-anchor="middle" letter-spacing="4">FÈS · CAFTAN FASSI</text>
+  <text x="300" y="758" font-family="Georgia, serif" font-size="10" fill="#f5f0e8" text-anchor="middle" letter-spacing="3" opacity="0.8">BRODERIE TRADITIONNELLE · SFIFA D'OR</text>
+</svg>

@@ -1,0 +1,264 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <!-- Warm golden background -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf3e0"/>
+      <stop offset="50%" stop-color="#f8e8c0"/>
+      <stop offset="100%" stop-color="#f0d890"/>
+    </linearGradient>
+    <!-- Warm radial bg -->
+    <radialGradient id="bg-radial" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#fffbee"/>
+      <stop offset="100%" stop-color="#e8c860"/>
+    </radialGradient>
+    <!-- Glass jar gradient -->
+    <linearGradient id="jar-body" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c8d8e8" stop-opacity="0.6"/>
+      <stop offset="20%" stop-color="#e8f0f8" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#f8faff" stop-opacity="0.9"/>
+      <stop offset="80%" stop-color="#e0e8f4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#b0c0d8" stop-opacity="0.6"/>
+    </linearGradient>
+    <!-- Saffron threads red/orange -->
+    <linearGradient id="saffron-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c8200a"/>
+      <stop offset="50%" stop-color="#a81808"/>
+      <stop offset="100%" stop-color="#8c1006"/>
+    </linearGradient>
+    <!-- Jar lid gradient -->
+    <linearGradient id="lid-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c8a030"/>
+      <stop offset="50%" stop-color="#b08020"/>
+      <stop offset="100%" stop-color="#906010"/>
+    </linearGradient>
+    <!-- Crocus purple -->
+    <linearGradient id="petal-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9060b0"/>
+      <stop offset="100%" stop-color="#6040a0"/>
+    </linearGradient>
+    <!-- Crocus petal dark -->
+    <linearGradient id="petal-dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7050a0"/>
+      <stop offset="100%" stop-color="#503080"/>
+    </linearGradient>
+    <!-- Zellige border (golden) -->
+    <pattern id="zellige" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <rect width="28" height="28" fill="#d4a843"/>
+      <polygon points="14,3 25,14 14,25 3,14" fill="none" stroke="#f5f0e8" stroke-width="1.5"/>
+      <polygon points="14,8 20,14 14,20 8,14" fill="#c1603a" opacity="0.5"/>
+      <circle cx="14" cy="14" r="2" fill="#f5f0e8"/>
+    </pattern>
+    <!-- Shadow filter -->
+    <filter id="shadow">
+      <feDropShadow dx="4" dy="8" stdDeviation="8" flood-color="#00000040"/>
+    </filter>
+    <filter id="softshadow">
+      <feDropShadow dx="2" dy="4" stdDeviation="5" flood-color="#00000025"/>
+    </filter>
+    <!-- Glow for saffron -->
+    <filter id="saffron-glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="800" fill="url(#bg-radial)"/>
+  <rect width="600" height="800" fill="url(#bg)" opacity="0.6"/>
+
+  <!-- Zellige border -->
+  <rect x="0" y="0" width="600" height="800" fill="url(#zellige)"/>
+  <rect x="28" y="28" width="544" height="744" fill="url(#bg)"/>
+
+  <!-- Gold border lines -->
+  <rect x="28" y="28" width="544" height="744" fill="none" stroke="#c1603a" stroke-width="2.5"/>
+  <rect x="36" y="36" width="528" height="728" fill="none" stroke="#d4a843" stroke-width="1" stroke-dasharray="8,5"/>
+
+  <!-- Arabesque background pattern -->
+  <g stroke="#d4a843" stroke-width="0.5" fill="none" opacity="0.12">
+    <circle cx="300" cy="400" r="200"/>
+    <circle cx="300" cy="400" r="150"/>
+    <circle cx="300" cy="400" r="100"/>
+    <line x1="100" y1="200" x2="500" y2="600"/>
+    <line x1="500" y1="200" x2="100" y2="600"/>
+    <line x1="300" y1="200" x2="300" y2="600"/>
+    <line x1="100" y1="400" x2="500" y2="400"/>
+  </g>
+
+  <!-- Top ornament -->
+  <g transform="translate(300,65)" fill="#c1603a">
+    <polygon points="0,-13 3,-5 12,-5 5,2 8,10 0,5 -8,10 -5,2 -12,-5 -3,-5"/>
+  </g>
+  <g transform="translate(180,65)" fill="#d4a843" opacity="0.5">
+    <polygon points="0,-8 2,-3 8,-3 3,1 5,6 0,3 -5,6 -3,1 -8,-3 -2,-3"/>
+  </g>
+  <g transform="translate(420,65)" fill="#d4a843" opacity="0.5">
+    <polygon points="0,-8 2,-3 8,-3 3,1 5,6 0,3 -5,6 -3,1 -8,-3 -2,-3"/>
+  </g>
+
+  <!-- Title -->
+  <text x="300" y="118" font-family="Georgia, serif" font-size="14" fill="#c1603a" text-anchor="middle" letter-spacing="3" opacity="0.9">OR ROUGE DU MAROC</text>
+  <line x1="110" y1="124" x2="210" y2="124" stroke="#d4a843" stroke-width="1"/>
+  <line x1="390" y1="124" x2="490" y2="124" stroke="#d4a843" stroke-width="1"/>
+
+  <!-- ===== CROCUS FLOWERS (background) ===== -->
+  <!-- Back left crocus -->
+  <g transform="translate(115, 440)" opacity="0.9">
+    <!-- Stem -->
+    <path d="M0,0 Q-5,30 -3,70" stroke="#3a8a6e" stroke-width="2.5" fill="none"/>
+    <!-- Leaves -->
+    <path d="M-3,40 Q-20,30 -25,15" stroke="#3a8a6e" stroke-width="2" fill="none"/>
+    <ellipse cx="-14" cy="27" rx="10" ry="4" fill="#4a9a5e" opacity="0.7" transform="rotate(-40,-14,27)"/>
+    <!-- Petals (6 petals) -->
+    <ellipse cx="0" cy="-30" rx="10" ry="32" fill="url(#petal-grad)" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-30" rx="10" ry="32" fill="url(#petal-grad)" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-30" rx="10" ry="32" fill="url(#petal-grad)" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-30" rx="10" ry="32" fill="url(#petal-dark)" transform="rotate(30)"/>
+    <ellipse cx="0" cy="-30" rx="10" ry="32" fill="url(#petal-dark)" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-30" rx="10" ry="32" fill="url(#petal-dark)" transform="rotate(150)"/>
+    <!-- Stigma (red saffron) -->
+    <line x1="-5" y1="-15" x2="-7" y2="-40" stroke="#c8200a" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="0" y1="-18" x2="0" y2="-44" stroke="#c8200a" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="5" y1="-15" x2="7" y2="-40" stroke="#c8200a" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Stigma tips -->
+    <circle cx="-7" cy="-40" r="3.5" fill="#e83010"/>
+    <circle cx="0" cy="-44" r="3.5" fill="#e83010"/>
+    <circle cx="7" cy="-40" r="3.5" fill="#e83010"/>
+    <!-- Stamen yellow -->
+    <line x1="-3" y1="-10" x2="-4" y2="-30" stroke="#f0c020" stroke-width="1.5"/>
+    <line x1="3" y1="-10" x2="4" y2="-30" stroke="#f0c020" stroke-width="1.5"/>
+    <circle cx="-4" cy="-30" r="2" fill="#f0c020"/>
+    <circle cx="4" cy="-30" r="2" fill="#f0c020"/>
+  </g>
+
+  <!-- Back right crocus -->
+  <g transform="translate(485, 430)" opacity="0.9">
+    <path d="M0,0 Q5,35 3,75" stroke="#3a8a6e" stroke-width="2.5" fill="none"/>
+    <path d="M3,42 Q22,32 27,16" stroke="#3a8a6e" stroke-width="2" fill="none"/>
+    <ellipse cx="16" cy="28" rx="10" ry="4" fill="#4a9a5e" opacity="0.7" transform="rotate(40,16,28)"/>
+    <ellipse cx="0" cy="-30" rx="10" ry="32" fill="url(#petal-grad)"/>
+    <ellipse cx="0" cy="-30" rx="10" ry="32" fill="url(#petal-grad)" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-30" rx="10" ry="32" fill="url(#petal-grad)" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-30" rx="10" ry="32" fill="url(#petal-dark)" transform="rotate(30)"/>
+    <ellipse cx="0" cy="-30" rx="10" ry="32" fill="url(#petal-dark)" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-30" rx="10" ry="32" fill="url(#petal-dark)" transform="rotate(150)"/>
+    <line x1="-5" y1="-15" x2="-7" y2="-40" stroke="#c8200a" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="0" y1="-18" x2="0" y2="-44" stroke="#c8200a" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="5" y1="-15" x2="7" y2="-40" stroke="#c8200a" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="-7" cy="-40" r="3.5" fill="#e83010"/>
+    <circle cx="0" cy="-44" r="3.5" fill="#e83010"/>
+    <circle cx="7" cy="-40" r="3.5" fill="#e83010"/>
+    <line x1="-3" y1="-10" x2="-4" y2="-30" stroke="#f0c020" stroke-width="1.5"/>
+    <line x1="3" y1="-10" x2="4" y2="-30" stroke="#f0c020" stroke-width="1.5"/>
+    <circle cx="-4" cy="-30" r="2" fill="#f0c020"/>
+    <circle cx="4" cy="-30" r="2" fill="#f0c020"/>
+  </g>
+
+  <!-- Front-left smaller crocus (bud) -->
+  <g transform="translate(155, 540)" opacity="0.85">
+    <path d="M0,0 Q-2,25 -1,55" stroke="#3a8a6e" stroke-width="2" fill="none"/>
+    <ellipse cx="0" cy="-20" rx="8" ry="25" fill="url(#petal-grad)"/>
+    <ellipse cx="0" cy="-20" rx="8" ry="25" fill="url(#petal-grad)" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-20" rx="8" ry="25" fill="url(#petal-dark)" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-20" rx="8" ry="25" fill="url(#petal-dark)" transform="rotate(180)"/>
+    <line x1="0" y1="-5" x2="0" y2="-30" stroke="#c8200a" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="0" cy="-30" r="2.5" fill="#e83010"/>
+  </g>
+  <!-- Front-right smaller crocus (bud) -->
+  <g transform="translate(445, 555)" opacity="0.85">
+    <path d="M0,0 Q2,25 1,55" stroke="#3a8a6e" stroke-width="2" fill="none"/>
+    <ellipse cx="0" cy="-20" rx="8" ry="25" fill="url(#petal-dark)"/>
+    <ellipse cx="0" cy="-20" rx="8" ry="25" fill="url(#petal-grad)" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-20" rx="8" ry="25" fill="url(#petal-grad)" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-20" rx="8" ry="25" fill="url(#petal-dark)" transform="rotate(180)"/>
+    <line x1="0" y1="-5" x2="0" y2="-30" stroke="#c8200a" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="0" cy="-30" r="2.5" fill="#e83010"/>
+  </g>
+
+  <!-- Scattered saffron threads on surface -->
+  <g stroke="#c8200a" stroke-width="2" stroke-linecap="round" opacity="0.7" filter="url(#saffron-glow)">
+    <path d="M165,595 Q175,590 180,600 Q185,608 195,605"/>
+    <path d="M155,610 Q165,605 168,615"/>
+    <path d="M185,618 Q195,612 200,622 Q205,630 212,627"/>
+    <path d="M415,605 Q425,598 430,608"/>
+    <path d="M410,618 Q420,612 425,622 Q430,630 438,626"/>
+    <path d="M430,598 Q440,592 445,602 Q450,610 460,607"/>
+  </g>
+  <!-- Thread tips (wider end) -->
+  <g fill="#e83010" opacity="0.6">
+    <ellipse cx="180" cy="600" rx="3" ry="2"/>
+    <ellipse cx="195" cy="605" rx="3" ry="2"/>
+    <ellipse cx="200" cy="622" rx="3" ry="2"/>
+    <ellipse cx="430" cy="608" rx="3" ry="2"/>
+    <ellipse cx="445" cy="602" rx="3" ry="2"/>
+    <ellipse cx="460" cy="607" rx="3" ry="2"/>
+  </g>
+
+  <!-- ===== GLASS JAR ===== -->
+  <!-- Jar shadow -->
+  <ellipse cx="300" cy="660" rx="80" ry="18" fill="#00000025"/>
+
+  <!-- Jar body -->
+  <rect x="225" y="490" width="150" height="165" rx="15" fill="url(#jar-body)" filter="url(#shadow)"/>
+  <!-- Jar sides - glass effect darker edges -->
+  <rect x="225" y="490" width="20" height="165" rx="10" fill="#a0b8d0" opacity="0.25"/>
+  <rect x="355" y="490" width="20" height="165" rx="10" fill="#8090a8" opacity="0.2"/>
+  <!-- Glass highlight -->
+  <rect x="235" y="498" width="12" height="140" rx="6" fill="white" opacity="0.35"/>
+  <rect x="355" y="510" width="6" height="100" rx="3" fill="white" opacity="0.12"/>
+
+  <!-- Saffron threads inside jar -->
+  <rect x="228" y="495" width="144" height="152" rx="13" fill="#8c1006" opacity="0.75" clip-path="none"/>
+  <!-- Thread texture inside -->
+  <g stroke="#c8200a" stroke-width="1.5" opacity="0.6">
+    <path d="M235,510 Q265,505 295,512 Q320,519 345,514"/>
+    <path d="M235,525 Q255,520 280,528 Q310,535 345,528"/>
+    <path d="M235,540 Q270,535 300,542 Q330,548 365,540"/>
+    <path d="M235,555 Q260,550 290,557 Q320,563 365,555"/>
+    <path d="M235,570 Q265,565 295,572 Q325,578 365,570"/>
+    <path d="M235,585 Q255,580 285,587 Q315,593 365,585"/>
+    <path d="M235,600 Q270,595 300,601 Q330,607 365,600"/>
+    <path d="M235,620 Q265,615 295,622 Q325,628 360,621"/>
+    <path d="M235,635 Q270,630 300,636 Q325,641 355,635"/>
+  </g>
+  <!-- Red saffron color overlay + glass overlay -->
+  <rect x="228" y="495" width="144" height="152" rx="13" fill="url(#jar-body)" opacity="0.55"/>
+
+  <!-- Jar label (small paper label) -->
+  <rect x="248" y="545" width="104" height="60" rx="4" fill="#f5f0e8" opacity="0.92"/>
+  <rect x="250" y="547" width="100" height="56" rx="3" fill="none" stroke="#d4a843" stroke-width="1"/>
+  <!-- Label star -->
+  <g transform="translate(300,562)" fill="#d4a843">
+    <polygon points="0,-7 2,-3 6,-3 3,1 4,5 0,3 -4,5 -3,1 -6,-3 -2,-3"/>
+  </g>
+  <text x="300" y="580" font-family="Georgia, serif" font-size="8" fill="#c1603a" text-anchor="middle" font-weight="bold">SAFRAN AOC</text>
+  <text x="300" y="590" font-family="Georgia, serif" font-size="7" fill="#8a4020" text-anchor="middle">TALIOUINE</text>
+  <line x1="258" y1="595" x2="342" y2="595" stroke="#d4a843" stroke-width="0.5"/>
+
+  <!-- Jar lid -->
+  <rect x="218" y="480" width="164" height="22" rx="8" fill="url(#lid-grad)" filter="url(#softshadow)"/>
+  <rect x="220" y="482" width="160" height="8" rx="5" fill="#d4a843" opacity="0.4"/>
+  <!-- Lid grip ridges -->
+  <g stroke="#906010" stroke-width="2" opacity="0.5">
+    <line x1="250" y1="482" x2="250" y2="500"/>
+    <line x1="270" y1="482" x2="270" y2="500"/>
+    <line x1="290" y1="482" x2="290" y2="500"/>
+    <line x1="310" y1="482" x2="310" y2="500"/>
+    <line x1="330" y1="482" x2="330" y2="500"/>
+    <line x1="350" y1="482" x2="350" y2="500"/>
+  </g>
+  <!-- Lid gold trim -->
+  <rect x="218" y="480" width="164" height="22" rx="8" fill="none" stroke="#f0d060" stroke-width="1.5"/>
+
+  <!-- ===== LABEL ===== -->
+  <rect x="36" y="718" width="528" height="54" fill="#c1603a" opacity="0.9"/>
+  <line x1="50" y1="726" x2="550" y2="726" stroke="#d4a843" stroke-width="1.2"/>
+  <line x1="50" y1="762" x2="550" y2="762" stroke="#d4a843" stroke-width="1.2"/>
+  <g fill="#d4a843">
+    <polygon points="300,722 306,727 300,732 294,727"/>
+    <polygon points="160,722 166,727 160,732 154,727"/>
+    <polygon points="440,722 446,727 440,732 434,727"/>
+  </g>
+  <text x="300" y="745" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#f5f0e8" text-anchor="middle" letter-spacing="4">TALIOUINE · SAFRAN AOC</text>
+  <text x="300" y="758" font-family="Georgia, serif" font-size="10" fill="#f5f0e8" text-anchor="middle" letter-spacing="3" opacity="0.8">OR ROUGE · APPELLATION D'ORIGINE CONTRÔLÉE</text>
+</svg>

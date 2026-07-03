@@ -1,0 +1,435 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <!-- Deep blue background gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#3a3fc4"/>
+      <stop offset="60%" stop-color="#2b2fa0"/>
+      <stop offset="100%" stop-color="#1a1d70"/>
+    </radialGradient>
+
+    <!-- Arch frame gradient -->
+    <linearGradient id="archGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0d878"/>
+      <stop offset="25%" stop-color="#d4a843"/>
+      <stop offset="50%" stop-color="#e8c060"/>
+      <stop offset="75%" stop-color="#b08828"/>
+      <stop offset="100%" stop-color="#d4a843"/>
+    </linearGradient>
+
+    <!-- Inner arch space gradient -->
+    <radialGradient id="archInnerGrad" cx="50%" cy="60%" r="60%">
+      <stop offset="0%" stop-color="#1a1d70"/>
+      <stop offset="100%" stop-color="#0d0f40"/>
+    </radialGradient>
+
+    <!-- Gold glow gradient -->
+    <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d4a843" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#d4a843" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Star center gradient -->
+    <radialGradient id="starGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0d878"/>
+      <stop offset="40%" stop-color="#d4a843"/>
+      <stop offset="100%" stop-color="#8b6020"/>
+    </radialGradient>
+
+    <!-- Terracotta gradient -->
+    <radialGradient id="terrGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d4806a"/>
+      <stop offset="60%" stop-color="#c1603a"/>
+      <stop offset="100%" stop-color="#8b3a1a"/>
+    </radialGradient>
+
+    <!-- Green zellige gradient -->
+    <radialGradient id="greenGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#60c0a0"/>
+      <stop offset="60%" stop-color="#3a8a6e"/>
+      <stop offset="100%" stop-color="#1a5040"/>
+    </radialGradient>
+
+    <!-- Label gradient -->
+    <linearGradient id="labelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a1d60"/>
+      <stop offset="100%" stop-color="#0d0f30"/>
+    </linearGradient>
+
+    <!-- Zellige border pattern -->
+    <pattern id="zelligeBorder" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#1a1d60"/>
+      <polygon points="20,2 23,14 35,14 25,22 29,35 20,27 11,35 15,22 5,14 17,14" fill="#d4a843" opacity="0.9"/>
+      <rect x="16" y="16" width="8" height="8" fill="#c1603a" transform="rotate(45,20,20)"/>
+      <circle cx="20" cy="20" r="3" fill="#f5f0e8" opacity="0.5"/>
+    </pattern>
+
+    <!-- Arabesque background pattern -->
+    <pattern id="arabesquePat" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+      <rect width="80" height="80" fill="none"/>
+      <!-- Simple interlocking diamond pattern -->
+      <polygon points="40,5 55,20 75,20 60,35 65,55 40,45 15,55 20,35 5,20 25,20" fill="none" stroke="#d4a843" stroke-width="0.8" opacity="0.15"/>
+      <circle cx="40" cy="40" r="8" fill="none" stroke="#d4a843" stroke-width="0.5" opacity="0.1"/>
+    </pattern>
+
+    <!-- Drop shadow -->
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Gold glow filter -->
+    <filter id="goldGlowFilter" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Star shimmer filter -->
+    <filter id="shimmer" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="800" fill="url(#bgGrad)"/>
+  <rect width="600" height="800" fill="url(#arabesquePat)"/>
+
+  <!-- Zellige border -->
+  <rect x="0" y="0" width="600" height="28" fill="url(#zelligeBorder)" opacity="0.95"/>
+  <rect x="0" y="772" width="600" height="28" fill="url(#zelligeBorder)" opacity="0.95"/>
+  <rect x="0" y="0" width="28" height="800" fill="url(#zelligeBorder)" opacity="0.95"/>
+  <rect x="572" y="0" width="28" height="800" fill="url(#zelligeBorder)" opacity="0.95"/>
+
+  <!-- Background glow -->
+  <ellipse cx="300" cy="380" rx="250" ry="300" fill="url(#goldGlow)"/>
+
+  <!-- ============= MOROCCAN HORSESHOE ARCH FRAME ============= -->
+  <!-- Arch outer decorative rim (widest) -->
+  <g filter="url(#dropShadow)">
+    <!-- Arch spandrel decorations - top corners of arch area -->
+    <!-- Left spandrel -->
+    <rect x="60" y="80" width="145" height="320" rx="8" fill="url(#archGrad)" opacity="0.15"/>
+    <!-- Right spandrel -->
+    <rect x="395" y="80" width="145" height="320" rx="8" fill="url(#archGrad)" opacity="0.15"/>
+
+    <!-- Main arch frame - outer shape -->
+    <!-- Straight sides of arch -->
+    <rect x="90" y="250" width="50" height="360" fill="url(#archGrad)"/>
+    <rect x="460" y="250" width="50" height="360" fill="url(#archGrad)"/>
+
+    <!-- Horseshoe arch top - the curved part with characteristic Moroccan overhang -->
+    <!-- Using a path for the iconic horseshoe arch shape -->
+    <path d="M90,270
+             L90,250
+             Q90,88 300,88
+             Q510,88 510,250
+             L510,270
+             Q510,280 500,280
+             L480,280
+             L480,250
+             Q480,128 300,128
+             Q120,128 120,250
+             L120,280
+             L100,280
+             Q90,280 90,270 Z"
+          fill="url(#archGrad)"/>
+
+    <!-- Arch inner fill (the actual arch opening) -->
+    <path d="M120,250
+             Q120,128 300,128
+             Q480,128 480,250
+             L480,600
+             Q390,615 300,615
+             Q210,615 120,600 Z"
+          fill="url(#archInnerGrad)"/>
+
+    <!-- Arch base / platform (bottom band) -->
+    <rect x="90" y="600" width="420" height="20" fill="url(#archGrad)"/>
+    <rect x="80" y="615" width="440" height="12" fill="url(#archGrad)" opacity="0.7"/>
+
+    <!-- Muqarnas details at base of arch curve (honeycomb niches) -->
+    <g fill="url(#archGrad)" opacity="0.7">
+      <!-- Small decorative notches at base of arch sides -->
+      <rect x="91" y="248" width="28" height="15" rx="4"/>
+      <rect x="481" y="248" width="28" height="15" rx="4"/>
+    </g>
+  </g>
+
+  <!-- Arch outer decorative band - geometric pattern -->
+  <g fill="none" stroke="url(#archGrad)" stroke-width="2.5" opacity="0.5">
+    <!-- Zigzag/chevron pattern on arch frame outer edge -->
+    <path d="M75,250 L75,590"/>
+    <path d="M525,250 L525,590"/>
+    <!-- Top arch outer decorative ring -->
+    <path d="M75,255 Q75,68 300,68 Q525,68 525,255"/>
+  </g>
+
+  <!-- Arch frame inner edge decorative line -->
+  <path d="M120,610 L120,255 Q120,138 300,138 Q480,138 480,255 L480,610" fill="none" stroke="#d4a843" stroke-width="2" opacity="0.4"/>
+
+  <!-- MUQARNAS at arch top inside - stalactite decoration -->
+  <g fill="url(#archGrad)" opacity="0.6">
+    <polygon points="215,148 230,172 245,148 260,172 275,148 290,172 300,145 310,172 325,148 340,172 355,148 370,172 385,148" stroke="#8b6020" stroke-width="1"/>
+  </g>
+
+  <!-- ============= ZELLIGE STAR PATTERN inside arch ============= -->
+  <!-- This is the central decorative element -->
+
+  <!-- Outer circle frame for star -->
+  <circle cx="300" cy="385" r="162" fill="#0a0d40" stroke="url(#archGrad)" stroke-width="6" filter="url(#dropShadow)"/>
+  <circle cx="300" cy="385" r="155" fill="none" stroke="#d4a843" stroke-width="2" opacity="0.5"/>
+
+  <!-- 12-pointed zellige star (girih pattern) -->
+  <g filter="url(#shimmer)">
+
+    <!-- RING 1: Outermost star points (12 points) -->
+    <!-- Deep blue background of star zone -->
+    <circle cx="300" cy="385" r="148" fill="#12166a"/>
+
+    <!-- 12-fold geometric star system -->
+    <!-- Large star polygon (6-pointed rotated squares) -->
+    <g fill="#2b2fa0">
+      <!-- Square 1 -->
+      <rect x="240" y="325" width="120" height="120" transform="rotate(0,300,385)"/>
+      <!-- Square 2 -->
+      <rect x="240" y="325" width="120" height="120" transform="rotate(30,300,385)"/>
+      <!-- Square 3 -->
+      <rect x="240" y="325" width="120" height="120" transform="rotate(60,300,385)"/>
+    </g>
+
+    <!-- Terracotta triangles at star points -->
+    <g fill="#c1603a" opacity="0.9">
+      <polygon points="300,240 315,265 285,265"/>
+      <polygon points="372,261 365,290 345,278"/>
+      <polygon points="393,335 365,342 365,322"/>
+      <polygon points="372,409 345,402 365,388"/>
+      <polygon points="300,430 285,405 315,405"/><!-- this won't be at 430, fixing -->
+      <!-- Let me recalculate for 12-point star at cx=300 cy=385 r=145 -->
+      <!-- Points at 0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330 degrees -->
+    </g>
+
+    <!-- Clean 12-pointed star using two overlapping hexagons -->
+    <!-- Outer 12-star -->
+    <polygon points="
+      300,240
+      326,278
+      368,263
+      358,306
+      398,320
+      370,352
+      385,395
+      348,404
+      342,448
+      300,432
+      258,448
+      252,404
+      215,395
+      230,352
+      202,320
+      242,306
+      232,263
+      274,278"
+      fill="url(#archGrad)" opacity="0.25"/>
+
+    <!-- Inner 12-star (tighter) -->
+    <polygon points="
+      300,258
+      320,285
+      352,273
+      344,307
+      376,320
+      354,346
+      366,382
+      335,390
+      330,425
+      300,412
+      270,425
+      265,390
+      234,382
+      246,346
+      224,320
+      256,307
+      248,273
+      280,285"
+      fill="url(#archGrad)" opacity="0.35"/>
+
+    <!-- Green band -->
+    <polygon points="
+      300,272
+      316,293
+      340,283
+      334,308
+      358,320
+      340,340
+      350,368
+      322,374
+      318,400
+      300,390
+      282,400
+      278,374
+      250,368
+      260,340
+      242,320
+      266,308
+      260,283
+      284,293"
+      fill="none" stroke="#3a8a6e" stroke-width="3" opacity="0.8"/>
+
+    <!-- White star -->
+    <polygon points="
+      300,286
+      312,304
+      332,296
+      326,316
+      348,326
+      332,344
+      340,368
+      316,372
+      312,396
+      300,385
+      288,396
+      284,372
+      260,368
+      268,344
+      252,326
+      274,316
+      268,296
+      288,304"
+      fill="#f5f0e8" opacity="0.15"/>
+
+    <!-- Center rings -->
+    <circle cx="300" cy="385" r="65" fill="#1e2285"/>
+    <circle cx="300" cy="385" r="60" fill="none" stroke="url(#archGrad)" stroke-width="3"/>
+    <circle cx="300" cy="385" r="52" fill="#2b2fa0"/>
+
+    <!-- 6-point star in center -->
+    <polygon points="
+      300,335
+      310,362
+      338,355
+      321,375
+      338,395
+      310,388
+      300,415
+      290,388
+      262,395
+      279,375
+      262,355
+      290,362"
+      fill="url(#archGrad)" opacity="0.9"/>
+
+    <!-- Center hexagon/star -->
+    <polygon points="
+      300,350
+      308,368
+      326,365
+      316,380
+      326,395
+      308,392
+      300,410
+      292,392
+      274,395
+      284,380
+      274,365
+      292,368"
+      fill="url(#terrGrad)" opacity="0.9"/>
+
+    <!-- Absolute center -->
+    <circle cx="300" cy="385" r="22" fill="url(#greenGrad)"/>
+    <circle cx="300" cy="385" r="14" fill="url(#starGrad)"/>
+    <circle cx="300" cy="385" r="7" fill="#f5f0e8"/>
+    <circle cx="300" cy="385" r="3" fill="#2b2fa0"/>
+
+    <!-- Rays between star points (connecting lines) -->
+    <g stroke="url(#archGrad)" stroke-width="1.5" fill="none" opacity="0.5">
+      <circle cx="300" cy="385" r="100"/>
+      <circle cx="300" cy="385" r="128"/>
+    </g>
+
+    <!-- Small corner squares between star petals -->
+    <g fill="url(#archGrad)" opacity="0.7">
+      <rect x="293" y="237" width="14" height="14" transform="rotate(45,300,244)"/>
+      <rect x="357" y="256" width="12" height="12" transform="rotate(45,363,262)"/>
+      <rect x="391" y="315" width="12" height="12" transform="rotate(45,397,321)"/>
+      <rect x="391" y="451" width="12" height="12" transform="rotate(45,397,457)"/>
+      <rect x="357" y="510" width="12" height="12" transform="rotate(45,363,516)"/>
+      <rect x="293" y="517" width="14" height="14" transform="rotate(45,300,524)"/>
+      <rect x="229" y="510" width="12" height="12" transform="rotate(45,235,516)"/>
+      <rect x="195" y="451" width="12" height="12" transform="rotate(45,201,457)"/>
+      <rect x="195" y="315" width="12" height="12" transform="rotate(45,201,321)"/>
+      <rect x="229" y="256" width="12" height="12" transform="rotate(45,235,262)"/>
+    </g>
+
+    <!-- Small green accent diamonds -->
+    <g fill="#3a8a6e" opacity="0.8">
+      <rect x="296" y="243" width="8" height="8" transform="rotate(45,300,247)"/>
+      <rect x="349" y="258" width="7" height="7" transform="rotate(45,352.5,261.5)"/>
+      <rect x="393" y="318" width="7" height="7" transform="rotate(45,396.5,321.5)"/>
+      <rect x="393" y="451" width="7" height="7" transform="rotate(45,396.5,454.5)"/>
+      <rect x="349" y="512" width="7" height="7" transform="rotate(45,352.5,515.5)"/>
+      <rect x="296" y="521" width="8" height="8" transform="rotate(45,300,525)"/>
+      <rect x="241" y="512" width="7" height="7" transform="rotate(45,244.5,515.5)"/>
+      <rect x="197" y="451" width="7" height="7" transform="rotate(45,200.5,454.5)"/>
+      <rect x="197" y="318" width="7" height="7" transform="rotate(45,200.5,321.5)"/>
+      <rect x="241" y="258" width="7" height="7" transform="rotate(45,244.5,261.5)"/>
+    </g>
+  </g>
+
+  <!-- Arch interior decorative column capitals -->
+  <!-- Left column capital detail -->
+  <g transform="translate(90,600)">
+    <rect x="0" y="0" width="50" height="12" rx="3" fill="url(#archGrad)"/>
+    <rect x="5" y="-8" width="40" height="10" rx="2" fill="url(#archGrad)" opacity="0.8"/>
+    <rect x="10" y="-16" width="30" height="10" rx="2" fill="url(#archGrad)" opacity="0.6"/>
+  </g>
+  <!-- Right column capital -->
+  <g transform="translate(460,600)">
+    <rect x="0" y="0" width="50" height="12" rx="3" fill="url(#archGrad)"/>
+    <rect x="5" y="-8" width="40" height="10" rx="2" fill="url(#archGrad)" opacity="0.8"/>
+    <rect x="10" y="-16" width="30" height="10" rx="2" fill="url(#archGrad)" opacity="0.6"/>
+  </g>
+
+  <!-- ========== SOUK DIGITAL TEXT ========== -->
+  <!-- Text background pill -->
+  <rect x="185" y="635" width="230" height="55" rx="10" fill="#1a1d70" opacity="0.85"/>
+  <rect x="188" y="638" width="224" height="49" rx="8" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+
+  <text x="300" y="659" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="14" fill="#d4a843" letter-spacing="5" font-weight="normal">SOUK</text>
+  <text x="300" y="679" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="16" fill="#f5f0e8" letter-spacing="3" font-weight="bold">Digital</text>
+
+  <!-- Decorative dots on text area -->
+  <circle cx="198" cy="662" r="3" fill="#c1603a"/>
+  <circle cx="402" cy="662" r="3" fill="#c1603a"/>
+  <circle cx="198" cy="675" r="3" fill="#3a8a6e"/>
+  <circle cx="402" cy="675" r="3" fill="#3a8a6e"/>
+
+  <!-- Bottom label strip -->
+  <rect x="0" y="720" width="600" height="80" fill="url(#labelGrad)"/>
+  <rect x="0" y="720" width="600" height="3" fill="#d4a843"/>
+
+  <!-- Label text -->
+  <text x="300" y="752" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#d4a843" letter-spacing="4">MAROC</text>
+  <text x="300" y="775" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#f5f0e8" letter-spacing="2" font-weight="bold">Artisanat authentique</text>
+
+  <!-- Label stars -->
+  <polygon points="100,758 102,764 108,764 103,768 105,774 100,770 95,774 97,768 92,764 98,764" fill="#d4a843" opacity="0.8"/>
+  <polygon points="500,758 502,764 508,764 503,768 505,774 500,770 495,774 497,768 492,764 498,764" fill="#d4a843" opacity="0.8"/>
+
+  <!-- Corner decorations -->
+  <g opacity="0.8">
+    <rect x="28" y="28" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="43,31 45,38 52,38 47,42 49,49 43,45 37,49 39,42 34,38 41,38" fill="#d4a843"/>
+    <rect x="542" y="28" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="557,31 559,38 566,38 561,42 563,49 557,45 551,49 553,42 548,38 555,38" fill="#d4a843"/>
+    <rect x="28" y="742" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="43,745 45,752 52,752 47,756 49,763 43,759 37,763 39,756 34,752 41,752" fill="#d4a843"/>
+    <rect x="542" y="742" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="557,745 559,752 566,752 561,756 563,763 557,759 551,763 553,756 548,752 555,752" fill="#d4a843"/>
+  </g>
+</svg>

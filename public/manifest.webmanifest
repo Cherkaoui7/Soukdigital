@@ -1,0 +1,18 @@
+{
+  "name": "Souk Digital — Artisanat marocain",
+  "short_name": "Souk Digital",
+  "description": "Le souk marocain à portée de clic : caftans, safran, tapis, argan.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#2b2fa0",
+  "orientation": "portrait",
+  "lang": "fr",
+  "dir": "ltr",
+  "categories": ["shopping", "lifestyle"],
+  "icons": [
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

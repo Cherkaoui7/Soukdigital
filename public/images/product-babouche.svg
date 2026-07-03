@@ -1,0 +1,230 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <!-- Warm tannery background -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5ede0"/>
+      <stop offset="60%" stop-color="#eddcc8"/>
+      <stop offset="100%" stop-color="#d4b896"/>
+    </linearGradient>
+    <!-- Saffron leather gradient for slipper -->
+    <linearGradient id="leather-main" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5c842"/>
+      <stop offset="40%" stop-color="#e8b030"/>
+      <stop offset="80%" stop-color="#d4a010"/>
+      <stop offset="100%" stop-color="#b88a00"/>
+    </linearGradient>
+    <!-- Inner sole gradient -->
+    <linearGradient id="inner-sole" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fde8a0"/>
+      <stop offset="100%" stop-color="#f0cc60"/>
+    </linearGradient>
+    <!-- Darker toe gradient -->
+    <linearGradient id="leather-dark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4a843"/>
+      <stop offset="60%" stop-color="#b88a00"/>
+      <stop offset="100%" stop-color="#9a7200"/>
+    </linearGradient>
+    <!-- Tannery terracotta vat color -->
+    <radialGradient id="vat-grad" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#c1603a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#8f3e1d" stop-opacity="0.1"/>
+    </radialGradient>
+    <!-- Zellige border -->
+    <pattern id="zellige" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <rect width="30" height="30" fill="#c1603a"/>
+      <polygon points="15,3 27,15 15,27 3,15" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+      <polygon points="15,9 21,15 15,21 9,15" fill="#f5c842" opacity="0.5"/>
+      <circle cx="15" cy="15" r="2" fill="#d4a843"/>
+    </pattern>
+    <!-- Shadow filter -->
+    <filter id="shadow">
+      <feDropShadow dx="5" dy="8" stdDeviation="8" flood-color="#00000045"/>
+    </filter>
+    <filter id="softshadow">
+      <feDropShadow dx="2" dy="3" stdDeviation="5" flood-color="#00000030"/>
+    </filter>
+    <!-- Leather texture pattern -->
+    <pattern id="leather-tex" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="none"/>
+      <circle cx="4" cy="4" r="1.5" fill="#b88a00" opacity="0.15"/>
+    </pattern>
+    <!-- Warm background ambient -->
+    <radialGradient id="bg-radial" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#f9f0e0"/>
+      <stop offset="100%" stop-color="#e0c89a"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="800" fill="url(#bg-radial)"/>
+  <rect width="600" height="800" fill="url(#bg)" opacity="0.6"/>
+
+  <!-- Zellige border frame -->
+  <rect x="0" y="0" width="600" height="800" fill="url(#zellige)"/>
+  <rect x="28" y="28" width="544" height="744" fill="url(#bg)"/>
+
+  <!-- Gold border lines -->
+  <rect x="28" y="28" width="544" height="744" fill="none" stroke="#d4a843" stroke-width="2.5"/>
+  <rect x="36" y="36" width="528" height="728" fill="none" stroke="#d4a843" stroke-width="0.8" stroke-dasharray="8,5"/>
+
+  <!-- Tannery color vats (background decorative circles suggesting Fes tannery) -->
+  <circle cx="130" cy="550" r="60" fill="#c1603a" opacity="0.12"/>
+  <circle cx="130" cy="550" r="50" fill="none" stroke="#c1603a" stroke-width="1" opacity="0.2"/>
+  <circle cx="470" cy="550" r="60" fill="#3a8a6e" opacity="0.1"/>
+  <circle cx="470" cy="550" r="50" fill="none" stroke="#3a8a6e" stroke-width="1" opacity="0.15"/>
+  <circle cx="90" cy="700" r="40" fill="#d4a843" opacity="0.08"/>
+  <circle cx="510" cy="700" r="40" fill="#2b2fa0" opacity="0.06"/>
+
+  <!-- Decorative horizontal band top -->
+  <rect x="36" y="90" width="528" height="16" fill="#c1603a" opacity="0.15"/>
+  <line x1="36" y1="90" x2="564" y2="90" stroke="#d4a843" stroke-width="1.5"/>
+  <line x1="36" y1="106" x2="564" y2="106" stroke="#d4a843" stroke-width="1.5"/>
+
+  <!-- Top ornament -->
+  <g transform="translate(300,65)" fill="#d4a843">
+    <polygon points="0,-13 3,-5 12,-5 5,2 8,10 0,5 -8,10 -5,2 -12,-5 -3,-5"/>
+  </g>
+  <g transform="translate(180,65)" fill="#d4a843" opacity="0.5">
+    <polygon points="0,-8 2,-3 8,-3 3,1 5,6 0,3 -5,6 -3,1 -8,-3 -2,-3"/>
+  </g>
+  <g transform="translate(420,65)" fill="#d4a843" opacity="0.5">
+    <polygon points="0,-8 2,-3 8,-3 3,1 5,6 0,3 -5,6 -3,1 -8,-3 -2,-3"/>
+  </g>
+
+  <!-- Title -->
+  <text x="300" y="160" font-family="Georgia, serif" font-size="13" fill="#c1603a" text-anchor="middle" letter-spacing="3" opacity="0.85">BELLES BABOUCHES</text>
+  <line x1="130" y1="165" x2="220" y2="165" stroke="#d4a843" stroke-width="1"/>
+  <line x1="380" y1="165" x2="470" y2="165" stroke="#d4a843" stroke-width="1"/>
+
+  <!-- ===== SURFACE / SHELF ===== -->
+  <!-- Decorative shelf/surface for slippers -->
+  <ellipse cx="300" cy="630" rx="230" ry="30" fill="#d4b896" opacity="0.5"/>
+  <line x1="70" y1="620" x2="530" y2="620" stroke="#c4a882" stroke-width="2" opacity="0.6"/>
+  <!-- Wood grain lines -->
+  <line x1="70" y1="625" x2="530" y2="625" stroke="#b8966e" stroke-width="0.5" opacity="0.3"/>
+  <line x1="70" y1="630" x2="530" y2="630" stroke="#b8966e" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Shadow under slippers -->
+  <ellipse cx="270" cy="628" rx="100" ry="15" fill="#00000020"/>
+  <ellipse cx="400" cy="640" rx="90" ry="12" fill="#00000018"/>
+
+  <!-- ===== LEFT BABOUCHE SLIPPER ===== -->
+  <g transform="translate(210, 540)" filter="url(#shadow)">
+    <!-- Sole / base -->
+    <path d="M-100,80 C-100,88 -60,100 0,100 C60,100 100,88 100,80 L100,75 C100,83 60,95 0,95 C-60,95 -100,83 -100,75 Z" fill="#9a7200"/>
+    <!-- Main body - pointed toe pointing left -->
+    <path d="M-100,75 C-110,70 -118,55 -115,40 C-112,25 -100,15 -85,10 C-70,5 -50,0 -20,-5 C10,-10 40,-12 65,-10 C85,-8 100,-3 100,10 L100,75 C100,75 60,88 0,88 C-60,88 -100,78 -100,75 Z" fill="url(#leather-main)"/>
+    <!-- Leather texture overlay -->
+    <path d="M-100,75 C-110,70 -118,55 -115,40 C-112,25 -100,15 -85,10 C-70,5 -50,0 -20,-5 C10,-10 40,-12 65,-10 C85,-8 100,-3 100,10 L100,75 C100,75 60,88 0,88 C-60,88 -100,78 -100,75 Z" fill="url(#leather-tex)"/>
+    <!-- Pointed toe darker tip -->
+    <path d="M-100,75 C-110,68 -118,52 -115,38 C-112,24 -104,16 -95,12 L-75,25 C-80,28 -88,40 -86,52 C-84,62 -80,68 -80,68 Z" fill="url(#leather-dark)" opacity="0.6"/>
+    <!-- Top opening (inner) -->
+    <ellipse cx="60" cy="8" rx="38" ry="22" fill="url(#inner-sole)"/>
+    <ellipse cx="60" cy="8" rx="38" ry="22" fill="none" stroke="#b88a00" stroke-width="2"/>
+    <!-- Stitching along top edge -->
+    <path d="M-98,72 C-100,65 -110,55 -112,42 C-114,28 -104,16 -88,10" fill="none" stroke="#fde8a0" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+    <!-- Traditional embroidery/stitching pattern on vamp -->
+    <path d="M-60,45 Q-30,30 0,35 Q30,40 55,30" fill="none" stroke="#fde8a0" stroke-width="1.5" opacity="0.6"/>
+    <path d="M-50,58 Q-20,45 10,48 Q40,51 60,42" fill="none" stroke="#fde8a0" stroke-width="1.5" opacity="0.6"/>
+    <!-- Small flower stitch motifs -->
+    <circle cx="-20" cy="40" r="5" fill="none" stroke="#fde8a0" stroke-width="1" opacity="0.5"/>
+    <circle cx="-20" cy="40" r="2" fill="#fde8a0" opacity="0.4"/>
+    <circle cx="20" cy="35" r="5" fill="none" stroke="#fde8a0" stroke-width="1" opacity="0.5"/>
+    <circle cx="20" cy="35" r="2" fill="#fde8a0" opacity="0.4"/>
+    <!-- Gold bead border around opening -->
+    <g fill="#f0d060">
+      <circle cx="30" cy="-12" r="2"/>
+      <circle cx="50" cy="-6" r="2"/>
+      <circle cx="70" cy="2" r="2"/>
+      <circle cx="85" cy="14" r="2"/>
+      <circle cx="90" cy="26" r="2"/>
+      <circle cx="80" cy="38" r="2"/>
+      <circle cx="62" cy="44" r="2"/>
+      <circle cx="42" cy="46" r="2"/>
+      <circle cx="22" cy="44" r="2"/>
+    </g>
+  </g>
+
+  <!-- ===== RIGHT BABOUCHE SLIPPER (slightly behind/offset) ===== -->
+  <g transform="translate(360, 555)" filter="url(#softshadow)">
+    <!-- Sole / base -->
+    <path d="M-95,75 C-95,83 -55,95 0,95 C55,95 95,83 95,75 L95,70 C95,78 55,90 0,90 C-55,90 -95,78 -95,70 Z" fill="#9a7200" opacity="0.9"/>
+    <!-- Main body -->
+    <path d="M-95,70 C-105,65 -112,52 -109,38 C-106,24 -95,14 -80,9 C-65,4 -45,-1 -15,-6 C15,-11 42,-13 65,-11 C83,-9 95,-4 95,9 L95,70 C95,70 55,82 0,82 C-55,82 -95,72 -95,70 Z" fill="url(#leather-main)" opacity="0.92"/>
+    <!-- Tip darker -->
+    <path d="M-95,70 C-105,63 -112,48 -109,35 C-106,22 -98,14 -90,10 L-70,22 C-76,26 -83,38 -81,50 C-79,60 -75,65 -75,65 Z" fill="url(#leather-dark)" opacity="0.55"/>
+    <!-- Inner opening -->
+    <ellipse cx="58" cy="6" rx="36" ry="20" fill="url(#inner-sole)" opacity="0.9"/>
+    <ellipse cx="58" cy="6" rx="36" ry="20" fill="none" stroke="#b88a00" stroke-width="1.5"/>
+    <!-- Stitching -->
+    <path d="M-55,42 Q-25,28 5,33 Q35,38 58,28" fill="none" stroke="#fde8a0" stroke-width="1.5" opacity="0.55"/>
+    <path d="M-45,56 Q-15,44 12,46 Q38,48 58,40" fill="none" stroke="#fde8a0" stroke-width="1.5" opacity="0.55"/>
+    <!-- Gold beads -->
+    <g fill="#f0d060" opacity="0.8">
+      <circle cx="28" cy="-13" r="1.8"/>
+      <circle cx="48" cy="-7" r="1.8"/>
+      <circle cx="68" cy="1" r="1.8"/>
+      <circle cx="82" cy="13" r="1.8"/>
+      <circle cx="85" cy="25" r="1.8"/>
+      <circle cx="76" cy="37" r="1.8"/>
+    </g>
+  </g>
+
+  <!-- ===== ROSE PETALS SCATTERED ===== -->
+  <g opacity="0.85">
+    <!-- Rose petals - various positions -->
+    <!-- Petal 1 -->
+    <ellipse cx="100" cy="480" rx="18" ry="10" fill="#c1603a" transform="rotate(-30,100,480)"/>
+    <ellipse cx="100" cy="480" rx="12" ry="6" fill="#d4703a" opacity="0.6" transform="rotate(-30,100,480)"/>
+    <!-- Petal 2 -->
+    <ellipse cx="135" cy="510" rx="16" ry="9" fill="#b8503a" transform="rotate(20,135,510)"/>
+    <!-- Petal 3 -->
+    <ellipse cx="85" cy="540" rx="14" ry="8" fill="#c8604a" transform="rotate(-50,85,540)"/>
+    <!-- Petal 4 -->
+    <ellipse cx="150" cy="460" rx="15" ry="8" fill="#a04030" transform="rotate(10,150,460)"/>
+    <!-- Petal 5 -->
+    <ellipse cx="480" cy="490" rx="17" ry="9" fill="#c1603a" transform="rotate(40,480,490)"/>
+    <!-- Petal 6 -->
+    <ellipse cx="510" cy="525" rx="15" ry="9" fill="#b8503a" transform="rotate(-20,510,525)"/>
+    <!-- Petal 7 -->
+    <ellipse cx="455" cy="460" rx="16" ry="8" fill="#d4703a" transform="rotate(60,455,460)"/>
+    <!-- Petal 8 -->
+    <ellipse cx="520" cy="480" rx="13" ry="7" fill="#a04030" transform="rotate(-40,520,480)"/>
+    <!-- Petal 9 (near slippers) -->
+    <ellipse cx="160" cy="600" rx="14" ry="7" fill="#c1603a" transform="rotate(15,160,600)"/>
+    <ellipse cx="450" cy="610" rx="14" ry="7" fill="#c1603a" transform="rotate(-25,450,610)"/>
+    <!-- Scattered small petals -->
+    <ellipse cx="200" cy="570" rx="10" ry="5" fill="#d4703a" transform="rotate(-60,200,570)"/>
+    <ellipse cx="420" cy="575" rx="10" ry="5" fill="#b8503a" transform="rotate(45,420,575)"/>
+    <ellipse cx="300" cy="650" rx="12" ry="6" fill="#c1603a" transform="rotate(-10,300,650)"/>
+  </g>
+
+  <!-- ===== DECORATIVE ELEMENTS ===== -->
+  <!-- Small gold stars scattered -->
+  <g fill="#d4a843" opacity="0.6">
+    <polygon points="115,430 118,422 121,430 129,430 123,435 125,443 118,438 111,443 113,435 107,430" transform="scale(0.6) translate(74,270)"/>
+    <polygon points="490,420 493,412 496,420 504,420 498,425 500,433 493,428 486,433 488,425 482,420" transform="scale(0.6) translate(120,250)"/>
+  </g>
+
+  <!-- Mint sprigs decoration -->
+  <g stroke="#3a8a6e" stroke-width="1.5" fill="none" opacity="0.5">
+    <path d="M110,460 Q115,440 120,430"/>
+    <ellipse cx="115" cy="447" rx="8" ry="5" fill="#3a8a6e" opacity="0.3" transform="rotate(-20,115,447)"/>
+    <ellipse cx="118" cy="435" rx="7" ry="4" fill="#3a8a6e" opacity="0.3" transform="rotate(15,118,435)"/>
+    <path d="M490,465 Q485,445 480,435"/>
+    <ellipse cx="487" cy="452" rx="8" ry="5" fill="#3a8a6e" opacity="0.3" transform="rotate(20,487,452)"/>
+    <ellipse cx="483" cy="438" rx="7" ry="4" fill="#3a8a6e" opacity="0.3" transform="rotate(-15,483,438)"/>
+  </g>
+
+  <!-- ===== LABEL ===== -->
+  <rect x="36" y="718" width="528" height="54" fill="#c1603a" opacity="0.9"/>
+  <line x1="50" y1="726" x2="550" y2="726" stroke="#d4a843" stroke-width="1.2"/>
+  <line x1="50" y1="762" x2="550" y2="762" stroke="#d4a843" stroke-width="1.2"/>
+  <g fill="#d4a843">
+    <polygon points="300,722 306,727 300,732 294,727"/>
+    <polygon points="160,722 166,727 160,732 154,727"/>
+    <polygon points="440,722 446,727 440,732 434,727"/>
+  </g>
+  <text x="300" y="745" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#f5f0e8" text-anchor="middle" letter-spacing="4">MARRAKECH · CUIR NATUREL</text>
+  <text x="300" y="758" font-family="Georgia, serif" font-size="10" fill="#f5f0e8" text-anchor="middle" letter-spacing="3" opacity="0.8">BABOUCHE ARTISANALE · MAROQUINERIE</text>
+</svg>

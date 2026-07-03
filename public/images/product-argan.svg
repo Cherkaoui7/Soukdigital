@@ -1,0 +1,290 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <!-- Warm amber/olive background -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5f0e0"/>
+      <stop offset="50%" stop-color="#eee0b8"/>
+      <stop offset="100%" stop-color="#d8c890"/>
+    </linearGradient>
+    <!-- Amber radial -->
+    <radialGradient id="bg-radial" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#fffbee"/>
+      <stop offset="100%" stop-color="#c8a840"/>
+    </radialGradient>
+    <!-- Amber glass bottle -->
+    <linearGradient id="bottle-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8B5010" stop-opacity="0.9"/>
+      <stop offset="20%" stop-color="#c07820" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#e09030" stop-opacity="0.98"/>
+      <stop offset="65%" stop-color="#c07820" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#8B5010" stop-opacity="0.9"/>
+    </linearGradient>
+    <!-- Bottle sheen -->
+    <linearGradient id="bottle-sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6B3808" stop-opacity="0.95"/>
+      <stop offset="25%" stop-color="#e0a040" stop-opacity="0.9"/>
+      <stop offset="45%" stop-color="#f8d060" stop-opacity="0.85"/>
+      <stop offset="70%" stop-color="#c87820" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#6B3808" stop-opacity="0.95"/>
+    </linearGradient>
+    <!-- Cap gradient -->
+    <linearGradient id="cap-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4a843"/>
+      <stop offset="50%" stop-color="#b08020"/>
+      <stop offset="100%" stop-color="#906010"/>
+    </linearGradient>
+    <!-- Argan fruit gradient -->
+    <radialGradient id="fruit-grad" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#c8c050"/>
+      <stop offset="50%" stop-color="#a8a030"/>
+      <stop offset="100%" stop-color="#808018"/>
+    </radialGradient>
+    <!-- Argan nut/shell gradient -->
+    <radialGradient id="nut-grad" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#c8a060"/>
+      <stop offset="60%" stop-color="#a07838"/>
+      <stop offset="100%" stop-color="#7a5820"/>
+    </radialGradient>
+    <!-- Leaf gradient -->
+    <linearGradient id="leaf-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5aa030"/>
+      <stop offset="100%" stop-color="#3a8a18"/>
+    </linearGradient>
+    <!-- Zellige border (olive green) -->
+    <pattern id="zellige" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <rect width="28" height="28" fill="#3a8a6e"/>
+      <polygon points="14,3 25,14 14,25 3,14" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+      <polygon points="14,8 20,14 14,20 8,14" fill="#c1603a" opacity="0.4"/>
+      <circle cx="14" cy="14" r="2" fill="#d4a843"/>
+    </pattern>
+    <!-- Shadow filter -->
+    <filter id="shadow">
+      <feDropShadow dx="5" dy="10" stdDeviation="10" flood-color="#00000045"/>
+    </filter>
+    <filter id="softshadow">
+      <feDropShadow dx="2" dy="4" stdDeviation="5" flood-color="#00000028"/>
+    </filter>
+    <!-- Bottle glow -->
+    <filter id="amber-glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="800" fill="url(#bg-radial)"/>
+  <rect width="600" height="800" fill="url(#bg)" opacity="0.65"/>
+
+  <!-- Zellige border -->
+  <rect x="0" y="0" width="600" height="800" fill="url(#zellige)"/>
+  <rect x="28" y="28" width="544" height="744" fill="url(#bg)"/>
+
+  <!-- Gold border lines -->
+  <rect x="28" y="28" width="544" height="744" fill="none" stroke="#d4a843" stroke-width="2.5"/>
+  <rect x="36" y="36" width="528" height="728" fill="none" stroke="#3a8a6e" stroke-width="1" stroke-dasharray="8,5"/>
+
+  <!-- Top ornament -->
+  <g transform="translate(300,65)" fill="#3a8a6e">
+    <polygon points="0,-13 3,-5 12,-5 5,2 8,10 0,5 -8,10 -5,2 -12,-5 -3,-5"/>
+  </g>
+  <g transform="translate(180,65)" fill="#d4a843" opacity="0.5">
+    <polygon points="0,-8 2,-3 8,-3 3,1 5,6 0,3 -5,6 -3,1 -8,-3 -2,-3"/>
+  </g>
+  <g transform="translate(420,65)" fill="#d4a843" opacity="0.5">
+    <polygon points="0,-8 2,-3 8,-3 3,1 5,6 0,3 -5,6 -3,1 -8,-3 -2,-3"/>
+  </g>
+
+  <!-- Decorative band -->
+  <rect x="36" y="95" width="528" height="14" fill="#3a8a6e" opacity="0.12"/>
+  <line x1="36" y1="95" x2="564" y2="95" stroke="#d4a843" stroke-width="1.2"/>
+  <line x1="36" y1="109" x2="564" y2="109" stroke="#d4a843" stroke-width="1.2"/>
+
+  <!-- Title -->
+  <text x="300" y="148" font-family="Georgia, serif" font-size="13" fill="#3a8a6e" text-anchor="middle" letter-spacing="3" opacity="0.9">HUILE PRÉCIEUSE</text>
+  <line x1="120" y1="154" x2="210" y2="154" stroke="#d4a843" stroke-width="1"/>
+  <line x1="390" y1="154" x2="480" y2="154" stroke="#d4a843" stroke-width="1"/>
+
+  <!-- ===== ARGAN TREE BRANCH (background detail) ===== -->
+  <!-- Main branch -->
+  <path d="M60,400 Q150,350 200,380 Q240,400 280,360 Q310,330 350,350 Q390,370 430,340 Q460,318 510,330" stroke="#8B6030" stroke-width="5" fill="none" opacity="0.4"/>
+  <!-- Sub branches -->
+  <path d="M200,380 Q195,340 190,310" stroke="#8B6030" stroke-width="3" fill="none" opacity="0.3"/>
+  <path d="M280,360 Q278,320 272,295" stroke="#8B6030" stroke-width="3" fill="none" opacity="0.3"/>
+  <path d="M350,350 Q360,320 365,300" stroke="#8B6030" stroke-width="3" fill="none" opacity="0.3"/>
+  <path d="M430,340 Q445,310 452,285" stroke="#8B6030" stroke-width="3" fill="none" opacity="0.3"/>
+
+  <!-- Argan leaves on branch -->
+  <g fill="url(#leaf-grad)" opacity="0.55">
+    <!-- Cluster around 190,310 -->
+    <ellipse cx="188" cy="296" rx="18" ry="7" transform="rotate(-30,188,296)"/>
+    <ellipse cx="198" cy="302" rx="16" ry="6" transform="rotate(20,198,302)"/>
+    <ellipse cx="180" cy="306" rx="15" ry="6" transform="rotate(-50,180,306)"/>
+    <ellipse cx="195" cy="285" rx="14" ry="5" transform="rotate(10,195,285)"/>
+    <!-- Cluster around 272,295 -->
+    <ellipse cx="270" cy="280" rx="18" ry="7" transform="rotate(-25,270,280)"/>
+    <ellipse cx="280" cy="288" rx="16" ry="6" transform="rotate(30,280,288)"/>
+    <ellipse cx="263" cy="290" rx="15" ry="6" transform="rotate(-45,263,290)"/>
+    <!-- Cluster around 365,300 -->
+    <ellipse cx="363" cy="285" rx="18" ry="7" transform="rotate(-20,363,285)"/>
+    <ellipse cx="372" cy="293" rx="16" ry="6" transform="rotate(25,372,293)"/>
+    <ellipse cx="356" cy="294" rx="15" ry="6" transform="rotate(-40,356,294)"/>
+    <!-- Cluster around 452,285 -->
+    <ellipse cx="450" cy="270" rx="17" ry="6" transform="rotate(-15,450,270)"/>
+    <ellipse cx="460" cy="278" rx="15" ry="6" transform="rotate(30,460,278)"/>
+    <ellipse cx="443" cy="278" rx="14" ry="5" transform="rotate(-35,443,278)"/>
+  </g>
+
+  <!-- Argan fruits on tree (small olive-green oval fruits) -->
+  <g filter="url(#softshadow)">
+    <!-- Fruit cluster 1 -->
+    <ellipse cx="185" cy="320" rx="12" ry="9" fill="url(#fruit-grad)"/>
+    <ellipse cx="198" cy="316" rx="10" ry="8" fill="url(#fruit-grad)" opacity="0.9"/>
+    <!-- Fruit cluster 2 -->
+    <ellipse cx="268" cy="308" rx="12" ry="9" fill="url(#fruit-grad)"/>
+    <ellipse cx="280" cy="305" rx="10" ry="8" fill="url(#fruit-grad)" opacity="0.9"/>
+    <!-- Fruit cluster 3 -->
+    <ellipse cx="360" cy="312" rx="12" ry="9" fill="url(#fruit-grad)"/>
+    <ellipse cx="372" cy="308" rx="10" ry="8" fill="url(#fruit-grad)" opacity="0.9"/>
+    <!-- Fruit cluster 4 -->
+    <ellipse cx="448" cy="295" rx="12" ry="9" fill="url(#fruit-grad)"/>
+    <ellipse cx="460" cy="292" rx="10" ry="8" fill="url(#fruit-grad)" opacity="0.9"/>
+    <!-- Fruit tip details -->
+    <circle cx="185" cy="314" r="2" fill="#606010"/>
+    <circle cx="268" cy="302" r="2" fill="#606010"/>
+    <circle cx="360" cy="306" r="2" fill="#606010"/>
+    <circle cx="448" cy="289" r="2" fill="#606010"/>
+  </g>
+
+  <!-- ===== ARGAN NUTS/SHELLS scattered on surface ===== -->
+  <!-- Surface line -->
+  <line x1="60" y1="665" x2="540" y2="665" stroke="#c4a870" stroke-width="1.5" opacity="0.5"/>
+  <ellipse cx="300" cy="672" rx="220" ry="18" fill="#d4b870" opacity="0.3"/>
+
+  <!-- Scattered argan nuts -->
+  <g filter="url(#softshadow)">
+    <!-- Nut 1 -->
+    <ellipse cx="115" cy="620" rx="22" ry="16" fill="url(#nut-grad)" transform="rotate(-20,115,620)"/>
+    <ellipse cx="108" cy="614" rx="6" ry="4" fill="#c8a860" opacity="0.5" transform="rotate(-20,108,614)"/>
+    <!-- Nut 2 -->
+    <ellipse cx="155" cy="645" rx="20" ry="14" fill="url(#nut-grad)" transform="rotate(15,155,645)"/>
+    <!-- Nut 3 -->
+    <ellipse cx="95" cy="650" rx="18" ry="13" fill="url(#nut-grad)" transform="rotate(-35,95,650)"/>
+    <!-- Nut 4 -->
+    <ellipse cx="460" cy="625" rx="22" ry="16" fill="url(#nut-grad)" transform="rotate(25,460,625)"/>
+    <ellipse cx="467" cy="619" rx="6" ry="4" fill="#c8a860" opacity="0.5" transform="rotate(25,467,619)"/>
+    <!-- Nut 5 -->
+    <ellipse cx="500" cy="648" rx="20" ry="14" fill="url(#nut-grad)" transform="rotate(-15,500,648)"/>
+    <!-- Nut 6 -->
+    <ellipse cx="480" cy="655" rx="18" ry="13" fill="url(#nut-grad)" transform="rotate(40,480,655)"/>
+    <!-- Cracked nut showing kernel -->
+    <ellipse cx="130" cy="660" rx="22" ry="15" fill="url(#nut-grad)" transform="rotate(10,130,660)"/>
+    <path d="M120,655 Q130,648 140,655 Q135,668 130,670 Q125,668 120,655Z" fill="#e8c880"/>
+    <ellipse cx="460" cy="662" rx="20" ry="14" fill="url(#nut-grad)" transform="rotate(-10,460,662)"/>
+    <path d="M452,657 Q460,650 468,657 Q463,669 460,671 Q456,669 452,657Z" fill="#e8c880"/>
+  </g>
+
+  <!-- Scattered argan leaves on surface -->
+  <g fill="url(#leaf-grad)" opacity="0.5">
+    <ellipse cx="100" cy="600" rx="20" ry="7" transform="rotate(-25,100,600)"/>
+    <ellipse cx="135" cy="610" rx="18" ry="6" transform="rotate(35,135,610)"/>
+    <ellipse cx="470" cy="605" rx="20" ry="7" transform="rotate(20,470,605)"/>
+    <ellipse cx="500" cy="615" rx="18" ry="6" transform="rotate(-30,500,615)"/>
+    <!-- Leaf veins -->
+    <line x1="92" y1="599" x2="108" y2="601" stroke="#2a7010" stroke-width="0.8" opacity="0.5"/>
+    <line x1="462" y1="604" x2="478" y2="606" stroke="#2a7010" stroke-width="0.8" opacity="0.5"/>
+  </g>
+
+  <!-- ===== AMBER GLASS BOTTLE ===== -->
+  <!-- Bottle shadow -->
+  <ellipse cx="302" cy="668" rx="65" ry="14" fill="#00000030"/>
+
+  <!-- Bottle body -->
+  <!-- Wide base -->
+  <path d="M235,640 Q232,560 238,500 Q245,450 260,420 L260,380 Q280,375 300,374 Q320,375 340,380 L340,420 Q355,450 362,500 Q368,560 365,640 Z" fill="url(#bottle-grad)" filter="url(#shadow)"/>
+  <!-- Sheen overlay -->
+  <path d="M235,640 Q232,560 238,500 Q245,450 260,420 L260,380 Q280,375 300,374 Q320,375 340,380 L340,420 Q355,450 362,500 Q368,560 365,640 Z" fill="url(#bottle-sheen)" opacity="0.5"/>
+
+  <!-- Bottle shoulder -->
+  <path d="M260,380 Q265,360 278,350 L300,345 L322,350 Q335,360 340,380 Q320,375 300,374 Q280,375 260,380 Z" fill="url(#bottle-grad)"/>
+
+  <!-- Bottle neck -->
+  <rect x="284" y="295" width="32" height="62" rx="8" fill="url(#bottle-grad)" filter="url(#softshadow)"/>
+  <rect x="284" y="295" width="32" height="62" rx="8" fill="url(#bottle-sheen)" opacity="0.4"/>
+  <!-- Neck ring details -->
+  <rect x="282" y="330" width="36" height="6" rx="2" fill="#d4a843" opacity="0.6"/>
+  <rect x="282" y="340" width="36" height="4" rx="2" fill="#d4a843" opacity="0.4"/>
+
+  <!-- Bottle cap -->
+  <rect x="278" y="278" width="44" height="25" rx="6" fill="url(#cap-grad)" filter="url(#softshadow)"/>
+  <rect x="280" y="280" width="40" height="8" rx="4" fill="#f0d060" opacity="0.4"/>
+  <!-- Cap ridges -->
+  <g stroke="#906010" stroke-width="1.5" opacity="0.4">
+    <line x1="288" y1="282" x2="288" y2="300"/>
+    <line x1="296" y1="282" x2="296" y2="300"/>
+    <line x1="304" y1="282" x2="304" y2="300"/>
+    <line x1="312" y1="282" x2="312" y2="300"/>
+  </g>
+  <!-- Cap gold trim -->
+  <rect x="278" y="278" width="44" height="25" rx="6" fill="none" stroke="#f0d060" stroke-width="1.5"/>
+
+  <!-- Bottle label (paper label on front) -->
+  <rect x="248" y="470" width="104" height="120" rx="6" fill="#f5f0e0" opacity="0.92" filter="url(#softshadow)"/>
+  <rect x="251" y="473" width="98" height="114" rx="4" fill="none" stroke="#3a8a6e" stroke-width="1.5"/>
+  <rect x="254" y="476" width="92" height="108" rx="3" fill="none" stroke="#d4a843" stroke-width="0.8"/>
+
+  <!-- Label content -->
+  <!-- Argan tree silhouette on label -->
+  <g transform="translate(300,510)" opacity="0.7">
+    <line x1="0" y1="25" x2="0" y2="-10" stroke="#6B4020" stroke-width="2"/>
+    <line x1="0" y1="5" x2="-15" y2="-15" stroke="#6B4020" stroke-width="1.5"/>
+    <line x1="0" y1="5" x2="15" y2="-15" stroke="#6B4020" stroke-width="1.5"/>
+    <line x1="0" y1="-2" x2="-20" y2="-22" stroke="#6B4020" stroke-width="1.5"/>
+    <line x1="0" y1="-2" x2="20" y2="-22" stroke="#6B4020" stroke-width="1.5"/>
+    <circle cx="-20" cy="-24" r="8" fill="#3a8a6e" opacity="0.6"/>
+    <circle cx="20" cy="-24" r="7" fill="#3a8a6e" opacity="0.6"/>
+    <circle cx="0" cy="-22" r="9" fill="#4a9a5e" opacity="0.65"/>
+    <circle cx="-14" cy="-17" r="6" fill="#3a8a6e" opacity="0.5"/>
+    <circle cx="14" cy="-17" r="6" fill="#3a8a6e" opacity="0.5"/>
+    <!-- Goat in tree (iconic argan image - simplified) -->
+    <ellipse cx="10" cy="-26" rx="5" ry="3" fill="#c8a060" opacity="0.6"/>
+    <line x1="8" y1="-23" x2="6" y2="-18" stroke="#a07840" stroke-width="1" opacity="0.6"/>
+    <line x1="12" y1="-23" x2="14" y2="-18" stroke="#a07840" stroke-width="1" opacity="0.6"/>
+    <!-- Goat head -->
+    <circle cx="15" cy="-28" r="3" fill="#c8a060" opacity="0.6"/>
+  </g>
+
+  <!-- Label text -->
+  <text x="300" y="548" font-family="Georgia, serif" font-size="8" font-weight="bold" fill="#3a8a6e" text-anchor="middle" letter-spacing="1">COOPÉRATIVE</text>
+  <text x="300" y="558" font-family="Georgia, serif" font-size="7" fill="#8a6030" text-anchor="middle">FÉMININE</text>
+  <line x1="258" y1="563" x2="342" y2="563" stroke="#d4a843" stroke-width="0.8"/>
+  <text x="300" y="572" font-family="Georgia, serif" font-size="7.5" fill="#c1603a" text-anchor="middle">HUILE D'ARGAN</text>
+  <text x="300" y="580" font-family="Georgia, serif" font-size="7" fill="#8a6030" text-anchor="middle">100% BIO</text>
+
+  <!-- Cooperative stamp circle -->
+  <circle cx="300" cy="565" r="36" fill="none" stroke="#3a8a6e" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.4"/>
+
+  <!-- Amber oil liquid visible through bottle -->
+  <!-- Left and right lighter areas showing amber oil tint -->
+  <path d="M238,500 Q236,560 238,630 L260,630 Q258,560 260,500 Z" fill="#f0a820" opacity="0.12"/>
+  <path d="M340,500 Q342,560 342,630 L362,630 Q362,560 362,500 Z" fill="#f0a820" opacity="0.1"/>
+
+  <!-- Gold highlight on bottle -->
+  <path d="M252,500 Q248,570 250,640" stroke="#f8d060" stroke-width="5" fill="none" opacity="0.12" stroke-linecap="round"/>
+
+  <!-- Cooperative stamp label below bottle -->
+  <rect x="230" y="655" width="140" height="20" rx="5" fill="#3a8a6e" opacity="0.15"/>
+  <rect x="230" y="655" width="140" height="20" rx="5" fill="none" stroke="#3a8a6e" stroke-width="1" opacity="0.4"/>
+  <text x="300" y="668" font-family="Georgia, serif" font-size="8" fill="#3a8a6e" text-anchor="middle" opacity="0.8">CERTIFICATION BIO · 100% PUR</text>
+
+  <!-- ===== LABEL ===== -->
+  <rect x="36" y="718" width="528" height="54" fill="#3a8a6e" opacity="0.9"/>
+  <line x1="50" y1="726" x2="550" y2="726" stroke="#d4a843" stroke-width="1.2"/>
+  <line x1="50" y1="762" x2="550" y2="762" stroke="#d4a843" stroke-width="1.2"/>
+  <g fill="#d4a843">
+    <polygon points="300,722 306,727 300,732 294,727"/>
+    <polygon points="160,722 166,727 160,732 154,727"/>
+    <polygon points="440,722 446,727 440,732 434,727"/>
+  </g>
+  <text x="300" y="745" font-family="Georgia, serif" font-size="17" font-weight="bold" fill="#f5f0e8" text-anchor="middle" letter-spacing="3">ESSAOUIRA · HUILE D'ARGAN BIO</text>
+  <text x="300" y="758" font-family="Georgia, serif" font-size="10" fill="#f5f0e8" text-anchor="middle" letter-spacing="3" opacity="0.8">OR LIQUIDE · COOPÉRATIVE FÉMININE</text>
+</svg>

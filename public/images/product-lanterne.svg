@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#1a1f6e"/>
+      <stop offset="100%" stop-color="#0a0d2e"/>
+    </radialGradient>
+
+    <!-- Amber glow from lantern -->
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffcc44" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#ff9900" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ff6600" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Copper gradient for lantern body -->
+    <linearGradient id="copperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4956a"/>
+      <stop offset="30%" stop-color="#b87333"/>
+      <stop offset="60%" stop-color="#cd7f32"/>
+      <stop offset="100%" stop-color="#8b5e2d"/>
+    </linearGradient>
+
+    <!-- Copper sheen -->
+    <linearGradient id="copperSheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5e2d"/>
+      <stop offset="35%" stop-color="#e8a86a"/>
+      <stop offset="60%" stop-color="#b87333"/>
+      <stop offset="100%" stop-color="#7a4f28"/>
+    </linearGradient>
+
+    <!-- Gold accent gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0d060"/>
+      <stop offset="50%" stop-color="#d4a843"/>
+      <stop offset="100%" stop-color="#a07820"/>
+    </linearGradient>
+
+    <!-- Chain gradient -->
+    <linearGradient id="chainGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5e2d"/>
+      <stop offset="50%" stop-color="#d4956a"/>
+      <stop offset="100%" stop-color="#8b5e2d"/>
+    </linearGradient>
+
+    <!-- Label gradient -->
+    <linearGradient id="labelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a1050"/>
+      <stop offset="100%" stop-color="#0a0820"/>
+    </linearGradient>
+
+    <!-- Drop shadow filter -->
+    <filter id="dropShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Glow filter -->
+    <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Light rays filter -->
+    <filter id="rayFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Zellige border pattern -->
+    <pattern id="zelligeBorder" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#0a0d2e"/>
+      <!-- Star of David / 8-pointed star -->
+      <polygon points="20,2 23,14 35,14 25,22 29,35 20,27 11,35 15,22 5,14 17,14" fill="#d4a843" opacity="0.8"/>
+      <rect x="16" y="16" width="8" height="8" fill="#c1603a" transform="rotate(45,20,20)"/>
+      <circle cx="20" cy="20" r="3" fill="#f5f0e8" opacity="0.6"/>
+    </pattern>
+
+    <!-- Inner lantern glow -->
+    <radialGradient id="innerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe680" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#ffaa00" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ff6600" stop-opacity="0.3"/>
+    </radialGradient>
+
+    <!-- Clip for lantern body -->
+    <clipPath id="lanternClip">
+      <ellipse cx="300" cy="430" rx="105" ry="155"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="800" fill="url(#bgGrad)"/>
+
+  <!-- Zellige border -->
+  <rect width="600" height="800" fill="url(#zelligeBorder)" opacity="0.25"/>
+  <!-- Border overlay to frame -->
+  <rect x="0" y="0" width="600" height="28" fill="url(#zelligeBorder)" opacity="0.7"/>
+  <rect x="0" y="772" width="600" height="28" fill="url(#zelligeBorder)" opacity="0.7"/>
+  <rect x="0" y="0" width="28" height="800" fill="url(#zelligeBorder)" opacity="0.7"/>
+  <rect x="572" y="0" width="28" height="800" fill="url(#zelligeBorder)" opacity="0.7"/>
+
+  <!-- Ambient glow on background -->
+  <ellipse cx="300" cy="430" rx="220" ry="280" fill="url(#glowGrad)" opacity="0.35"/>
+
+  <!-- Light rays emanating from lantern -->
+  <g opacity="0.18" filter="url(#rayFilter)">
+    <line x1="300" y1="380" x2="80" y2="180" stroke="#ffcc44" stroke-width="2.5"/>
+    <line x1="300" y1="380" x2="520" y2="180" stroke="#ffcc44" stroke-width="2.5"/>
+    <line x1="300" y1="380" x2="60" y2="420" stroke="#ffcc44" stroke-width="2"/>
+    <line x1="300" y1="380" x2="540" y2="420" stroke="#ffcc44" stroke-width="2"/>
+    <line x1="300" y1="380" x2="150" y2="620" stroke="#ffcc44" stroke-width="2"/>
+    <line x1="300" y1="380" x2="450" y2="620" stroke="#ffcc44" stroke-width="2"/>
+    <line x1="300" y1="380" x2="300" y2="650" stroke="#ffcc44" stroke-width="2"/>
+    <line x1="300" y1="380" x2="110" y2="280" stroke="#ffcc44" stroke-width="1.5"/>
+    <line x1="300" y1="380" x2="490" y2="280" stroke="#ffcc44" stroke-width="1.5"/>
+  </g>
+
+  <!-- Chain links at top -->
+  <g filter="url(#dropShadow)">
+    <!-- Ceiling mount -->
+    <rect x="285" y="45" width="30" height="12" rx="4" fill="url(#copperGrad)"/>
+    <!-- Chain -->
+    <g stroke="url(#chainGrad)" stroke-width="3" fill="none">
+      <ellipse cx="300" cy="68" rx="6" ry="10"/>
+      <ellipse cx="300" cy="88" rx="10" ry="6"/>
+      <ellipse cx="300" cy="108" rx="6" ry="10"/>
+      <ellipse cx="300" cy="128" rx="10" ry="6"/>
+      <ellipse cx="300" cy="148" rx="6" ry="10"/>
+      <ellipse cx="300" cy="168" rx="10" ry="6"/>
+      <ellipse cx="300" cy="188" rx="6" ry="10"/>
+      <ellipse cx="300" cy="208" rx="10" ry="6"/>
+    </g>
+    <!-- Top cap connector -->
+    <rect x="282" y="215" width="36" height="15" rx="5" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- Lantern top crown -->
+  <g filter="url(#dropShadow)">
+    <path d="M260,230 Q265,218 278,220 Q290,215 300,212 Q310,215 322,220 Q335,218 340,230 Z" fill="url(#goldGrad)"/>
+    <!-- Crown spires -->
+    <polygon points="270,230 265,210 275,215" fill="url(#copperGrad)"/>
+    <polygon points="285,230 282,205 290,210" fill="url(#goldGrad)"/>
+    <polygon points="300,230 300,200 306,208" fill="url(#copperGrad)"/>
+    <polygon points="315,230 318,205 310,210" fill="url(#goldGrad)"/>
+    <polygon points="330,230 335,210 325,215" fill="url(#copperGrad)"/>
+    <!-- Top ring -->
+    <ellipse cx="300" cy="235" rx="42" ry="10" fill="url(#copperSheen)" stroke="#8b5e2d" stroke-width="1.5"/>
+  </g>
+
+  <!-- Lantern upper shoulder -->
+  <path d="M258,235 Q258,258 218,275 L382,275 Q342,258 342,235 Z" fill="url(#copperGrad)" filter="url(#dropShadow)"/>
+  <path d="M218,275 L382,275 L382,290 Q300,298 218,290 Z" fill="url(#copperSheen)"/>
+
+  <!-- LANTERN BODY - main hexagonal prism shape -->
+  <g filter="url(#dropShadow)">
+    <!-- Main body left face -->
+    <path d="M196,290 L196,570 Q240,585 300,585 Q360,585 404,570 L404,290 Z" fill="url(#copperGrad)" opacity="0.3"/>
+
+    <!-- Main body - front face shaped like Moroccan arch panels -->
+    <path d="M218,290 Q300,285 382,290 L382,568 Q340,578 300,578 Q260,578 218,568 Z" fill="#1a1060" stroke="url(#copperSheen)" stroke-width="3"/>
+
+    <!-- Copper frame verticals -->
+    <line x1="218" y1="290" x2="218" y2="568" stroke="url(#copperSheen)" stroke-width="5"/>
+    <line x1="382" y1="290" x2="382" y2="568" stroke="url(#copperSheen)" stroke-width="5"/>
+    <line x1="300" y1="288" x2="300" y2="580" stroke="url(#copperGrad)" stroke-width="4" opacity="0.5"/>
+
+    <!-- Horizontal rings on body -->
+    <ellipse cx="300" cy="330" rx="82" ry="12" fill="none" stroke="url(#copperSheen)" stroke-width="5"/>
+    <ellipse cx="300" cy="400" rx="82" ry="12" fill="none" stroke="url(#copperSheen)" stroke-width="5"/>
+    <ellipse cx="300" cy="470" rx="82" ry="12" fill="none" stroke="url(#copperSheen)" stroke-width="5"/>
+    <ellipse cx="300" cy="540" rx="82" ry="12" fill="none" stroke="url(#copperSheen)" stroke-width="5"/>
+  </g>
+
+  <!-- Inner amber glow of lantern -->
+  <ellipse cx="300" cy="430" rx="78" ry="130" fill="url(#innerGlow)" opacity="0.6" filter="url(#glowFilter)"/>
+
+  <!-- Moucharabieh cutout patterns - top panel -->
+  <g fill="#ffcc66" opacity="0.85" filter="url(#glowFilter)">
+    <!-- Panel 1: 340-400 height zone, left side -->
+    <!-- 8-pointed star cutout -->
+    <polygon points="248,342 252,354 264,354 255,362 259,374 248,366 237,374 241,362 232,354 244,354" fill="#ffcc44" opacity="0.9"/>
+    <!-- Panel 1: right side -->
+    <polygon points="352,342 356,354 368,354 359,362 363,374 352,366 341,374 345,362 336,354 348,354" fill="#ffcc44" opacity="0.9"/>
+    <!-- Center star -->
+    <polygon points="300,342 304,354 316,354 307,362 311,374 300,366 289,374 293,362 284,354 296,354" fill="#ffcc44" opacity="0.9"/>
+
+    <!-- Small connecting diamonds -->
+    <rect x="270" y="352" width="10" height="10" transform="rotate(45,275,357)" fill="#ffaa22" opacity="0.7"/>
+    <rect x="318" y="352" width="10" height="10" transform="rotate(45,323,357)" fill="#ffaa22" opacity="0.7"/>
+
+    <!-- Panel 2: 410-470 height -->
+    <polygon points="260,414 265,428 279,428 268,437 272,451 260,442 248,451 252,437 241,428 255,428" fill="#ffcc44" opacity="0.9"/>
+    <polygon points="340,414 345,428 359,428 348,437 352,451 340,442 328,451 332,437 321,428 335,428" fill="#ffcc44" opacity="0.9"/>
+    <polygon points="300,414 305,428 319,428 308,437 312,451 300,442 288,451 292,437 281,428 295,428" fill="#ffcc44" opacity="0.9"/>
+
+    <!-- Panel 3: 480-540 -->
+    <polygon points="248,482 252,494 264,494 255,502 259,514 248,506 237,514 241,502 232,494 244,494" fill="#ffcc44" opacity="0.9"/>
+    <polygon points="352,482 356,494 368,494 359,502 363,514 352,506 341,514 345,502 336,494 348,494" fill="#ffcc44" opacity="0.9"/>
+    <polygon points="300,482 304,494 316,494 307,502 311,514 300,506 289,514 293,502 284,494 296,494" fill="#ffcc44" opacity="0.9"/>
+
+    <!-- Geometric lattice between stars -->
+    <line x1="230" y1="360" x2="370" y2="360" stroke="#ffcc44" stroke-width="1" opacity="0.4"/>
+    <line x1="230" y1="430" x2="370" y2="430" stroke="#ffcc44" stroke-width="1" opacity="0.4"/>
+    <line x1="230" y1="500" x2="370" y2="500" stroke="#ffcc44" stroke-width="1" opacity="0.4"/>
+  </g>
+
+  <!-- Lantern bottom cap -->
+  <g filter="url(#dropShadow)">
+    <path d="M218,568 Q260,578 300,580 Q340,578 382,568 L382,583 Q340,596 300,598 Q260,596 218,583 Z" fill="url(#copperGrad)"/>
+    <ellipse cx="300" cy="598" rx="82" ry="16" fill="url(#copperSheen)" stroke="#8b5e2d" stroke-width="2"/>
+
+    <!-- Bottom tapered cone -->
+    <path d="M245,598 Q300,618 355,598 L340,625 Q300,640 260,625 Z" fill="url(#copperGrad)"/>
+    <ellipse cx="300" cy="625" rx="40" ry="9" fill="url(#copperSheen)"/>
+
+    <!-- Crescent finial -->
+    <path d="M285,634 Q286,650 300,658 Q314,650 315,634 Q305,640 300,640 Q295,640 285,634 Z" fill="url(#goldGrad)"/>
+    <!-- Crescent moon shape -->
+    <path d="M291,660 A14,18 0 1 1 309,660 A8,12 0 0 0 300,658 A8,12 0 0 0 291,660 Z" fill="url(#goldGrad)" stroke="#d4a843" stroke-width="1"/>
+    <circle cx="310" cy="668" r="3" fill="url(#goldGrad)"/>
+
+    <!-- Hanging decorative balls -->
+    <circle cx="265" cy="616" r="6" fill="url(#copperGrad)" stroke="#8b5e2d" stroke-width="1"/>
+    <circle cx="335" cy="616" r="6" fill="url(#copperGrad)" stroke="#8b5e2d" stroke-width="1"/>
+    <circle cx="300" cy="618" r="5" fill="url(#goldGrad)" stroke="#a07820" stroke-width="1"/>
+  </g>
+
+  <!-- Bottom label strip -->
+  <rect x="0" y="720" width="600" height="80" fill="url(#labelGrad)"/>
+  <rect x="0" y="720" width="600" height="3" fill="#d4a843"/>
+  <rect x="0" y="797" width="600" height="3" fill="#d4a843"/>
+
+  <!-- Label decorative dividers -->
+  <line x1="150" y1="738" x2="150" y2="782" stroke="#d4a843" stroke-width="1" opacity="0.5"/>
+  <line x1="450" y1="738" x2="450" y2="782" stroke="#d4a843" stroke-width="1" opacity="0.5"/>
+
+  <!-- Small Moroccan star icons on label -->
+  <polygon points="100,758 102,764 108,764 103,768 105,774 100,770 95,774 97,768 92,764 98,764" fill="#d4a843" opacity="0.8"/>
+  <polygon points="500,758 502,764 508,764 503,768 505,774 500,770 495,774 497,768 492,764 498,764" fill="#d4a843" opacity="0.8"/>
+
+  <text x="300" y="752" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#d4a843" letter-spacing="4" font-weight="normal">MARRAKECH</text>
+  <text x="300" y="775" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#f5f0e8" letter-spacing="2" font-weight="bold">Cuivre ciselé</text>
+
+  <!-- Decorative corner elements in border -->
+  <g opacity="0.6">
+    <rect x="28" y="28" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="43,31 45,38 52,38 47,42 49,49 43,45 37,49 39,42 34,38 41,38" fill="#d4a843"/>
+    <rect x="542" y="28" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="557,31 559,38 566,38 561,42 563,49 557,45 551,49 553,42 548,38 555,38" fill="#d4a843"/>
+    <rect x="28" y="742" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="43,745 45,752 52,752 47,756 49,763 43,759 37,763 39,756 34,752 41,752" fill="#d4a843"/>
+    <rect x="542" y="742" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="557,745 559,752 566,752 561,756 563,763 557,759 551,763 553,756 548,752 555,752" fill="#d4a843"/>
+  </g>
+</svg>

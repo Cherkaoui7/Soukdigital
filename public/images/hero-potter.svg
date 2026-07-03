@@ -1,0 +1,303 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <!-- Sky blue background gradient -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8f0f8"/>
+      <stop offset="50%" stop-color="#dce8f5"/>
+      <stop offset="100%" stop-color="#c8d8ee"/>
+    </linearGradient>
+    <!-- Pottery wheel gradient -->
+    <radialGradient id="wheel-grad" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#a0724A"/>
+      <stop offset="70%" stop-color="#7A4F2D"/>
+      <stop offset="100%" stop-color="#5a3520"/>
+    </radialGradient>
+    <!-- Clay gradient -->
+    <radialGradient id="clay-grad" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#d4855a"/>
+      <stop offset="60%" stop-color="#c1603a"/>
+      <stop offset="100%" stop-color="#a04525"/>
+    </radialGradient>
+    <!-- Cobalt glaze gradient -->
+    <linearGradient id="cobalt-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4a7cc7"/>
+      <stop offset="50%" stop-color="#2b2fa0"/>
+      <stop offset="100%" stop-color="#1a1d7a"/>
+    </linearGradient>
+    <!-- Finished vase gradient -->
+    <linearGradient id="vase-fin" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a1d7a"/>
+      <stop offset="30%" stop-color="#3a50c0"/>
+      <stop offset="50%" stop-color="#4a60d0"/>
+      <stop offset="70%" stop-color="#3a50c0"/>
+      <stop offset="100%" stop-color="#1a1d7a"/>
+    </linearGradient>
+    <!-- Artisan skin -->
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C68642"/>
+      <stop offset="100%" stop-color="#A0632A"/>
+    </linearGradient>
+    <!-- Djellaba blue -->
+    <linearGradient id="djellaba" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2b2fa0"/>
+      <stop offset="60%" stop-color="#1e2280"/>
+      <stop offset="100%" stop-color="#151860"/>
+    </linearGradient>
+    <!-- Floor gradient -->
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4c4a0"/>
+      <stop offset="100%" stop-color="#b8a880"/>
+    </linearGradient>
+    <!-- Shadow filter -->
+    <filter id="shadow">
+      <feDropShadow dx="3" dy="5" stdDeviation="5" flood-color="#00000035"/>
+    </filter>
+    <!-- Soft shadow -->
+    <filter id="softshadow">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000025"/>
+    </filter>
+    <!-- Blue/white zellige border pattern -->
+    <pattern id="zellige" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="#2b2fa0"/>
+      <rect x="2" y="2" width="28" height="28" fill="#2b2fa0"/>
+      <polygon points="16,3 29,16 16,29 3,16" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      <polygon points="16,9 23,16 16,23 9,16" fill="#4a7cc7" opacity="0.7"/>
+      <circle cx="16" cy="16" r="2.5" fill="#d4a843"/>
+      <rect x="0" y="0" width="32" height="32" fill="none" stroke="#d4a843" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+    <!-- Pottery arabesque pattern -->
+    <pattern id="arabesque" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="none"/>
+      <circle cx="12" cy="12" r="4" fill="none" stroke="#ffffff" stroke-width="1"/>
+      <line x1="0" y1="12" x2="24" y2="12" stroke="#ffffff" stroke-width="0.5" opacity="0.4"/>
+      <line x1="12" y1="0" x2="12" y2="24" stroke="#ffffff" stroke-width="0.5" opacity="0.4"/>
+    </pattern>
+    <!-- Workshop wall texture -->
+    <linearGradient id="wall" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0%" stop-color="#dce8f5"/>
+      <stop offset="100%" stop-color="#c0d4ec"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="800" fill="url(#bg)"/>
+
+  <!-- Zellige border frame -->
+  <rect x="0" y="0" width="600" height="800" fill="url(#zellige)"/>
+  <!-- Inner content area -->
+  <rect x="28" y="28" width="544" height="744" fill="url(#wall)"/>
+
+  <!-- Gold border lines -->
+  <rect x="28" y="28" width="544" height="744" fill="none" stroke="#d4a843" stroke-width="2"/>
+  <rect x="35" y="35" width="530" height="730" fill="none" stroke="#d4a843" stroke-width="0.8" stroke-dasharray="10,4"/>
+
+  <!-- Decorative arch motif at top -->
+  <path d="M300,50 Q420,130 420,200 L180,200 Q180,130 300,50Z" fill="#2b2fa0" opacity="0.08"/>
+  <path d="M300,55 Q410,128 410,200" fill="none" stroke="#2b2fa0" stroke-width="2" opacity="0.3"/>
+  <path d="M300,55 Q190,128 190,200" fill="none" stroke="#2b2fa0" stroke-width="2" opacity="0.3"/>
+
+  <!-- Horseshoe arch outline -->
+  <path d="M185,200 Q185,80 300,52 Q415,80 415,200" fill="none" stroke="#d4a843" stroke-width="2.5" opacity="0.7"/>
+
+  <!-- Top ornament stars -->
+  <g transform="translate(300,68)" fill="#d4a843">
+    <polygon points="0,-13 3,-5 12,-5 5,2 8,10 0,5 -8,10 -5,2 -12,-5 -3,-5"/>
+  </g>
+  <g transform="translate(220,90)" fill="#d4a843" opacity="0.5">
+    <polygon points="0,-8 2,-3 8,-3 3,1 5,6 0,3 -5,6 -3,1 -8,-3 -2,-3"/>
+  </g>
+  <g transform="translate(380,90)" fill="#d4a843" opacity="0.5">
+    <polygon points="0,-8 2,-3 8,-3 3,1 5,6 0,3 -5,6 -3,1 -8,-3 -2,-3"/>
+  </g>
+
+  <!-- Decorative horizontal band -->
+  <rect x="36" y="120" width="528" height="16" fill="#2b2fa0" opacity="0.12"/>
+  <line x1="36" y1="120" x2="564" y2="120" stroke="#d4a843" stroke-width="1.2"/>
+  <line x1="36" y1="136" x2="564" y2="136" stroke="#d4a843" stroke-width="1.2"/>
+
+  <!-- Workshop floor -->
+  <rect x="36" y="600" width="528" height="172" fill="url(#floor)" opacity="0.7"/>
+  <line x1="36" y1="600" x2="564" y2="600" stroke="#a09070" stroke-width="2"/>
+
+  <!-- Floor tiles pattern -->
+  <g stroke="#b8a880" stroke-width="0.8" opacity="0.5">
+    <line x1="36" y1="630" x2="564" y2="630"/>
+    <line x1="36" y1="660" x2="564" y2="660"/>
+    <line x1="36" y1="690" x2="564" y2="690"/>
+    <line x1="36" y1="720" x2="564" y2="720"/>
+    <line x1="100" y1="600" x2="100" y2="772"/>
+    <line x1="164" y1="600" x2="164" y2="772"/>
+    <line x1="228" y1="600" x2="228" y2="772"/>
+    <line x1="292" y1="600" x2="292" y2="772"/>
+    <line x1="356" y1="600" x2="356" y2="772"/>
+    <line x1="420" y1="600" x2="420" y2="772"/>
+    <line x1="484" y1="600" x2="484" y2="772"/>
+  </g>
+
+  <!-- ===== BACKGROUND POTTERY (finished pieces) ===== -->
+  <!-- Left finished vase (large, cobalt blue) -->
+  <g transform="translate(110, 480)" filter="url(#shadow)">
+    <!-- Vase body -->
+    <path d="M0,0 C-35,0 -45,30 -40,60 C-35,90 -30,110 -20,130 C-10,150 10,155 15,155 C20,155 40,150 50,130 C60,110 65,90 60,60 C65,30 55,0 20,0 Z" fill="url(#cobalt-grad)"/>
+    <!-- Vase neck -->
+    <path d="M0,0 C5,-20 15,-35 10,-45 C5,-55 -5,-55 -10,-45 C-15,-35 -5,-20 0,0 C5,-20 10,-35 5,-45" fill="url(#cobalt-grad)"/>
+    <!-- White geometric band on vase -->
+    <rect x="-40" y="40" width="100" height="25" fill="none" stroke="white" stroke-width="1"/>
+    <path d="M-40,52 L-30,40 L-20,52 L-10,40 L0,52 L10,40 L20,52 L30,40 L40,52 L50,40 L60,52" fill="none" stroke="white" stroke-width="1.5"/>
+    <!-- Arabic floral motif on vase -->
+    <circle cx="10" cy="90" r="20" fill="none" stroke="white" stroke-width="1.2" opacity="0.7"/>
+    <circle cx="10" cy="90" r="10" fill="none" stroke="#d4a843" stroke-width="1" opacity="0.8"/>
+    <circle cx="10" cy="90" r="4" fill="#d4a843" opacity="0.6"/>
+    <!-- Highlight -->
+    <path d="M-20,20 Q-25,60 -20,80" fill="none" stroke="white" stroke-width="3" opacity="0.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Right finished bowl -->
+  <g transform="translate(470, 560)" filter="url(#shadow)">
+    <path d="M-50,-20 Q-55,0 -45,20 Q-30,40 0,45 Q30,40 45,20 Q55,0 50,-20 Z" fill="url(#cobalt-grad)"/>
+    <ellipse cx="0" cy="-20" rx="50" ry="12" fill="#3a50c0"/>
+    <!-- White decoration on bowl -->
+    <path d="M-40,-15 Q-20,-5 0,-10 Q20,-5 40,-15" fill="none" stroke="white" stroke-width="1" opacity="0.6"/>
+    <ellipse cx="0" cy="15" rx="25" ry="8" fill="none" stroke="white" stroke-width="1" opacity="0.5"/>
+    <!-- Rim highlight -->
+    <ellipse cx="0" cy="-20" rx="50" ry="12" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+  </g>
+
+  <!-- Small pot top right shelf area -->
+  <g transform="translate(490, 430)">
+    <path d="M-20,-30 C-25,-30 -28,-20 -25,-5 C-22,10 -15,22 0,25 C15,22 22,10 25,-5 C28,-20 25,-30 20,-30 Z" fill="#c1603a"/>
+    <ellipse cx="0" cy="-30" rx="20" ry="6" fill="#d4855a"/>
+    <path d="M0,-35 C-3,-45 3,-45 0,-35" fill="#8B5E3C" stroke-width="2"/>
+    <!-- Simple white stripe -->
+    <path d="M-24,-10 Q0,-5 24,-10" fill="none" stroke="white" stroke-width="1.5" opacity="0.6"/>
+  </g>
+
+  <!-- ===== POTTERY WHEEL ===== -->
+  <!-- Wheel base/stand -->
+  <rect x="220" y="590" width="160" height="20" rx="5" fill="#7A4F2D" filter="url(#shadow)"/>
+  <rect x="235" y="545" width="130" height="50" rx="3" fill="#8B5E3C"/>
+  <!-- Wheel surface (flat disk) -->
+  <ellipse cx="300" cy="548" rx="80" ry="22" fill="url(#wheel-grad)" filter="url(#shadow)"/>
+  <ellipse cx="300" cy="548" rx="80" ry="22" fill="none" stroke="#A0724A" stroke-width="2"/>
+  <!-- Spinning lines on wheel -->
+  <ellipse cx="300" cy="548" rx="55" ry="15" fill="none" stroke="#9B6640" stroke-width="1" opacity="0.6"/>
+  <ellipse cx="300" cy="548" rx="30" ry="8" fill="none" stroke="#9B6640" stroke-width="1" opacity="0.6"/>
+  <circle cx="300" cy="548" r="5" fill="#9B6640"/>
+
+  <!-- Clay vase being formed ON the wheel -->
+  <!-- Clay base blob on wheel -->
+  <ellipse cx="300" cy="545" rx="45" ry="12" fill="#c1603a" opacity="0.7"/>
+  <!-- Rising vase form -->
+  <path d="M258,545 C255,520 260,495 275,475 C285,460 300,455 300,455 C300,455 315,460 325,475 C340,495 345,520 342,545 Z" fill="url(#clay-grad)" filter="url(#softshadow)"/>
+  <!-- Vase neck -->
+  <path d="M275,455 C280,435 295,428 300,425 C305,428 320,435 325,455" fill="url(#clay-grad)"/>
+  <!-- Vase lip -->
+  <ellipse cx="300" cy="424" rx="28" ry="8" fill="#d4855a"/>
+  <!-- Wet clay texture lines (horizontal rings) -->
+  <g stroke="#a04525" stroke-width="1" fill="none" opacity="0.5">
+    <path d="M262,540 Q300,535 338,540"/>
+    <path d="M260,525 Q300,520 340,525"/>
+    <path d="M262,510 Q300,505 338,510"/>
+    <path d="M265,495 Q300,490 335,495"/>
+    <path d="M268,480 Q300,475 332,480"/>
+    <path d="M272,468 Q300,463 328,468"/>
+  </g>
+  <!-- Clay highlight (wet sheen) -->
+  <path d="M272,480 Q268,510 270,540" fill="none" stroke="white" stroke-width="3" opacity="0.18" stroke-linecap="round"/>
+
+  <!-- ===== ARTISAN (POTTER) FIGURE ===== -->
+  <!-- Sitting position - legs/lower body -->
+  <path d="M215,650 Q235,620 265,620 L300,618 L335,620 Q365,620 385,650 L385,700 Q350,720 300,722 Q250,720 215,700 Z" fill="url(#djellaba)" filter="url(#shadow)"/>
+
+  <!-- Upper body/torso -->
+  <path d="M245,530 Q255,510 270,500 Q300,492 330,500 Q345,510 355,530 L360,630 Q330,645 300,648 Q270,645 240,630 Z" fill="url(#djellaba)"/>
+
+  <!-- Djellaba folds -->
+  <path d="M275,500 Q278,560 275,630" fill="none" stroke="#151860" stroke-width="2" opacity="0.4"/>
+  <path d="M325,500 Q322,560 325,630" fill="none" stroke="#151860" stroke-width="2" opacity="0.4"/>
+  <!-- White collar trim -->
+  <path d="M275,500 Q300,495 325,500" fill="none" stroke="white" stroke-width="2" opacity="0.5"/>
+
+  <!-- Head -->
+  <ellipse cx="300" cy="480" rx="32" ry="35" fill="url(#skin)"/>
+  <!-- Skull cap (taqiyya) -->
+  <path d="M268,470 Q272,445 300,440 Q328,445 332,470 Z" fill="#2b2fa0"/>
+  <!-- White trim on cap -->
+  <path d="M268,470 Q284,462 300,460 Q316,462 332,470" fill="none" stroke="white" stroke-width="1.5"/>
+
+  <!-- Eyes -->
+  <ellipse cx="289" cy="476" rx="4.5" ry="4" fill="#1a0f08"/>
+  <ellipse cx="311" cy="476" rx="4.5" ry="4" fill="#1a0f08"/>
+  <!-- Eye highlights -->
+  <circle cx="291" cy="474" r="1.2" fill="white"/>
+  <circle cx="313" cy="474" r="1.2" fill="white"/>
+  <!-- Eyebrows -->
+  <path d="M283,470 Q289,467 295,470" fill="none" stroke="#5a3010" stroke-width="2" stroke-linecap="round"/>
+  <path d="M305,470 Q311,467 317,470" fill="none" stroke="#5a3010" stroke-width="2" stroke-linecap="round"/>
+  <!-- Nose -->
+  <path d="M298,481 L296,490 Q300,493 304,490 L302,481" fill="#a06030" opacity="0.45"/>
+  <!-- Gentle downward concentration look - mouth -->
+  <path d="M293,498 Q300,502 307,498" fill="none" stroke="#9a5020" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Arms reaching down to pottery wheel -->
+  <!-- Left arm -->
+  <path d="M255,540 Q230,545 220,545" stroke="#C68642" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <path d="M255,540 Q230,545 220,545" stroke="#2b2fa0" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.35"/>
+  <!-- Left hand on clay -->
+  <ellipse cx="218" cy="510" rx="14" ry="10" fill="#C68642" transform="rotate(-30,218,510)"/>
+  <!-- Right arm -->
+  <path d="M345,540 Q370,545 380,545" stroke="#C68642" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <path d="M345,540 Q370,545 380,545" stroke="#2b2fa0" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.35"/>
+  <!-- Right hand on clay -->
+  <ellipse cx="382" cy="510" rx="14" ry="10" fill="#C68642" transform="rotate(30,382,510)"/>
+
+  <!-- Clay-covered hands detail -->
+  <ellipse cx="260" cy="540" rx="18" ry="13" fill="#C68642"/>
+  <ellipse cx="340" cy="540" rx="18" ry="13" fill="#C68642"/>
+  <!-- Clay on hands -->
+  <ellipse cx="260" cy="540" rx="16" ry="11" fill="#c1603a" opacity="0.3"/>
+  <ellipse cx="340" cy="540" rx="16" ry="11" fill="#c1603a" opacity="0.3"/>
+
+  <!-- ===== DECORATIVE POTTERY DISPLAY (shelf line) ===== -->
+  <rect x="36" y="370" width="80" height="8" rx="2" fill="#8B5E3C" opacity="0.7"/>
+  <rect x="484" y="370" width="80" height="8" rx="2" fill="#8B5E3C" opacity="0.7"/>
+
+  <!-- Small decorative tiles (zellige squares) on workshop wall -->
+  <g opacity="0.5">
+    <rect x="45" y="150" width="20" height="20" fill="#2b2fa0" rx="2"/>
+    <polygon points="55,153 63,161 55,169 47,161" fill="#d4a843"/>
+    <rect x="535" y="150" width="20" height="20" fill="#2b2fa0" rx="2"/>
+    <polygon points="545,153 553,161 545,169 537,161" fill="#d4a843"/>
+    <rect x="45" y="300" width="20" height="20" fill="#2b2fa0" rx="2"/>
+    <polygon points="55,303 63,311 55,319 47,311" fill="#d4a843"/>
+    <rect x="535" y="300" width="20" height="20" fill="#2b2fa0" rx="2"/>
+    <polygon points="545,303 553,311 545,319 537,311" fill="#d4a843"/>
+  </g>
+
+  <!-- Bottom cobalt decorative band -->
+  <rect x="36" y="718" width="528" height="54" fill="#2b2fa0" opacity="0.92"/>
+  <line x1="50" y1="726" x2="550" y2="726" stroke="#d4a843" stroke-width="1.2"/>
+  <line x1="50" y1="762" x2="550" y2="762" stroke="#d4a843" stroke-width="1.2"/>
+
+  <!-- Ornament dots on label band -->
+  <g fill="#d4a843">
+    <polygon points="300,722 305,727 300,732 295,727"/>
+    <polygon points="160,722 165,727 160,732 155,727"/>
+    <polygon points="440,722 445,727 440,732 435,727"/>
+    <circle cx="100" cy="727" r="2"/>
+    <circle cx="500" cy="727" r="2"/>
+  </g>
+
+  <!-- Label text -->
+  <text x="300" y="745" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#d4a843" text-anchor="middle" letter-spacing="4">SAFI · MAROC</text>
+  <text x="300" y="758" font-family="Georgia, serif" font-size="10" fill="#f5f0e8" text-anchor="middle" letter-spacing="3" opacity="0.8">POTERIE TRADITIONNELLE · CÉRAMIQUE FASSI</text>
+
+  <!-- Light rays from window (atmosphere) -->
+  <path d="M500,36 L400,300 L564,300 Z" fill="white" opacity="0.04"/>
+  <path d="M500,36 L380,400 L564,400 Z" fill="white" opacity="0.03"/>
+
+  <!-- Title text area -->
+  <text x="300" y="168" font-family="Georgia, serif" font-size="13" fill="#2b2fa0" text-anchor="middle" letter-spacing="3" opacity="0.75">MAÎTRE POTIER</text>
+  <line x1="140" y1="172" x2="230" y2="172" stroke="#d4a843" stroke-width="1"/>
+  <line x1="370" y1="172" x2="460" y2="172" stroke="#d4a843" stroke-width="1"/>
+</svg>

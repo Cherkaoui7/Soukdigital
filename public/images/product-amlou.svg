@@ -1,0 +1,336 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <!-- Warm terracotta/earth background -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4856a"/>
+      <stop offset="50%" stop-color="#b8603a"/>
+      <stop offset="100%" stop-color="#8a3a18"/>
+    </linearGradient>
+
+    <!-- Table surface gradient -->
+    <linearGradient id="tableGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c0845a"/>
+      <stop offset="100%" stop-color="#8a5028"/>
+    </linearGradient>
+
+    <!-- Ceramic bowl gradient - rustic teal/terracotta -->
+    <radialGradient id="bowlGrad" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#7ab8a8"/>
+      <stop offset="40%" stop-color="#4a8878"/>
+      <stop offset="80%" stop-color="#2a6858"/>
+      <stop offset="100%" stop-color="#1a4840"/>
+    </radialGradient>
+
+    <!-- Bowl exterior side gradient -->
+    <linearGradient id="bowlSide" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5a9888"/>
+      <stop offset="50%" stop-color="#3a7868"/>
+      <stop offset="100%" stop-color="#1a4840"/>
+    </linearGradient>
+
+    <!-- Bowl lip/rim gradient -->
+    <linearGradient id="bowlRim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8ad0c0"/>
+      <stop offset="100%" stop-color="#4a9888"/>
+    </linearGradient>
+
+    <!-- Amlou paste gradient (dark brown/nutty) -->
+    <radialGradient id="amllouGrad" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#8b5e35"/>
+      <stop offset="40%" stop-color="#6a4020"/>
+      <stop offset="80%" stop-color="#4a2c10"/>
+      <stop offset="100%" stop-color="#3a1e08"/>
+    </radialGradient>
+
+    <!-- Honey drizzle gradient -->
+    <linearGradient id="honeyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0b830"/>
+      <stop offset="50%" stop-color="#d4880c"/>
+      <stop offset="100%" stop-color="#b06808"/>
+    </linearGradient>
+
+    <!-- Wooden spoon gradient -->
+    <linearGradient id="spoonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4a870"/>
+      <stop offset="40%" stop-color="#b08040"/>
+      <stop offset="100%" stop-color="#7a5020"/>
+    </linearGradient>
+
+    <!-- Almond gradient -->
+    <radialGradient id="almondGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#e8d0a0"/>
+      <stop offset="50%" stop-color="#c8a860"/>
+      <stop offset="100%" stop-color="#907030"/>
+    </radialGradient>
+
+    <!-- Argan nut gradient -->
+    <radialGradient id="arganGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#c09060"/>
+      <stop offset="50%" stop-color="#906838"/>
+      <stop offset="100%" stop-color="#6a4820"/>
+    </radialGradient>
+
+    <!-- Honeycomb wax gradient -->
+    <linearGradient id="honeycombGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0c040"/>
+      <stop offset="50%" stop-color="#d4980c"/>
+      <stop offset="100%" stop-color="#b07008"/>
+    </linearGradient>
+
+    <!-- Label gradient -->
+    <linearGradient id="labelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5c2800"/>
+      <stop offset="100%" stop-color="#3a1800"/>
+    </linearGradient>
+
+    <!-- Zellige border pattern -->
+    <pattern id="zelligeBorder" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#5c2800"/>
+      <polygon points="20,2 23,14 35,14 25,22 29,35 20,27 11,35 15,22 5,14 17,14" fill="#d4a843" opacity="0.9"/>
+      <rect x="16" y="16" width="8" height="8" fill="#3a8a6e" transform="rotate(45,20,20)"/>
+      <circle cx="20" cy="20" r="3" fill="#f5f0e8" opacity="0.5"/>
+    </pattern>
+
+    <!-- Drop shadow filter -->
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="2" dy="8" stdDeviation="15" flood-color="#2a0800" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Soft glow filter for honey -->
+    <filter id="honeyGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip for bowl content -->
+    <clipPath id="bowlClip">
+      <ellipse cx="300" cy="395" rx="155" ry="80"/>
+    </clipPath>
+
+    <!-- Bowl shadow -->
+    <radialGradient id="bowlShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.4"/>
+    </radialGradient>
+
+    <!-- Ceramic decoration pattern -->
+    <pattern id="ceramicDecor" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <rect width="30" height="30" fill="none"/>
+      <circle cx="15" cy="15" r="6" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+      <line x1="15" y1="9" x2="15" y2="21" stroke="#ffffff" stroke-width="0.8" opacity="0.25"/>
+      <line x1="9" y1="15" x2="21" y2="15" stroke="#ffffff" stroke-width="0.8" opacity="0.25"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="800" fill="url(#bgGrad)"/>
+
+  <!-- Tabletop surface shadow/plane -->
+  <rect y="580" width="600" height="220" fill="url(#tableGrad)" opacity="0.7"/>
+
+  <!-- Subtle background tile pattern -->
+  <g opacity="0.08">
+    <circle cx="100" cy="150" r="40" fill="none" stroke="#f5f0e8" stroke-width="1"/>
+    <circle cx="500" cy="150" r="40" fill="none" stroke="#f5f0e8" stroke-width="1"/>
+    <circle cx="100" cy="650" r="40" fill="none" stroke="#f5f0e8" stroke-width="1"/>
+    <circle cx="500" cy="650" r="40" fill="none" stroke="#f5f0e8" stroke-width="1"/>
+    <polygon points="100,110 108,130 130,130 113,142 120,164 100,152 80,164 87,142 70,130 92,130" fill="#d4a843"/>
+    <polygon points="500,110 508,130 530,130 513,142 520,164 500,152 480,164 487,142 470,130 492,130" fill="#d4a843"/>
+  </g>
+
+  <!-- Zellige border -->
+  <rect x="0" y="0" width="600" height="28" fill="url(#zelligeBorder)" opacity="0.9"/>
+  <rect x="0" y="772" width="600" height="28" fill="url(#zelligeBorder)" opacity="0.9"/>
+  <rect x="0" y="0" width="28" height="800" fill="url(#zelligeBorder)" opacity="0.9"/>
+  <rect x="572" y="0" width="28" height="800" fill="url(#zelligeBorder)" opacity="0.9"/>
+
+  <!-- WOODEN SPOON (behind bowl) -->
+  <g filter="url(#dropShadow)" transform="rotate(-30, 430, 450)">
+    <!-- Spoon handle -->
+    <rect x="418" y="280" width="22" height="200" rx="11" fill="url(#spoonGrad)"/>
+    <!-- Spoon bowl -->
+    <ellipse cx="429" cy="274" rx="28" ry="20" fill="url(#spoonGrad)"/>
+    <!-- Handle wood grain -->
+    <line x1="424" y1="295" x2="432" y2="295" stroke="#906030" stroke-width="1" opacity="0.5"/>
+    <line x1="422" y1="320" x2="436" y2="320" stroke="#906030" stroke-width="1" opacity="0.4"/>
+    <line x1="422" y1="345" x2="436" y2="345" stroke="#906030" stroke-width="1" opacity="0.4"/>
+    <line x1="422" y1="370" x2="436" y2="370" stroke="#906030" stroke-width="1" opacity="0.4"/>
+    <line x1="423" y1="395" x2="435" y2="395" stroke="#906030" stroke-width="1" opacity="0.4"/>
+    <line x1="424" y1="420" x2="434" y2="420" stroke="#906030" stroke-width="1" opacity="0.4"/>
+    <!-- Spoon inner indent -->
+    <ellipse cx="429" cy="272" rx="20" ry="14" fill="#7a4f20" opacity="0.7"/>
+    <!-- Amlou in spoon -->
+    <ellipse cx="429" cy="272" rx="16" ry="11" fill="#5a3010" opacity="0.9"/>
+  </g>
+
+  <!-- CERAMIC BOWL BODY -->
+  <g filter="url(#dropShadow)">
+    <!-- Bowl bottom/base -->
+    <ellipse cx="300" cy="530" rx="135" ry="22" fill="url(#bowlSide)" opacity="0.9"/>
+
+    <!-- Bowl side body - tapered shape -->
+    <path d="M145,440 Q145,530 165,540 Q225,560 300,560 Q375,560 435,540 Q455,530 455,440 Q390,420 300,418 Q210,420 145,440 Z" fill="url(#bowlSide)"/>
+
+    <!-- Ceramic decoration band on outside -->
+    <path d="M145,440 Q145,455 147,468 Q210,488 300,490 Q390,488 453,468 Q455,455 455,440 Q390,430 300,428 Q210,430 145,440 Z" fill="url(#ceramicDecor)" opacity="0.4"/>
+
+    <!-- Bowl decorative stripe - terracotta on teal ceramic -->
+    <path d="M155,472 Q225,492 300,494 Q375,492 445,472 L443,482 Q373,502 300,504 Q227,502 157,482 Z" fill="#c1603a" opacity="0.85"/>
+    <!-- Gold stripe outline -->
+    <path d="M155,470 Q225,490 300,492 Q375,490 445,470" stroke="#d4a843" stroke-width="2" fill="none" opacity="0.7"/>
+    <path d="M157,484 Q227,504 300,506 Q373,504 443,484" stroke="#d4a843" stroke-width="2" fill="none" opacity="0.7"/>
+
+    <!-- Second decorative band near top of bowl -->
+    <path d="M147,448 Q215,466 300,468 Q385,466 453,448 L453,456 Q385,474 300,476 Q215,474 147,456 Z" fill="#2b2fa0" opacity="0.4"/>
+
+    <!-- Bowl rim -->
+    <ellipse cx="300" cy="438" rx="155" ry="22" fill="url(#bowlRim)" stroke="#6ab8a8" stroke-width="2"/>
+    <!-- Rim highlight -->
+    <ellipse cx="288" cy="433" rx="100" ry="12" fill="#9ad8c8" opacity="0.35"/>
+  </g>
+
+  <!-- AMLOU PASTE in bowl -->
+  <g>
+    <!-- Paste surface -->
+    <ellipse cx="300" cy="395" rx="155" ry="80" fill="url(#amllouGrad)"/>
+
+    <!-- Paste texture - swirled surface -->
+    <ellipse cx="285" cy="385" rx="100" ry="52" fill="#5a3820" opacity="0.5"/>
+    <ellipse cx="310" cy="400" rx="120" ry="58" fill="#4a2c18" opacity="0.3"/>
+
+    <!-- Paste highlights/sheen (oil from argan) -->
+    <ellipse cx="262" cy="375" rx="45" ry="22" fill="#8b5e35" opacity="0.4"/>
+    <ellipse cx="270" cy="370" rx="25" ry="12" fill="#c08050" opacity="0.25"/>
+
+    <!-- Surface ripple/texture details -->
+    <path d="M185,395 Q230,380 285,382 Q330,378 385,390" stroke="#6a4025" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M190,408 Q240,395 300,396 Q350,394 405,405" stroke="#6a4025" stroke-width="2" fill="none" opacity="0.4"/>
+    <path d="M220,418 Q265,408 310,408 Q355,406 380,414" stroke="#6a4025" stroke-width="1.5" fill="none" opacity="0.35"/>
+
+    <!-- HONEY DRIZZLE on top of amlou -->
+    <g filter="url(#honeyGlow)">
+      <!-- Honey drizzle trails -->
+      <path d="M310,345 Q320,358 315,370 Q308,382 320,390 Q332,398 328,410" stroke="url(#honeyGrad)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.9"/>
+      <path d="M290,348 Q282,360 286,372 Q292,384 280,394 Q270,404 278,416" stroke="url(#honeyGrad)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
+      <path d="M330,352 Q340,365 338,378 Q334,390 342,400" stroke="url(#honeyGrad)" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.75"/>
+
+      <!-- Honey pool droplets -->
+      <ellipse cx="322" cy="410" rx="12" ry="8" fill="#e8a820" opacity="0.9"/>
+      <ellipse cx="276" cy="416" rx="10" ry="7" fill="#e8a820" opacity="0.85"/>
+      <ellipse cx="342" cy="402" rx="8" ry="6" fill="#f0c030" opacity="0.8"/>
+    </g>
+  </g>
+
+  <!-- Bowl content shadow overlay -->
+  <ellipse cx="300" cy="395" rx="155" ry="80" fill="url(#bowlShadow)"/>
+
+  <!-- SCATTERED ALMONDS around bowl -->
+  <g filter="url(#dropShadow)">
+    <!-- Almond 1 - bottom left -->
+    <g transform="translate(148,535) rotate(-25)">
+      <ellipse cx="0" cy="0" rx="22" ry="13" fill="url(#almondGrad)"/>
+      <ellipse cx="-4" cy="-2" rx="14" ry="8" fill="#e0c890" opacity="0.5"/>
+      <path d="M-18,0 Q0,-5 18,0 Q0,5 -18,0 Z" stroke="#a07030" stroke-width="1" fill="none" opacity="0.5"/>
+    </g>
+    <!-- Almond 2 -->
+    <g transform="translate(120,495) rotate(15)">
+      <ellipse cx="0" cy="0" rx="20" ry="12" fill="url(#almondGrad)"/>
+      <ellipse cx="-3" cy="-2" rx="12" ry="7" fill="#e0c890" opacity="0.5"/>
+    </g>
+    <!-- Almond 3 - top right -->
+    <g transform="translate(460,330) rotate(40)">
+      <ellipse cx="0" cy="0" rx="22" ry="13" fill="url(#almondGrad)"/>
+      <ellipse cx="-4" cy="-2" rx="13" ry="8" fill="#e0c890" opacity="0.5"/>
+    </g>
+    <!-- Almond 4 -->
+    <g transform="translate(480,370) rotate(-10)">
+      <ellipse cx="0" cy="0" rx="20" ry="12" fill="url(#almondGrad)"/>
+      <ellipse cx="-3" cy="-2" rx="12" ry="7" fill="#e0c890" opacity="0.5"/>
+    </g>
+    <!-- Almond 5 - scattered near bowl bottom -->
+    <g transform="translate(430,540) rotate(60)">
+      <ellipse cx="0" cy="0" rx="18" ry="11" fill="url(#almondGrad)"/>
+      <ellipse cx="-3" cy="-2" rx="11" ry="7" fill="#e0c890" opacity="0.5"/>
+    </g>
+    <!-- Half almond showing inside -->
+    <g transform="translate(165,580) rotate(20)">
+      <path d="M-18,0 A18,11 0 0 1 18,0 L15,2 Q0,8 -15,2 Z" fill="#d4a860"/>
+      <path d="M-18,0 A18,11 0 0 1 18,0 Z" fill="url(#almondGrad)"/>
+      <ellipse cx="0" cy="-1" rx="12" ry="6" fill="#c09050" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- ARGAN NUTS (smaller, rounder, darker) -->
+  <g filter="url(#dropShadow)">
+    <ellipse cx="140" cy="430" rx="15" ry="12" fill="url(#arganGrad)"/>
+    <ellipse cx="136" cy="427" rx="9" ry="7" fill="#c09060" opacity="0.4"/>
+
+    <ellipse cx="160" cy="412" rx="14" ry="11" fill="url(#arganGrad)"/>
+
+    <ellipse cx="460" cy="420" rx="15" ry="12" fill="url(#arganGrad)"/>
+    <ellipse cx="456" cy="417" rx="9" ry="7" fill="#c09060" opacity="0.4"/>
+
+    <ellipse cx="478" cy="445) " rx="13" ry="10" fill="url(#arganGrad)"/>
+    <ellipse cx="475" cy="442" rx="8" ry="6" fill="#c09060" opacity="0.4"/>
+  </g>
+
+  <!-- HONEYCOMB PIECE - small section to the right of bowl -->
+  <g transform="translate(468,280)" filter="url(#dropShadow)">
+    <!-- Hexagon cells of honeycomb -->
+    <g fill="url(#honeycombGrad)" stroke="#c07808" stroke-width="1.2">
+      <polygon points="20,0 40,0 50,17 40,34 20,34 10,17"/>
+      <polygon points="50,17 70,17 80,34 70,51 50,51 40,34"/>
+      <polygon points="10,17 30,17 40,34 30,51 10,51 0,34"/>
+      <polygon points="20,34 40,34 50,51 40,68 20,68 10,51"/>
+      <polygon points="50,51 70,51 80,68 70,85 50,85 40,68"/>
+      <polygon points="10,51 30,51 40,68 30,85 10,85 0,68"/>
+    </g>
+    <!-- Honey fill in cells -->
+    <g fill="#f0c030" opacity="0.5">
+      <polygon points="25,6 35,6 41,17 35,28 25,28 19,17"/>
+      <polygon points="55,23 65,23 71,34 65,45 55,45 49,34"/>
+      <polygon points="15,23 25,23 31,34 25,45 15,45 9,34"/>
+      <polygon points="25,40 35,40 41,51 35,62 25,62 19,51"/>
+      <polygon points="55,57 65,57 71,68 65,79 55,79 49,68"/>
+      <polygon points="15,57 25,57 31,68 25,79 15,79 9,68"/>
+    </g>
+    <!-- Honey drip from honeycomb -->
+    <path d="M40,85 Q42,100 38,115 Q36,125 40,132" stroke="#d49010" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.85"/>
+    <ellipse cx="39" cy="134" rx="6" ry="8" fill="#e0a010" opacity="0.9"/>
+  </g>
+
+  <!-- Additional scattered argan nuts near honeycomb -->
+  <ellipse cx="475" cy="295" rx="12" ry="9" fill="url(#arganGrad)" filter="url(#dropShadow)"/>
+  <ellipse cx="458" cy="312" rx="11" ry="8" fill="url(#arganGrad)" filter="url(#dropShadow)"/>
+
+  <!-- Ground shadows for all objects -->
+  <ellipse cx="300" cy="562" rx="145" ry="18" fill="#2a0800" opacity="0.5"/>
+  <ellipse cx="430" cy="468" rx="40" ry="8" fill="#2a0800" opacity="0.35" transform="rotate(-30,430,468)"/>
+
+  <!-- Bottom label strip -->
+  <rect x="0" y="720" width="600" height="80" fill="url(#labelGrad)"/>
+  <rect x="0" y="720" width="600" height="3" fill="#d4a843"/>
+
+  <!-- Label text -->
+  <text x="300" y="752" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#d4a843" letter-spacing="4">AGADIR</text>
+  <text x="300" y="775" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#f5f0e8" letter-spacing="2" font-weight="bold">Amlou maison</text>
+
+  <!-- Label stars -->
+  <polygon points="100,758 102,764 108,764 103,768 105,774 100,770 95,774 97,768 92,764 98,764" fill="#d4a843" opacity="0.8"/>
+  <polygon points="500,758 502,764 508,764 503,768 505,774 500,770 495,774 497,768 492,764 498,764" fill="#d4a843" opacity="0.8"/>
+
+  <!-- Corner decorations -->
+  <g opacity="0.7">
+    <rect x="28" y="28" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="43,31 45,38 52,38 47,42 49,49 43,45 37,49 39,42 34,38 41,38" fill="#d4a843"/>
+    <rect x="542" y="28" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="557,31 559,38 566,38 561,42 563,49 557,45 551,49 553,42 548,38 555,38" fill="#d4a843"/>
+    <rect x="28" y="742" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="43,745 45,752 52,752 47,756 49,763 43,759 37,763 39,756 34,752 41,752" fill="#d4a843"/>
+    <rect x="542" y="742" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="557,745 559,752 566,752 561,756 563,763 557,759 551,763 553,756 548,752 555,752" fill="#d4a843"/>
+  </g>
+</svg>

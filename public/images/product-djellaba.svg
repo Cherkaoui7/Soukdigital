@@ -1,0 +1,354 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <!-- Chefchaouen blue wall gradient -->
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a90c4"/>
+      <stop offset="40%" stop-color="#2b6ea8"/>
+      <stop offset="100%" stop-color="#1a4f80"/>
+    </linearGradient>
+
+    <!-- Floor gradient -->
+    <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c8a882"/>
+      <stop offset="100%" stop-color="#a07850"/>
+    </linearGradient>
+
+    <!-- Djellaba linen gradient - natural sand/linen color -->
+    <linearGradient id="linenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0e8d0"/>
+      <stop offset="30%" stop-color="#e8dcc0"/>
+      <stop offset="70%" stop-color="#d8cca8"/>
+      <stop offset="100%" stop-color="#c8b890"/>
+    </linearGradient>
+
+    <!-- Hood gradient -->
+    <linearGradient id="hoodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede4cc"/>
+      <stop offset="50%" stop-color="#d8cca8"/>
+      <stop offset="100%" stop-color="#b8a888"/>
+    </linearGradient>
+
+    <!-- Djellaba shadow/fold -->
+    <linearGradient id="foldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b0a080" stop-opacity="0.8"/>
+      <stop offset="30%" stop-color="#d8cca8" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#d8cca8" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#a89870" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <!-- Label gradient -->
+    <linearGradient id="labelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a4f80"/>
+      <stop offset="100%" stop-color="#0d2f50"/>
+    </linearGradient>
+
+    <!-- Wall tile pattern -->
+    <pattern id="wallTile" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <rect width="60" height="60" fill="none"/>
+      <!-- Subtle paint texture lines -->
+      <line x1="0" y1="30" x2="60" y2="30" stroke="#2060a0" stroke-width="0.3" opacity="0.3"/>
+      <line x1="30" y1="0" x2="30" y2="60" stroke="#2060a0" stroke-width="0.3" opacity="0.3"/>
+    </pattern>
+
+    <!-- Zellige border pattern -->
+    <pattern id="zelligeBorder" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#1a4f80"/>
+      <polygon points="20,2 23,14 35,14 25,22 29,35 20,27 11,35 15,22 5,14 17,14" fill="#d4a843" opacity="0.9"/>
+      <rect x="16" y="16" width="8" height="8" fill="#c1603a" transform="rotate(45,20,20)"/>
+      <circle cx="20" cy="20" r="3" fill="#f5f0e8" opacity="0.5"/>
+    </pattern>
+
+    <!-- Fabric texture pattern -->
+    <pattern id="linenTexture" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="none"/>
+      <line x1="0" y1="0" x2="8" y2="0" stroke="#c0a878" stroke-width="0.4" opacity="0.4"/>
+      <line x1="0" y1="4" x2="8" y2="4" stroke="#c0a878" stroke-width="0.4" opacity="0.4"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#b89860" stroke-width="0.4" opacity="0.3"/>
+      <line x1="4" y1="0" x2="4" y2="8" stroke="#b89860" stroke-width="0.4" opacity="0.3"/>
+    </pattern>
+
+    <!-- Drop shadow -->
+    <filter id="dropShadow">
+      <feDropShadow dx="3" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+
+    <!-- Soft shadow for garment -->
+    <filter id="garmentShadow" x="-20%" y="-10%" width="140%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="18" flood-color="#1a4f80" flood-opacity="0.35"/>
+    </filter>
+
+    <!-- Embroidery gold gradient -->
+    <linearGradient id="embroideryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a07820"/>
+      <stop offset="50%" stop-color="#d4a843"/>
+      <stop offset="100%" stop-color="#a07820"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Chefchaouen blue background wall -->
+  <rect width="600" height="720" fill="url(#wallGrad)"/>
+  <rect width="600" height="720" fill="url(#wallTile)" opacity="0.15"/>
+
+  <!-- Floor -->
+  <rect y="620" width="600" height="180" fill="url(#floorGrad)"/>
+  <!-- Floor tile lines -->
+  <g stroke="#a07040" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="660" x2="600" y2="660"/>
+    <line x1="0" y1="700" x2="600" y2="700"/>
+    <line x1="100" y1="620" x2="100" y2="720"/>
+    <line x1="200" y1="620" x2="200" y2="720"/>
+    <line x1="300" y1="620" x2="300" y2="720"/>
+    <line x1="400" y1="620" x2="400" y2="720"/>
+    <line x1="500" y1="620" x2="500" y2="720"/>
+  </g>
+
+  <!-- Wall paint texture - characteristic Chefchaouen peeling paint details -->
+  <g opacity="0.08">
+    <ellipse cx="100" cy="200" rx="30" ry="20" fill="#6aaad8"/>
+    <ellipse cx="480" cy="350" rx="25" ry="15" fill="#6aaad8"/>
+    <ellipse cx="520" cy="180" rx="20" ry="30" fill="#6aaad8"/>
+    <ellipse cx="80" cy="450" rx="15" ry="25" fill="#6aaad8"/>
+  </g>
+
+  <!-- Zellige border -->
+  <rect x="0" y="0" width="600" height="28" fill="url(#zelligeBorder)" opacity="0.8"/>
+  <rect x="0" y="772" width="600" height="28" fill="url(#zelligeBorder)" opacity="0.8"/>
+  <rect x="0" y="0" width="28" height="800" fill="url(#zelligeBorder)" opacity="0.8"/>
+  <rect x="572" y="0" width="28" height="800" fill="url(#zelligeBorder)" opacity="0.8"/>
+
+  <!-- DJELLABA GARMENT -->
+  <g filter="url(#garmentShadow)">
+
+    <!-- Djellaba body main shape - wide flowing robe -->
+    <path d="M190,320
+             Q170,330 155,360
+             Q140,390 130,430
+             Q115,490 110,560
+             Q108,590 115,620
+             L485,620
+             Q492,590 490,560
+             Q485,490 470,430
+             Q460,390 445,360
+             Q430,330 410,320
+             Q380,310 350,308
+             L300,305
+             L250,308
+             Q220,310 190,320 Z"
+          fill="url(#linenGrad)" stroke="#c0a870" stroke-width="1.5"/>
+
+    <!-- Fabric texture overlay on body -->
+    <path d="M190,320
+             Q170,330 155,360
+             Q140,390 130,430
+             Q115,490 110,560
+             Q108,590 115,620
+             L485,620
+             Q492,590 490,560
+             Q485,490 470,430
+             Q460,390 445,360
+             Q430,330 410,320
+             Q380,310 350,308
+             L300,305
+             L250,308
+             Q220,310 190,320 Z"
+          fill="url(#linenTexture)" opacity="0.3"/>
+
+    <!-- Center front opening seam -->
+    <path d="M300,380 Q298,450 296,520 Q295,570 295,620" stroke="#b8a880" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M300,380 Q302,450 304,520 Q305,570 305,620" stroke="#b8a880" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+    <!-- Fabric fold shadows -->
+    <path d="M190,320 Q175,380 165,460 Q158,520 158,580 Q158,600 160,620" stroke="#a09060" stroke-width="3" fill="none" opacity="0.4"/>
+    <path d="M410,320 Q425,380 435,460 Q442,520 442,580 Q442,600 440,620" stroke="#a09060" stroke-width="3" fill="none" opacity="0.4"/>
+
+    <!-- More subtle fold lines -->
+    <path d="M220,340 Q210,400 205,480 Q202,540 204,620" stroke="#b0a070" stroke-width="1.5" fill="none" opacity="0.3"/>
+    <path d="M380,340 Q390,400 395,480 Q398,540 396,620" stroke="#b0a070" stroke-width="1.5" fill="none" opacity="0.3"/>
+    <path d="M260,320 Q255,380 250,460 Q248,530 250,620" stroke="#b0a070" stroke-width="1.5" fill="none" opacity="0.25"/>
+    <path d="M340,320 Q345,380 350,460 Q352,530 350,620" stroke="#b0a070" stroke-width="1.5" fill="none" opacity="0.25"/>
+
+    <!-- Side shadow gradients -->
+    <path d="M110,560 Q115,590 120,620 L200,620 L190,320 Q155,360 140,430 Z" fill="url(#foldGrad)" opacity="0.3"/>
+    <path d="M490,560 Q485,590 480,620 L400,620 L410,320 Q445,360 460,430 Z" fill="url(#foldGrad)" opacity="0.3"/>
+
+    <!-- Sleeves -->
+    <!-- Left sleeve -->
+    <path d="M185,325
+             Q160,340 140,370
+             Q118,400 100,430
+             Q85,455 80,475
+             Q78,485 82,490
+             Q92,494 108,485
+             Q125,472 142,455
+             Q162,434 178,408
+             Q192,382 195,355 Z"
+          fill="url(#linenGrad)" stroke="#c0a870" stroke-width="1.5"/>
+    <!-- Sleeve texture -->
+    <path d="M185,325
+             Q160,340 140,370
+             Q118,400 100,430
+             Q85,455 80,475
+             Q78,485 82,490
+             Q92,494 108,485
+             Q125,472 142,455
+             Q162,434 178,408
+             Q192,382 195,355 Z"
+          fill="url(#linenTexture)" opacity="0.3"/>
+    <!-- Left sleeve fold -->
+    <path d="M155,350 Q130,385 105,430 Q90,460 84,480" stroke="#a09060" stroke-width="2" fill="none" opacity="0.35"/>
+    <!-- Left cuff embroidery -->
+    <g transform="translate(80,472) rotate(-25)">
+      <rect x="-30" y="-6" width="60" height="12" rx="3" fill="#d4a843" opacity="0.9"/>
+      <g stroke="#a07820" stroke-width="0.8" fill="none">
+        <path d="M-28,-4 L-20,0 L-28,4"/>
+        <path d="M-16,-4 Q-10,0 -16,4"/>
+        <path d="M-8,-4 L0,0 L-8,4"/>
+        <path d="M4,-4 Q10,0 4,4"/>
+        <path d="M12,-4 L20,0 L12,4"/>
+        <path d="M24,-4 Q28,0 24,4"/>
+      </g>
+      <!-- Cuff dots -->
+      <circle cx="-24" cy="0" r="1.5" fill="#c1603a"/>
+      <circle cx="-4" cy="0" r="1.5" fill="#c1603a"/>
+      <circle cx="16" cy="0" r="1.5" fill="#c1603a"/>
+    </g>
+
+    <!-- Right sleeve -->
+    <path d="M415,325
+             Q440,340 460,370
+             Q482,400 500,430
+             Q515,455 520,475
+             Q522,485 518,490
+             Q508,494 492,485
+             Q475,472 458,455
+             Q438,434 422,408
+             Q408,382 405,355 Z"
+          fill="url(#linenGrad)" stroke="#c0a870" stroke-width="1.5"/>
+    <!-- Right sleeve texture -->
+    <path d="M415,325
+             Q440,340 460,370
+             Q482,400 500,430
+             Q515,455 520,475
+             Q522,485 518,490
+             Q508,494 492,485
+             Q475,472 458,455
+             Q438,434 422,408
+             Q408,382 405,355 Z"
+          fill="url(#linenTexture)" opacity="0.3"/>
+    <!-- Right sleeve fold -->
+    <path d="M445,350 Q470,385 495,430 Q510,460 516,480" stroke="#a09060" stroke-width="2" fill="none" opacity="0.35"/>
+    <!-- Right cuff embroidery -->
+    <g transform="translate(520,472) rotate(25)">
+      <rect x="-30" y="-6" width="60" height="12" rx="3" fill="#d4a843" opacity="0.9"/>
+      <g stroke="#a07820" stroke-width="0.8" fill="none">
+        <path d="M-28,-4 L-20,0 L-28,4"/>
+        <path d="M-16,-4 Q-10,0 -16,4"/>
+        <path d="M-8,-4 L0,0 L-8,4"/>
+        <path d="M4,-4 Q10,0 4,4"/>
+        <path d="M12,-4 L20,0 L12,4"/>
+        <path d="M24,-4 Q28,0 24,4"/>
+      </g>
+      <circle cx="-24" cy="0" r="1.5" fill="#c1603a"/>
+      <circle cx="-4" cy="0" r="1.5" fill="#c1603a"/>
+      <circle cx="16" cy="0" r="1.5" fill="#c1603a"/>
+    </g>
+
+    <!-- HOOD (qob) - pointed Moroccan hood -->
+    <path d="M230,320
+             Q240,290 255,265
+             Q270,235 280,200
+             Q288,168 292,140
+             Q296,110 300,88
+             Q304,110 308,140
+             Q312,168 320,200
+             Q330,235 345,265
+             Q360,290 370,320
+             Q340,312 300,308
+             Q260,312 230,320 Z"
+          fill="url(#hoodGrad)" stroke="#c0a870" stroke-width="1.5" filter="url(#dropShadow)"/>
+
+    <!-- Hood inner shadow for depth -->
+    <path d="M255,320 Q265,295 278,268 Q290,240 298,210 Q301,190 300,170" stroke="#a09060" stroke-width="2" fill="none" opacity="0.4"/>
+    <path d="M345,320 Q335,295 322,268 Q310,240 302,210 Q299,190 300,170" stroke="#a09060" stroke-width="2" fill="none" opacity="0.4"/>
+
+    <!-- Hood tip shadow for shape -->
+    <path d="M292,140 Q290,120 292,100 Q296,88 300,88 Q300,88 300,88" fill="#c0a870" opacity="0.5"/>
+
+    <!-- Hood texture -->
+    <path d="M230,320
+             Q240,290 255,265
+             Q270,235 280,200
+             Q288,168 292,140
+             Q296,110 300,88
+             Q304,110 308,140
+             Q312,168 320,200
+             Q330,235 345,265
+             Q360,290 370,320
+             Q340,312 300,308
+             Q260,312 230,320 Z"
+          fill="url(#linenTexture)" opacity="0.25"/>
+
+    <!-- Collar embroidery - traditional Moroccan collar trim -->
+    <!-- Collar band -->
+    <path d="M252,318 Q276,308 300,306 Q324,308 348,318 L345,330 Q324,320 300,318 Q276,320 255,330 Z" fill="url(#embroideryGrad)"/>
+
+    <!-- Collar embroidery details -->
+    <g stroke="#8b5e10" stroke-width="0.8" fill="none">
+      <path d="M258,323 Q262,318 266,323 Q270,318 274,323"/>
+      <path d="M278,322 Q282,317 286,322 Q290,317 294,322"/>
+      <path d="M298,322 Q302,317 306,322 Q310,317 314,322"/>
+      <path d="M318,322 Q322,317 326,322 Q330,317 334,323"/>
+      <path d="M338,323 Q342,318 346,323"/>
+    </g>
+    <!-- Collar embroidery dots -->
+    <g fill="#c1603a" opacity="0.9">
+      <circle cx="262" cy="320" r="2"/>
+      <circle cx="275" cy="319" r="2"/>
+      <circle cx="288" cy="319" r="2"/>
+      <circle cx="300" cy="318" r="2"/>
+      <circle cx="312" cy="319" r="2"/>
+      <circle cx="325" cy="319" r="2"/>
+      <circle cx="338" cy="320" r="2"/>
+    </g>
+    <!-- Collar geometric pattern -->
+    <g fill="#d4a843" opacity="0.7">
+      <rect x="268" y="324" width="5" height="5" transform="rotate(45,270.5,326.5)"/>
+      <rect x="286" y="323" width="5" height="5" transform="rotate(45,288.5,325.5)"/>
+      <rect x="304" y="323" width="5" height="5" transform="rotate(45,306.5,325.5)"/>
+      <rect x="322" y="323" width="5" height="5" transform="rotate(45,324.5,325.5)"/>
+    </g>
+
+    <!-- Center front button/closure -->
+    <circle cx="300" cy="365" r="8" fill="#d4a843" stroke="#a07820" stroke-width="1.5"/>
+    <circle cx="300" cy="365" r="4" fill="#8b5e10"/>
+    <circle cx="300" cy="395" r="6" fill="#d4a843" stroke="#a07820" stroke-width="1.5"/>
+    <circle cx="300" cy="395" r="3" fill="#8b5e10"/>
+  </g>
+
+  <!-- Garment ground shadow -->
+  <ellipse cx="300" cy="622" rx="165" ry="18" fill="#1a3050" opacity="0.35"/>
+
+  <!-- Bottom label strip -->
+  <rect x="0" y="720" width="600" height="80" fill="url(#labelGrad)"/>
+  <rect x="0" y="720" width="600" height="3" fill="#d4a843"/>
+
+  <!-- Label text -->
+  <text x="300" y="752" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#d4a843" letter-spacing="4">CHEFCHAOUEN</text>
+  <text x="300" y="775" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#f5f0e8" letter-spacing="2" font-weight="bold">Lin naturel</text>
+
+  <!-- Label stars -->
+  <polygon points="100,758 102,764 108,764 103,768 105,774 100,770 95,774 97,768 92,764 98,764" fill="#d4a843" opacity="0.8"/>
+  <polygon points="500,758 502,764 508,764 503,768 505,774 500,770 495,774 497,768 492,764 498,764" fill="#d4a843" opacity="0.8"/>
+
+  <!-- Corner decorations -->
+  <g opacity="0.7">
+    <rect x="28" y="28" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="43,31 45,38 52,38 47,42 49,49 43,45 37,49 39,42 34,38 41,38" fill="#d4a843"/>
+    <rect x="542" y="28" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="557,31 559,38 566,38 561,42 563,49 557,45 551,49 553,42 548,38 555,38" fill="#d4a843"/>
+    <rect x="28" y="742" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="43,745 45,752 52,752 47,756 49,763 43,759 37,763 39,756 34,752 41,752" fill="#d4a843"/>
+    <rect x="542" y="742" width="30" height="30" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+    <polygon points="557,745 559,752 566,752 561,756 563,763 557,759 551,763 553,756 548,752 555,752" fill="#d4a843"/>
+  </g>
+</svg>

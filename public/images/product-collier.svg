@@ -1,0 +1,435 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <!-- Dark velvet background -->
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="60%" stop-color="#0d0d1a"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </radialGradient>
+
+    <!-- Silver gradient for metalwork -->
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8e8e8"/>
+      <stop offset="25%" stop-color="#c0c0c0"/>
+      <stop offset="50%" stop-color="#f0f0f0"/>
+      <stop offset="75%" stop-color="#a0a0a0"/>
+      <stop offset="100%" stop-color="#d0d0d0"/>
+    </linearGradient>
+
+    <!-- Silver sheen for 3D effect -->
+    <linearGradient id="silverSheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#808080"/>
+      <stop offset="30%" stop-color="#f0f0f0"/>
+      <stop offset="60%" stop-color="#c0c0c0"/>
+      <stop offset="100%" stop-color="#707070"/>
+    </linearGradient>
+
+    <!-- Silver radial for medallion -->
+    <radialGradient id="medallionGrad" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#e0e0e0"/>
+      <stop offset="60%" stop-color="#b0b0b0"/>
+      <stop offset="100%" stop-color="#707070"/>
+    </radialGradient>
+
+    <!-- Coral/red enamel gradient -->
+    <radialGradient id="enamRed" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ff7070"/>
+      <stop offset="50%" stop-color="#cc3030"/>
+      <stop offset="100%" stop-color="#880000"/>
+    </radialGradient>
+
+    <!-- Blue enamel gradient -->
+    <radialGradient id="enamBlue" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#6090f0"/>
+      <stop offset="50%" stop-color="#2b2fa0"/>
+      <stop offset="100%" stop-color="#101060"/>
+    </radialGradient>
+
+    <!-- Green enamel gradient -->
+    <radialGradient id="enamGreen" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#60c090"/>
+      <stop offset="50%" stop-color="#3a8a6e"/>
+      <stop offset="100%" stop-color="#1a5040"/>
+    </radialGradient>
+
+    <!-- Gold accent gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0d060"/>
+      <stop offset="50%" stop-color="#d4a843"/>
+      <stop offset="100%" stop-color="#907020"/>
+    </linearGradient>
+
+    <!-- Label gradient -->
+    <linearGradient id="labelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0d0d2e"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </linearGradient>
+
+    <!-- Zellige border pattern -->
+    <pattern id="zelligeBorder" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#0a0a18"/>
+      <polygon points="20,2 23,14 35,14 25,22 29,35 20,27 11,35 15,22 5,14 17,14" fill="#c0c0c0" opacity="0.7"/>
+      <rect x="16" y="16" width="8" height="8" fill="#cc3030" transform="rotate(45,20,20)"/>
+      <circle cx="20" cy="20" r="3" fill="#f5f0e8" opacity="0.4"/>
+    </pattern>
+
+    <!-- Silver glow filter -->
+    <filter id="silverGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Drop shadow -->
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="12" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+
+    <!-- Velvet subtle glow -->
+    <filter id="velvetGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Silver shimmer pattern -->
+    <pattern id="velvetPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="none"/>
+      <circle cx="10" cy="10" r="1" fill="#ffffff" opacity="0.04"/>
+      <line x1="0" y1="0" x2="20" y2="20" stroke="#ffffff" stroke-width="0.3" opacity="0.03"/>
+    </pattern>
+  </defs>
+
+  <!-- Dark velvet background -->
+  <rect width="600" height="800" fill="url(#bgGrad)"/>
+  <rect width="600" height="800" fill="url(#velvetPattern)"/>
+
+  <!-- Subtle glow in center from necklace -->
+  <ellipse cx="300" cy="420" rx="200" ry="180" fill="#c0c0c0" opacity="0.04"/>
+
+  <!-- Zellige border -->
+  <rect x="0" y="0" width="600" height="28" fill="url(#zelligeBorder)" opacity="0.9"/>
+  <rect x="0" y="772" width="600" height="28" fill="url(#zelligeBorder)" opacity="0.9"/>
+  <rect x="0" y="0" width="28" height="800" fill="url(#zelligeBorder)" opacity="0.9"/>
+  <rect x="572" y="0" width="28" height="800" fill="url(#zelligeBorder)" opacity="0.9"/>
+
+  <!-- BERBER SILVER NECKLACE -->
+  <g filter="url(#dropShadow)">
+
+    <!-- Main collar chain - upper curved band -->
+    <path d="M145,295
+             Q175,250 220,235
+             Q260,222 300,220
+             Q340,222 380,235
+             Q425,250 455,295"
+          fill="none" stroke="url(#silverGrad)" stroke-width="18" stroke-linecap="round"/>
+
+    <!-- Collar chain detail - smaller second strand -->
+    <path d="M155,305
+             Q183,265 225,250
+             Q262,237 300,235
+             Q338,237 375,250
+             Q417,265 445,305"
+          fill="none" stroke="url(#silverSheen)" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Chain link texture dots -->
+    <g fill="#d0d0d0" opacity="0.6">
+      <circle cx="170" cy="283" r="5"/>
+      <circle cx="190" cy="265" r="5"/>
+      <circle cx="212" cy="250" r="5"/>
+      <circle cx="235" cy="240" r="5"/>
+      <circle cx="258" cy="233" r="5"/>
+      <circle cx="280" cy="229" r="5"/>
+      <circle cx="300" cy="227" r="5"/>
+      <circle cx="320" cy="229" r="5"/>
+      <circle cx="342" cy="233" r="5"/>
+      <circle cx="365" cy="240" r="5"/>
+      <circle cx="388" cy="250" r="5"/>
+      <circle cx="410" cy="265" r="5"/>
+      <circle cx="430" cy="283" r="5"/>
+    </g>
+
+    <!-- Intermediate chain elements - connecting nodes between collar and pendants -->
+    <g fill="none" stroke="url(#silverGrad)" stroke-width="3">
+      <line x1="170" y1="295" x2="168" y2="318"/>
+      <line x1="195" y1="278" x2="193" y2="300"/>
+      <line x1="225" y1="262" x2="222" y2="285"/>
+      <line x1="255" y1="250" x2="253" y2="272"/>
+      <line x1="285" y1="242" x2="283" y2="264"/>
+      <line x1="300" y1="240" x2="300" y2="262"/>
+      <line x1="315" y1="242" x2="317" y2="264"/>
+      <line x1="345" y1="250" x2="347" y2="272"/>
+      <line x1="375" y1="262" x2="378" y2="285"/>
+      <line x1="405" y1="278" x2="407" y2="300"/>
+      <line x1="430" y1="295" x2="432" y2="318"/>
+    </g>
+
+    <!-- FIBULA CLASPS at shoulders - characteristic Berber style -->
+    <!-- Left fibula -->
+    <g transform="translate(155,310)">
+      <ellipse cx="0" cy="0" rx="28" ry="22" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="2.5"/>
+      <!-- Fibula engraving -->
+      <ellipse cx="0" cy="0" rx="20" ry="15" fill="none" stroke="url(#silverSheen)" stroke-width="1.5"/>
+      <!-- Enamel inlay -->
+      <ellipse cx="0" cy="0" rx="12" ry="9" fill="url(#enamRed)"/>
+      <!-- Triangle pattern on fibula -->
+      <polygon points="-8,-6 0,-12 8,-6 8,6 0,12 -8,6" fill="none" stroke="#d0d0d0" stroke-width="1"/>
+      <!-- Hanging pin detail -->
+      <line x1="-28" y1="0" x2="28" y2="0" stroke="url(#silverSheen)" stroke-width="3"/>
+      <circle cx="-28" cy="0" r="5" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+      <circle cx="28" cy="0" r="5" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+    </g>
+
+    <!-- Right fibula -->
+    <g transform="translate(445,310)">
+      <ellipse cx="0" cy="0" rx="28" ry="22" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="2.5"/>
+      <ellipse cx="0" cy="0" rx="20" ry="15" fill="none" stroke="url(#silverSheen)" stroke-width="1.5"/>
+      <ellipse cx="0" cy="0" rx="12" ry="9" fill="url(#enamRed)"/>
+      <polygon points="-8,-6 0,-12 8,-6 8,6 0,12 -8,6" fill="none" stroke="#d0d0d0" stroke-width="1"/>
+      <line x1="-28" y1="0" x2="28" y2="0" stroke="url(#silverSheen)" stroke-width="3"/>
+      <circle cx="-28" cy="0" r="5" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+      <circle cx="28" cy="0" r="5" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+    </g>
+
+    <!-- PENDANT ROW - triangular pendants hanging from chain -->
+    <!-- Connection points at top of pendant row -->
+    <path d="M155,325
+             Q220,340 270,348
+             Q300,352 330,348
+             Q380,340 445,325"
+          fill="none" stroke="url(#silverGrad)" stroke-width="10"/>
+
+    <!-- Small round connectors -->
+    <g fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5">
+      <circle cx="168" cy="328" r="8"/>
+      <circle cx="200" cy="338" r="8"/>
+      <circle cx="232" cy="344" r="8"/>
+      <circle cx="264" cy="349" r="8"/>
+      <circle cx="300" cy="351" r="9"/>
+      <circle cx="336" cy="349" r="8"/>
+      <circle cx="368" cy="344" r="8"/>
+      <circle cx="400" cy="338" r="8"/>
+      <circle cx="432" cy="328" r="8"/>
+    </g>
+
+    <!-- Pendant chains hanging down -->
+    <g stroke="url(#silverGrad)" stroke-width="2.5" fill="none">
+      <line x1="168" y1="336" x2="160" y2="370"/>
+      <line x1="200" y1="346" x2="196" y2="378"/>
+      <line x1="232" y1="352" x2="228" y2="382"/>
+      <line x1="264" y1="357" x2="264" y2="385"/>
+      <line x1="300" y1="360" x2="300" y2="390"/>
+      <line x1="336" y1="357" x2="336" y2="385"/>
+      <line x1="368" y1="352" x2="372" y2="382"/>
+      <line x1="400" y1="346" x2="404" y2="378"/>
+      <line x1="432" y1="336" x2="440" y2="370"/>
+    </g>
+
+    <!-- TRIANGULAR PENDANTS - characteristic Berber design -->
+    <!-- Large pendant 1 (left outer) -->
+    <g transform="translate(160,400)">
+      <polygon points="0,-32 20,20 -20,20" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="2"/>
+      <polygon points="0,-22 13,12 -13,12" fill="url(#enamRed)" opacity="0.9"/>
+      <circle cx="0" cy="-10" r="5" fill="url(#enamRed)"/>
+      <circle cx="0" cy="22" r="5" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+      <line x1="-20" y1="20" x2="20" y2="20" stroke="url(#silverSheen)" stroke-width="2"/>
+    </g>
+
+    <!-- Pendant 2 -->
+    <g transform="translate(196,415)">
+      <polygon points="0,-28 17,18 -17,18" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="2"/>
+      <polygon points="0,-20 11,12 -11,12" fill="url(#enamBlue)" opacity="0.9"/>
+      <circle cx="0" cy="20" r="4.5" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+    </g>
+
+    <!-- Pendant 3 -->
+    <g transform="translate(228,420)">
+      <polygon points="0,-30 18,18 -18,18" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="2"/>
+      <polygon points="0,-22 12,12 -12,12" fill="url(#enamGreen)" opacity="0.9"/>
+      <circle cx="0" cy="20" r="4.5" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+    </g>
+
+    <!-- Pendant 4 (second to center) -->
+    <g transform="translate(264,425)">
+      <polygon points="0,-32 20,20 -20,20" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="2.5"/>
+      <polygon points="0,-24 14,14 -14,14" fill="url(#enamRed)" opacity="0.9"/>
+      <circle cx="0" cy="-8" r="6" fill="#ffffff" opacity="0.3"/>
+      <circle cx="0" cy="22" r="5" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+    </g>
+
+    <!-- BIG CENTRAL MEDALLION -->
+    <g transform="translate(300,460)" filter="url(#silverGlow)">
+      <!-- Outer ring -->
+      <circle cx="0" cy="0" r="58" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="4"/>
+      <!-- Engraved ring decoration -->
+      <circle cx="0" cy="0" r="50" fill="none" stroke="#909090" stroke-width="1.5"/>
+      <circle cx="0" cy="0" r="44" fill="none" stroke="url(#silverSheen)" stroke-width="1"/>
+
+      <!-- 12-point star pattern engraved on medallion -->
+      <polygon points="
+        0,-40
+        5,-22
+        20,-35
+        12,-18
+        30,-25
+        18,-10
+        40,-12
+        24,-1
+        40,12
+        22,7
+        32,25
+        16,16
+        20,35
+        5,22
+        0,40
+        -5,22
+        -20,35
+        -16,16
+        -32,25
+        -22,7
+        -40,12
+        -24,-1
+        -40,-12
+        -18,-10
+        -30,-25
+        -12,-18
+        -20,-35
+        -5,-22"
+        fill="none" stroke="url(#silverSheen)" stroke-width="1.5" stroke-linejoin="round"/>
+
+      <!-- Central enamel inlay - coral/red -->
+      <circle cx="0" cy="0" r="22" fill="url(#enamRed)"/>
+
+      <!-- Small decorative circles around edge -->
+      <g fill="url(#medallionGrad)" stroke="#808080" stroke-width="1">
+        <circle cx="0" cy="-52" r="6"/>
+        <circle cx="26" cy="-45" r="5"/>
+        <circle cx="45" cy="-26" r="5"/>
+        <circle cx="52" cy="0" r="6"/>
+        <circle cx="45" cy="26" r="5"/>
+        <circle cx="26" cy="45" r="5"/>
+        <circle cx="0" cy="52" r="6"/>
+        <circle cx="-26" cy="45" r="5"/>
+        <circle cx="-45" cy="26" r="5"/>
+        <circle cx="-52" cy="0" r="6"/>
+        <circle cx="-45" cy="-26" r="5"/>
+        <circle cx="-26" cy="-45" r="5"/>
+      </g>
+
+      <!-- Medallion hanging chain attachment -->
+      <rect x="-8" y="-64" width="16" height="10" rx="3" fill="url(#silverGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+      <!-- Bottom ornament attachment -->
+      <rect x="-8" y="54" width="16" height="10" rx="3" fill="url(#silverGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+    </g>
+
+    <!-- Pendant 5 (second to center right) -->
+    <g transform="translate(336,425)">
+      <polygon points="0,-32 20,20 -20,20" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="2.5"/>
+      <polygon points="0,-24 14,14 -14,14" fill="url(#enamRed)" opacity="0.9"/>
+      <circle cx="0" cy="-8" r="6" fill="#ffffff" opacity="0.3"/>
+      <circle cx="0" cy="22" r="5" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+    </g>
+
+    <!-- Pendant 6 -->
+    <g transform="translate(372,420)">
+      <polygon points="0,-30 18,18 -18,18" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="2"/>
+      <polygon points="0,-22 12,12 -12,12" fill="url(#enamGreen)" opacity="0.9"/>
+      <circle cx="0" cy="20" r="4.5" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+    </g>
+
+    <!-- Pendant 7 -->
+    <g transform="translate(404,415)">
+      <polygon points="0,-28 17,18 -17,18" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="2"/>
+      <polygon points="0,-20 11,12 -11,12" fill="url(#enamBlue)" opacity="0.9"/>
+      <circle cx="0" cy="20" r="4.5" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+    </g>
+
+    <!-- Pendant 8 (right outer) -->
+    <g transform="translate(440,400)">
+      <polygon points="0,-32 20,20 -20,20" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="2"/>
+      <polygon points="0,-22 13,12 -13,12" fill="url(#enamRed)" opacity="0.9"/>
+      <circle cx="0" cy="-10" r="5" fill="url(#enamRed)"/>
+      <circle cx="0" cy="22" r="5" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5"/>
+      <line x1="-20" y1="20" x2="20" y2="20" stroke="url(#silverSheen)" stroke-width="2"/>
+    </g>
+
+    <!-- SECOND ROW OF PENDANTS - shorter row below -->
+    <!-- Chains connecting from main pendants -->
+    <g stroke="url(#silverGrad)" stroke-width="2" fill="none">
+      <line x1="160" y1="432" x2="165" y2="460"/>
+      <line x1="196" y1="435" x2="196" y2="462"/>
+      <line x1="228" y1="440" x2="232" y2="465"/>
+      <line x1="264" y1="447" x2="264" y2="472"/>
+      <line x1="336" y1="447" x2="336" y2="472"/>
+      <line x1="372" y1="440" x2="368" y2="465"/>
+      <line x1="404" y1="435" x2="404" y2="462"/>
+      <line x1="440" y1="432" x2="435" y2="460"/>
+    </g>
+
+    <!-- Second row smaller pendants -->
+    <g fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="1.5">
+      <!-- Small diamond shapes -->
+      <polygon points="165,460 175,475 165,490 155,475" />
+      <polygon points="196,462 206,476 196,490 186,476"/>
+      <polygon points="232,465 242,478 232,491 222,478"/>
+      <polygon points="264,472 274,485 264,498 254,485"/>
+      <polygon points="336,472 346,485 336,498 326,485"/>
+      <polygon points="368,465 378,478 368,491 358,478"/>
+      <polygon points="404,462 414,476 404,490 394,476"/>
+      <polygon points="435,460 445,475 435,490 425,475"/>
+    </g>
+
+    <!-- Enamel on small pendants -->
+    <g opacity="0.9">
+      <ellipse cx="165" cy="475" rx="6" ry="8" fill="url(#enamRed)"/>
+      <ellipse cx="196" cy="476" rx="6" ry="8" fill="url(#enamBlue)"/>
+      <ellipse cx="232" cy="478" rx="6" ry="8" fill="url(#enamRed)"/>
+      <ellipse cx="264" cy="485" rx="6" ry="8" fill="url(#enamGreen)"/>
+      <ellipse cx="336" cy="485" rx="6" ry="8" fill="url(#enamGreen)"/>
+      <ellipse cx="368" cy="478" rx="6" ry="8" fill="url(#enamRed)"/>
+      <ellipse cx="404" cy="476" rx="6" ry="8" fill="url(#enamBlue)"/>
+      <ellipse cx="435" cy="475" rx="6" ry="8" fill="url(#enamRed)"/>
+    </g>
+
+    <!-- Long tassel chains hanging from medallion bottom -->
+    <g stroke="url(#silverGrad)" stroke-width="2" fill="none">
+      <line x1="288" y1="520" x2="278" y2="580"/>
+      <line x1="300" y1="522" x2="300" y2="590"/>
+      <line x1="312" y1="520" x2="322" y2="580"/>
+    </g>
+    <!-- Tassel end balls -->
+    <circle cx="278" cy="584" r="8" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="2"/>
+    <circle cx="300" cy="594" r="9" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="2"/>
+    <circle cx="322" cy="584" r="8" fill="url(#medallionGrad)" stroke="url(#silverSheen)" stroke-width="2"/>
+    <!-- Enamel on tassel balls -->
+    <circle cx="278" cy="584" r="5" fill="url(#enamRed)"/>
+    <circle cx="300" cy="594" r="6" fill="url(#enamRed)"/>
+    <circle cx="322" cy="584" r="5" fill="url(#enamRed)"/>
+  </g>
+
+  <!-- Bottom label strip -->
+  <rect x="0" y="720" width="600" height="80" fill="url(#labelGrad)"/>
+  <rect x="0" y="720" width="600" height="3" fill="#c0c0c0"/>
+
+  <!-- Label text -->
+  <text x="300" y="752" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#c0c0c0" letter-spacing="4">TIZNIT</text>
+  <text x="300" y="775" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#f5f0e8" letter-spacing="2" font-weight="bold">Argent 925</text>
+
+  <!-- Label stars (silver colored) -->
+  <polygon points="100,758 102,764 108,764 103,768 105,774 100,770 95,774 97,768 92,764 98,764" fill="#c0c0c0" opacity="0.8"/>
+  <polygon points="500,758 502,764 508,764 503,768 505,774 500,770 495,774 497,768 492,764 498,764" fill="#c0c0c0" opacity="0.8"/>
+
+  <!-- Corner decorations (silver) -->
+  <g opacity="0.7">
+    <rect x="28" y="28" width="30" height="30" fill="none" stroke="#c0c0c0" stroke-width="1.5"/>
+    <polygon points="43,31 45,38 52,38 47,42 49,49 43,45 37,49 39,42 34,38 41,38" fill="#c0c0c0"/>
+    <rect x="542" y="28" width="30" height="30" fill="none" stroke="#c0c0c0" stroke-width="1.5"/>
+    <polygon points="557,31 559,38 566,38 561,42 563,49 557,45 551,49 553,42 548,38 555,38" fill="#c0c0c0"/>
+    <rect x="28" y="742" width="30" height="30" fill="none" stroke="#c0c0c0" stroke-width="1.5"/>
+    <polygon points="43,745 45,752 52,752 47,756 49,763 43,759 37,763 39,756 34,752 41,752" fill="#c0c0c0"/>
+    <rect x="542" y="742" width="30" height="30" fill="none" stroke="#c0c0c0" stroke-width="1.5"/>
+    <polygon points="557,745 559,752 566,752 561,756 563,763 557,759 551,763 553,756 548,752 555,752" fill="#c0c0c0"/>
+  </g>
+</svg>

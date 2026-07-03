@@ -1,0 +1,285 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Souk Digital — Design System Marocain
+ * Palette : Bleu Majorelle, Terracotta, Or sabra, Vert zellige, Blanc cassé
+ * Toutes les couleurs en oklch, tokens sémantiques uniquement.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-zellige: var(--zellige);
+  --color-sabra: var(--sabra);
+  --color-terracotta: var(--terracotta);
+  --color-majorelle: var(--majorelle);
+
+  --font-display: "Cormorant Garamond", "Noto Kufi Arabic", serif;
+  --font-arabic: "Noto Kufi Arabic", "Cormorant Garamond", serif;
+  --font-sans: "Inter", "Noto Kufi Arabic", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-souk: 0 20px 50px -20px color-mix(in oklab, var(--majorelle) 35%, transparent);
+  --shadow-glow-gold: 0 0 40px -8px color-mix(in oklab, var(--sabra) 55%, transparent);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Base — Blanc cassé, tadelakt */
+  --background: oklch(0.985 0.012 85);
+  --foreground: oklch(0.22 0.03 260);
+
+  --card: oklch(0.995 0.008 85);
+  --card-foreground: oklch(0.22 0.03 260);
+  --popover: oklch(0.995 0.008 85);
+  --popover-foreground: oklch(0.22 0.03 260);
+
+  /* Bleu Majorelle — primary */
+  --primary: oklch(0.42 0.22 275);
+  --primary-foreground: oklch(0.985 0.012 85);
+
+  /* Terracotta — secondary */
+  --secondary: oklch(0.63 0.16 40);
+  --secondary-foreground: oklch(0.99 0.008 85);
+
+  /* Or sabra — accent */
+  --accent: oklch(0.78 0.14 82);
+  --accent-foreground: oklch(0.22 0.03 260);
+
+  --muted: oklch(0.94 0.014 82);
+  --muted-foreground: oklch(0.45 0.03 260);
+
+  --destructive: oklch(0.58 0.24 27);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.88 0.02 80);
+  --input: oklch(0.9 0.018 80);
+  --ring: oklch(0.42 0.22 275);
+
+  /* Extended Moroccan tokens */
+  --majorelle: oklch(0.42 0.22 275);
+  --majorelle-deep: oklch(0.32 0.2 275);
+  --terracotta: oklch(0.63 0.16 40);
+  --sabra: oklch(0.78 0.14 82);
+  --zellige: oklch(0.5 0.13 165);
+  --henna: oklch(0.5 0.16 30);
+
+  --gradient-majorelle: linear-gradient(135deg, oklch(0.32 0.2 275) 0%, oklch(0.48 0.24 270) 100%);
+  --gradient-sabra: linear-gradient(135deg, oklch(0.78 0.14 82) 0%, oklch(0.68 0.16 55) 100%);
+  --gradient-souk: linear-gradient(135deg, oklch(0.32 0.2 275) 0%, oklch(0.5 0.16 30) 100%);
+}
+
+.dark {
+  --background: oklch(0.16 0.03 275);
+  --foreground: oklch(0.97 0.01 85);
+  --card: oklch(0.22 0.04 275);
+  --card-foreground: oklch(0.97 0.01 85);
+  --popover: oklch(0.22 0.04 275);
+  --popover-foreground: oklch(0.97 0.01 85);
+  --primary: oklch(0.78 0.14 82);
+  --primary-foreground: oklch(0.18 0.03 275);
+  --secondary: oklch(0.63 0.16 40);
+  --secondary-foreground: oklch(0.99 0 0);
+  --accent: oklch(0.5 0.22 275);
+  --accent-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.28 0.03 275);
+  --muted-foreground: oklch(0.75 0.02 85);
+  --border: oklch(0.32 0.04 275);
+  --input: oklch(0.32 0.04 275);
+  --ring: oklch(0.78 0.14 82);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  [lang="ar"],
+  [dir="rtl"] {
+    font-family: var(--font-arabic);
+  }
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  [lang="ar"] h1,
+  [lang="ar"] h2,
+  [lang="ar"] h3,
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3 {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+  }
+}
+
+/* Motif zellige — bordure décorative */
+@utility zellige-border {
+  background-image:
+    linear-gradient(45deg, var(--color-sabra) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--color-sabra) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--color-sabra) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--color-sabra) 75%);
+  background-size: 12px 12px;
+  background-position:
+    0 0,
+    0 6px,
+    6px -6px,
+    -6px 0;
+  opacity: 0.4;
+}
+
+/* Fond moucharabieh subtil */
+@utility bg-moucharabieh {
+  background-image:
+    radial-gradient(
+      circle at 25% 25%,
+      color-mix(in oklab, var(--color-sabra) 12%, transparent) 2px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      color-mix(in oklab, var(--color-majorelle) 8%, transparent) 2px,
+      transparent 2px
+    );
+  background-size: 40px 40px;
+}
+
+@utility shadow-souk {
+  box-shadow: var(--shadow-souk);
+}
+
+@utility shadow-glow-gold {
+  box-shadow: var(--shadow-glow-gold);
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+/* ==== Micro-animations Souk ==== */
+@keyframes hero-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.97);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(6px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-hero-drop {
+  animation: hero-drop 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--hero-delay, 0ms);
+}
+
+@keyframes souk-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes souk-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+@keyframes souk-zellige-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes souk-pulse-gold {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--sabra) 45%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 12px color-mix(in oklab, var(--sabra) 0%, transparent);
+  }
+}
+
+@utility animate-souk-in {
+  animation: souk-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@utility animate-pulse-gold {
+  animation: souk-pulse-gold 2.4s ease-in-out infinite;
+}
+@utility animate-zellige-spin {
+  animation: souk-zellige-spin 22s linear infinite;
+}
+
+@utility shimmer-souk {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--muted) 60%, transparent) 0%,
+    color-mix(in oklab, var(--sabra) 20%, transparent) 50%,
+    color-mix(in oklab, var(--muted) 60%, transparent) 100%
+  );
+  background-size: 200% 100%;
+  animation: souk-shimmer 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
