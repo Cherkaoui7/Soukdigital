@@ -86,7 +86,16 @@ Configurez vos variables d'environnement en copiant le fichier d'exemple :
 ```bash
 cp .env.example .env
 ```
-Ouvrez ensuite le fichier `.env` et ajoutez vos clés Supabase.
+Ouvrez ensuite le fichier `.env` et ajoutez vos clés Supabase, comme ceci :
+
+```env
+SUPABASE_PROJECT_ID="your_supabase_project_id"
+SUPABASE_PUBLISHABLE_KEY="your_supabase_publishable_key"
+SUPABASE_URL="your_supabase_url"
+VITE_SUPABASE_PROJECT_ID="your_supabase_project_id"
+VITE_SUPABASE_PUBLISHABLE_KEY="your_supabase_publishable_key"
+VITE_SUPABASE_URL="your_supabase_url"
+```
 Lancer en développement :
 ```bash
 bun run dev
