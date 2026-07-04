@@ -284,7 +284,7 @@ function MockupsComponent() {
                 <div className="w-full h-full relative flex items-center justify-center bg-[#1a1a24]">
                   {/* Simulate the background for preview */}
                   <img 
-                    src={TEMPLATES.find(t => t.id === activeTemplate)?.thumb} 
+                    src={allTemplates.find(t => t.id === activeTemplate)?.thumb} 
                     alt="Template" 
                     className="w-full h-full object-cover opacity-80"
                   />
