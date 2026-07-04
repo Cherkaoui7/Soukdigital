@@ -24,11 +24,16 @@ function ImageGenerator() {
 
     try {
       // 1. Trigger Generation
+      let finalPrompt = settings.prompt
+      if (settings.dominantColor) {
+        finalPrompt += `, dominantly in ${settings.dominantColor} colors`
+      }
+
       const createRes = await fetch("http://127.0.0.1:8000/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          prompt: settings.prompt,
+          prompt: finalPrompt,
           negative_prompt: settings.negativePrompt || undefined,
           style: settings.style,
           aspect_ratio: settings.aspectRatio,
@@ -180,8 +185,21 @@ function ImageGenerator() {
                 <div className="space-y-3">
                   <label className="text-sm font-medium text-muted-foreground">Couleurs dominantes</label>
                   <div className="flex gap-2">
-                    {['bg-orange-800', 'bg-amber-600', 'bg-slate-800', 'bg-teal-700', 'bg-blue-900'].map((color, i) => (
-                      <button key={i} className={`w-8 h-8 rounded-full ${color} border-2 border-transparent hover:border-white/50 transition-all`} />
+                    {[
+                      { c: 'bg-orange-800', n: 'terracotta' },
+                      { c: 'bg-amber-600', n: 'amber' },
+                      { c: 'bg-slate-800', n: 'dark slate' },
+                      { c: 'bg-teal-700', n: 'teal' },
+                      { c: 'bg-blue-900', n: 'navy blue' }
+                    ].map((color, i) => (
+                      <button 
+                        key={i} 
+                        onClick={() => updateSettings({ dominantColor: settings.dominantColor === color.n ? null : color.n })}
+                        className={`w-8 h-8 rounded-full ${color.c} border-2 transition-all ${
+                          settings.dominantColor === color.n ? 'border-white shadow-glow-white scale-110' : 'border-transparent hover:border-white/50'
+                        }`} 
+                        title={color.n}
+                      />
                     ))}
                     <button className="w-8 h-8 rounded-full border border-dashed border-white/30 flex items-center justify-center hover:border-white text-white/50">
                       +

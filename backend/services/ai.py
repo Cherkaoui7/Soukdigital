@@ -14,27 +14,33 @@ class AIService:
         }
         return mapping.get(ratio, (1024, 1024))
 
-    async def generate_image(self, prompt: str, style: str, aspect_ratio: str, num_inference_steps: int, guidance_scale: float, seed: int = None) -> list[bytes]:
+    async def generate_image(self, prompt: str, style: str, aspect_ratio: str, num_inference_steps: int, guidance_scale: float, num_images: int = 1, seed: int = None) -> list[bytes]:
         """
         Calls Pollinations.ai (Free alternative) to generate an image.
         Returns a list of image bytes.
         """
+        import random
+        import asyncio
+        import urllib.parse
+        
         full_prompt = prompt
         if style:
             full_prompt = f"{prompt}, in {style} style"
 
         width, height = self.map_aspect_ratio(aspect_ratio)
         
-        url = f"https://image.pollinations.ai/prompt/{urllib.parse.quote(full_prompt)}?width={width}&height={height}&nologo=True"
-        if seed:
-            url += f"&seed={seed}"
-            
-        async with httpx.AsyncClient(timeout=60.0) as client:
-            resp = await client.get(url, headers={'User-Agent': 'Mozilla/5.0 SoukDigitalApp'})
-            if resp.status_code == 200:
-                return [resp.content]
-            else:
-                raise Exception(f"Failed to generate image from pollinations.ai (status: {resp.status_code})")
+        async def fetch_one(i: int):
+            current_seed = seed if seed else random.randint(1, 1000000) + i
+            url = f"https://image.pollinations.ai/prompt/{urllib.parse.quote(full_prompt)}?width={width}&height={height}&nologo=True&seed={current_seed}"
+            async with httpx.AsyncClient(timeout=60.0) as client:
+                resp = await client.get(url, headers={'User-Agent': 'Mozilla/5.0 SoukDigitalApp'})
+                if resp.status_code == 200:
+                    return resp.content
+                else:
+                    raise Exception(f"Failed to generate image from pollinations.ai (status: {resp.status_code})")
+        
+        tasks = [fetch_one(i) for i in range(num_images)]
+        return await asyncio.gather(*tasks)
 
     async def remove_background(self, image_bytes: bytes) -> bytes:
         """

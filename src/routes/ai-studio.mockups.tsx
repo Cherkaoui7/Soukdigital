@@ -59,6 +59,10 @@ function MockupsComponent() {
       } catch (err) {
         console.error(err)
         setError("Impossible d'importer le décor personnalisé.")
+      } finally {
+        if (e.target) {
+          e.target.value = ''
+        }
       }
     }
   }
@@ -177,8 +181,8 @@ function MockupsComponent() {
                   >
                     <Upload className="w-6 h-6 text-muted-foreground group-hover:text-majorelle mb-1" />
                     <span className="text-xs text-muted-foreground group-hover:text-white">Importer</span>
-                    <input type="file" ref={templateInputRef} className="hidden" accept="image/*" onChange={handleTemplateUpload} />
                   </button>
+                  <input type="file" ref={templateInputRef} className="hidden" accept="image/*" onChange={handleTemplateUpload} />
                 </div>
               </div>
 

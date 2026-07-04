@@ -10,6 +10,7 @@ export interface GenerationSettings {
   guidanceScale: number;
   steps: number;
   numImages: number;
+  dominantColor: string | null;
 }
 
 interface AIStudioState {
@@ -33,6 +34,7 @@ const defaultSettings: GenerationSettings = {
   guidanceScale: 7.5,
   steps: 30,
   numImages: 1,
+  dominantColor: null,
 }
 
 export const useAIStudioStore = create<AIStudioState>((set) => ({
