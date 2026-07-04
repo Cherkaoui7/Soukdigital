@@ -10,7 +10,7 @@ function AIStudioLayout() {
     { name: 'Image Generator', icon: ImageIcon, path: '/ai-studio/image-generator' },
     { name: 'Background Remover', icon: Wand2, path: '/ai-studio/background-remover' },
     { name: 'Upscaler', icon: Sparkles, path: '/ai-studio/upscaler' },
-    { name: 'Mockups', icon: LayoutTemplate, path: '/ai-studio/mockups', disabled: true },
+    { name: 'Mockups', icon: LayoutTemplate, path: '/ai-studio/mockups' },
   ]
 
   return (

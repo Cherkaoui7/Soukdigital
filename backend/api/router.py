@@ -101,11 +101,8 @@ def get_generation(generation_id: int, db: Session = Depends(get_db)):
 def list_generations(skip: int = 0, limit: int = 20, db: Session = Depends(get_db)):
     """
     List past generations.
-    """
-    generations = db.query(ImageGeneration).order_by(ImageGeneration.created_at.desc()).offset(skip).limit(limit).all()
-    return generations
 
-from fastapi import UploadFile, File
+from fastapi import UploadFile, File, Form
 
 @router.post("/remove-background")
 async def remove_background(file: UploadFile = File(...)):
@@ -128,26 +125,48 @@ async def remove_background(file: UploadFile = File(...)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Background removal failed: {str(e)}")
 
-from fastapi import Form
-
 @router.post("/upscale-image")
-async def upscale_image(file: UploadFile = File(...), scale: int = Form(4)):
-    """
-    Upscale image using Real-ESRGAN.
-    """
-    if not file.content_type.startswith("image/"):
-        raise HTTPException(status_code=400, detail="File must be an image")
-        
-    image_bytes = await file.read()
-    
+async def upscale_image(
+    file: UploadFile = File(...),
+    scale: int = Form(4)
+):
     try:
-        # Run AI service to upscale image
-        result_bytes = await ai_service.upscale_image(image_bytes, scale=scale)
+        contents = await file.read()
+        # Scale can be 2 or 4, pass it to the upscaler
+        result_bytes = await ai_service.upscale_image(contents, scale=scale)
         
-        # Save locally using storage_service
-        url = storage_service.upload_image_bytes(result_bytes)
-        
-        return {"url": url, "success": True}
+        # Save to static uploads and return URL
+        url = storage_service.upload_image_bytes(result_bytes, extension="png")
+        return {"url": url}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Image upscaling failed: {str(e)}")
 
+@router.post("/generate-mockup")
+async def generate_mockup(
+    file: UploadFile = File(...),
+    template_id: str = Form(...),
+    x_percent: float = Form(...),
+    y_percent: float = Form(...),
+    scale: float = Form(...),
+    rotation: float = Form(0.0),
+    shadow_opacity: float = Form(0.5)
+):
+    try:
+        from backend.services.mockup import mockup_service
+        contents = await file.read()
+        
+        # Generate the composite image
+        url = mockup_service.generate_mockup(
+            product_bytes=contents,
+            template_id=template_id,
+            x_percent=x_percent,
+            y_percent=y_percent,
+            scale=scale,
+            rotation=rotation,
+            shadow_opacity=shadow_opacity
+        )
+        return {"url": url}
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Mockup generation failed: {str(e)}")
