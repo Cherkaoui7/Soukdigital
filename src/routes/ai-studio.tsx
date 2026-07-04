@@ -6,7 +6,7 @@ export const Route = createFileRoute('/ai-studio')({
 })
 
 function AIStudioLayout() {
-  const tools = [
+  const tools: Array<{ name: string; icon: any; path: string; disabled?: boolean }> = [
     { name: 'Image Generator', icon: ImageIcon, path: '/ai-studio/image-generator' },
     { name: 'Background Remover', icon: Wand2, path: '/ai-studio/background-remover' },
     { name: 'Upscaler', icon: Sparkles, path: '/ai-studio/upscaler' },

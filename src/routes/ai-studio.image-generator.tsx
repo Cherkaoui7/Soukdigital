@@ -201,9 +201,15 @@ function ImageGenerator() {
                         title={color.n}
                       />
                     ))}
-                    <button className="w-8 h-8 rounded-full border border-dashed border-white/30 flex items-center justify-center hover:border-white text-white/50">
+                    <label className="w-8 h-8 rounded-full border border-dashed border-white/30 flex items-center justify-center hover:border-white text-white/50 cursor-pointer relative overflow-hidden group">
                       +
-                    </button>
+                      <input 
+                        type="color" 
+                        onChange={(e) => updateSettings({ dominantColor: e.target.value })}
+                        className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
+                        title="Couleur personnalisée"
+                      />
+                    </label>
                   </div>
                 </div>
 

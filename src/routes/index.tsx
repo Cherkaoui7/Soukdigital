@@ -35,6 +35,41 @@ export const Route = createFileRoute("/")({
   }),
 });
 
+const Particles = () => {
+  const [particles, setParticles] = React.useState<Array<{id: number, left: string, top: string, delay: string, duration: string, size: string}>>([]);
+
+  React.useEffect(() => {
+    const newParticles = Array.from({ length: 30 }).map((_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      delay: `${Math.random() * 15}s`,
+      duration: `${10 + Math.random() * 10}s`,
+      size: `${2 + Math.random() * 4}px`
+    }));
+    setParticles(newParticles);
+  }, []);
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {particles.map(p => (
+        <div
+          key={p.id}
+          className="absolute bg-amber-200/40 rounded-full"
+          style={{
+            left: p.left,
+            top: p.top,
+            width: p.size,
+            height: p.size,
+            animation: `float-up ${p.duration} linear infinite`,
+            animationDelay: p.delay,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 function HomePage() {
   const { t, locale } = useI18n();
 
@@ -63,150 +98,78 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SiteHeader />
-
-      {/* HERO */}
+      <SiteHeader />      {/* HERO SECTION */}
       <section
-        className="relative overflow-hidden"
+        className="relative min-h-[100dvh] flex items-center overflow-hidden font-sans"
         style={{
-          background:
-            "linear-gradient(135deg, oklch(0.32 0.2 275) 0%, oklch(0.42 0.18 260) 40%, oklch(0.5 0.16 30) 100%)",
+          background: "linear-gradient(135deg, #1e1b4b 0%, #1e3a8a 30%, #7c3aed 60%, #c2410c 100%)",
         }}
       >
-        {/* Animated gradient orbs */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-accent/10 blur-3xl animate-pulse-gold" />
-          <div
-            className="absolute -bottom-20 -right-20 h-80 w-80 rounded-full bg-secondary/15 blur-3xl"
-            style={{ animation: "souk-pulse-gold 3.5s ease-in-out infinite 1s" }}
-          />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-primary/10 blur-2xl" />
+        <Particles />
+        {/* Background elements */}
+        <div className="absolute inset-0 pointer-events-none opacity-80" aria-hidden>
+          {/* Radial gradients from demo */}
+          <div className="absolute top-[80%] left-[20%] w-[1000px] h-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(217,119,6,0.25)_0%,transparent_50%)]" />
+          <div className="absolute top-[20%] left-[80%] w-[1000px] h-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.2)_0%,transparent_50%)]" />
+          {/* SVG Pattern */}
+          <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M50 0L100 50L50 100L0 50z\' fill=\'none\' stroke=\'white\' stroke-width=\'1\'/%3E%3C/svg%3E')]" />
         </div>
 
-        {/* Moucharabieh pattern */}
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-moucharabieh opacity-15 mix-blend-overlay pointer-events-none"
-        />
+        {/* Decorative stars */}
+        <div className="absolute top-[10%] left-[5%] text-amber-400 opacity-30 text-2xl animate-float pointer-events-none" style={{ animationDelay: "0s" }}>✦</div>
+        <div className="absolute top-[60%] left-[8%] text-amber-400 opacity-30 text-lg animate-float pointer-events-none" style={{ animationDelay: "2s" }}>✧</div>
+        <div className="absolute bottom-[20%] right-[10%] text-amber-400 opacity-30 text-xl animate-float pointer-events-none" style={{ animationDelay: "4s" }}>✦</div>
+        <div className="absolute top-[30%] right-[5%] text-amber-400 opacity-30 text-sm animate-float pointer-events-none" style={{ animationDelay: "1s" }}>✧</div>
 
-        {/* Zellige geometric accents */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-          <svg
-            className="absolute top-8 right-8 h-24 w-24 opacity-10 text-accent"
-            viewBox="0 0 100 100"
-            fill="none"
-          >
-            <polygon
-              points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              fill="none"
-            />
-            <polygon
-              points="50,20 80,35 80,65 50,80 20,65 20,35"
-              stroke="currentColor"
-              strokeWidth="1"
-              fill="none"
-            />
-            <polygon
-              points="50,35 65,42.5 65,57.5 50,65 35,57.5 35,42.5"
-              stroke="currentColor"
-              strokeWidth="0.8"
-              fill="currentColor"
-              fillOpacity="0.3"
-            />
-          </svg>
-          <svg
-            className="absolute bottom-12 left-6 h-16 w-16 opacity-10 text-white"
-            viewBox="0 0 100 100"
-            fill="none"
-          >
-            <rect
-              x="10"
-              y="10"
-              width="80"
-              height="80"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              fill="none"
-              transform="rotate(45 50 50)"
-            />
-            <rect
-              x="25"
-              y="25"
-              width="50"
-              height="50"
-              stroke="currentColor"
-              strokeWidth="1"
-              fill="none"
-              transform="rotate(45 50 50)"
-            />
-          </svg>
-        </div>
-
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 py-20 lg:grid-cols-2 lg:py-28 items-center">
+        <div className="mx-auto grid max-w-[1400px] gap-20 px-8 py-24 lg:grid-cols-[1.1fr_1fr] items-center relative z-10 w-full">
           {/* LEFT — text */}
-          <div className="text-primary-foreground">
+          <div className="text-white">
             {/* Eyebrow badge */}
-            <p
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest backdrop-blur-sm animate-hero-drop"
-              style={{ "--hero-delay": "0ms" } as React.CSSProperties}
-            >
-              <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-              {t("hero.eyebrow")}
-            </p>
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/10 px-5 py-2 text-[0.8rem] font-semibold uppercase tracking-[1.5px] backdrop-blur-md animate-hero-drop text-amber-300 mb-8" style={{ "--hero-delay": "0ms" } as React.CSSProperties}>
+              <span className="h-2 w-2 rounded-full bg-amber-500 shadow-[0_0_10px_#d97706] animate-pulse-gold" />
+              Souk Digital • Fait au Maroc
+            </div>
 
             {/* Title */}
-            <h1
-              className="mt-5 font-display text-4xl font-bold leading-[1.15] text-balance sm:text-5xl lg:text-[3.5rem] animate-hero-drop"
-              style={{ "--hero-delay": "120ms" } as React.CSSProperties}
-            >
-              {t("hero.title")}
+            <h1 className="font-display text-5xl font-bold leading-[1.1] text-balance sm:text-6xl lg:text-[4.2rem] animate-hero-drop mb-6" style={{ "--hero-delay": "120ms" } as React.CSSProperties}>
+              {t("hero.title")?.split(',').map((part: string, i: number, arr: string[]) => 
+                i === arr.length - 1 ? (
+                  <span key={i} className="text-amber-400 relative inline-block">
+                    {part}
+                    <span className="absolute bottom-1.5 left-0 right-0 h-2 bg-gradient-to-r from-amber-500 to-transparent opacity-40 rounded-sm" />
+                  </span>
+                ) : (
+                  <React.Fragment key={i}>{part},<br/></React.Fragment>
+                )
+              ) || "L'artisanat marocain, livré chez vous"}
             </h1>
 
             {/* Subtitle */}
-            <p
-              className="mt-6 max-w-md text-base leading-relaxed text-white/80 sm:text-lg animate-hero-drop"
-              style={{ "--hero-delay": "240ms" } as React.CSSProperties}
-            >
+            <p className="max-w-[520px] text-[1.15rem] leading-[1.7] text-white/75 animate-hero-drop mb-10" style={{ "--hero-delay": "240ms" } as React.CSSProperties}>
               {t("hero.subtitle")}
             </p>
 
             {/* CTAs */}
-            <div
-              className="mt-8 flex flex-wrap gap-3 animate-hero-drop"
-              style={{ "--hero-delay": "340ms" } as React.CSSProperties}
-            >
-              <Link
-                to="/produits"
-                className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3 text-sm font-bold text-accent-foreground shadow-glow-gold hover:shadow-[0_0_60px_-8px_oklch(0.78_0.14_82)] hover:scale-105 active:scale-95 transition-all duration-200"
-              >
+            <div className="flex flex-wrap gap-4 animate-hero-drop mb-12" style={{ "--hero-delay": "340ms" } as React.CSSProperties}>
+              <Link to="/produits" className="group relative overflow-hidden inline-flex items-center gap-2.5 rounded-full bg-gradient-to-br from-amber-600 to-amber-400 px-9 py-4 text-base font-semibold text-gray-900 shadow-[0_8px_30px_rgba(217,119,6,0.4)] hover:shadow-[0_15px_40px_rgba(217,119,6,0.5)] hover:-translate-y-1 hover:scale-[1.02] active:scale-95 transition-all duration-400">
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-500 ease-out" />
                 {t("hero.ctaPrimary")}
-                <ArrowRight className="h-4 w-4 rtl:rotate-180 group-hover:translate-x-1 transition-transform duration-200" />
+                <ArrowRight className="h-4 w-4 rtl:rotate-180 group-hover:translate-x-1 transition-transform duration-400" />
               </Link>
-              <Link
-                to="/artisans"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/8 px-6 py-3 text-sm font-medium text-white/90 backdrop-blur-sm hover:bg-white/15 hover:border-white/30 transition-all duration-200"
-              >
+              <Link to="/artisans" className="inline-flex items-center gap-2 rounded-full border-2 border-white/25 bg-white/10 px-9 py-4 text-base font-medium text-white backdrop-blur-md hover:bg-white/15 hover:border-amber-500 hover:-translate-y-1 transition-all duration-400">
                 {t("hero.ctaSecondary")}
               </Link>
             </div>
 
             {/* Trust signals */}
-            <div
-              className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 animate-hero-drop"
-              style={{ "--hero-delay": "460ms" } as React.CSSProperties}
-            >
+            <div className="flex flex-wrap items-center gap-8 animate-hero-drop mb-8" style={{ "--hero-delay": "460ms" } as React.CSSProperties}>
               {[
                 { icon: "✓", text: "Livraison partout au Maroc" },
                 { icon: "✓", text: "Paiement sécurisé" },
                 { icon: "✓", text: "500+ artisans partenaires" },
               ].map(({ icon, text }) => (
-                <span
-                  key={text}
-                  className="flex items-center gap-1.5 text-xs text-white/70 font-medium"
-                >
-                  <span className="flex h-4 w-4 items-center justify-center rounded-full bg-accent/30 text-accent text-[10px] font-bold">
+                <span key={text} className="flex items-center gap-2.5 text-[0.88rem] text-white/80 hover:text-white hover:translate-x-1 transition-all duration-400 cursor-default">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-amber-400 text-[0.7rem]">
                     {icon}
                   </span>
                   {text}
@@ -215,47 +178,37 @@ function HomePage() {
             </div>
 
             {/* Stars rating */}
-            <div
-              className="mt-5 flex items-center gap-2 animate-hero-drop"
-              style={{ "--hero-delay": "540ms" } as React.CSSProperties}
-            >
-              <div className="flex text-accent text-sm">★★★★★</div>
-              <span className="text-xs text-white/60 font-medium">4.9/5 · 2 000+ avis clients</span>
+            <div className="flex items-center gap-3 animate-hero-drop mb-10" style={{ "--hero-delay": "540ms" } as React.CSSProperties}>
+              <div className="flex text-amber-400 text-base tracking-[2px]">★★★★★</div>
+              <span className="text-[0.9rem] text-white/80"><strong className="text-white">4.9/5</strong> · 2 000+ avis clients</span>
             </div>
 
             {/* Stats row */}
-            <div
-              className="mt-8 grid grid-cols-3 gap-4 border-t border-white/10 pt-8 animate-hero-drop"
-              style={{ "--hero-delay": "620ms" } as React.CSSProperties}
-            >
+            <div className="flex gap-12 border-t border-white/10 pt-8 animate-hero-drop" style={{ "--hero-delay": "620ms" } as React.CSSProperties}>
               {[
-                { icon: Package, value: "1 200+", label: "Produits" },
-                { icon: Users, value: "500+", label: "Artisans" },
-                { icon: MapPin, value: "12", label: "Régions" },
-              ].map(({ icon: Icon, value, label }) => (
-                <div key={label} className="text-center">
-                  <Icon className="mx-auto mb-1 h-4 w-4 text-accent/70" />
-                  <p className="font-display text-2xl font-bold text-white">{value}</p>
-                  <p className="text-[11px] text-white/55 uppercase tracking-wider">{label}</p>
+                { value: "1 200+", label: "Produits" },
+                { value: "500+", label: "Artisans" },
+                { value: "12", label: "Régions" },
+              ].map(({ value, label }) => (
+                <div key={label} className="text-left hover:-translate-y-1 transition-transform duration-400">
+                  <div className="font-display text-[2.2rem] font-bold leading-none mb-1.5 bg-gradient-to-br from-white to-amber-400 bg-clip-text text-transparent">{value}</div>
+                  <div className="text-[0.8rem] text-white/60 uppercase tracking-[1.5px]">{label}</div>
                 </div>
               ))}
             </div>
-
-            {/* Zellige decorative bar */}
-            <div
-              className="mt-8 h-1.5 max-w-xs rounded-full zellige-border animate-zellige-spin"
-              style={{ "--hero-delay": "700ms", transformOrigin: "center" } as React.CSSProperties}
-            />
           </div>
 
-          {/* RIGHT — images */}
-          <div className="relative hidden lg:flex items-center justify-center">
-            {/* Background Glow */}
-            <div className="absolute inset-0 rounded-full bg-accent/20 blur-[100px]" aria-hidden />
+          {/* RIGHT — Visuals */}
+          <div className="relative hidden lg:flex items-center justify-center min-h-[600px] animate-hero-drop" style={{ "--hero-delay": "180ms" } as React.CSSProperties}>
             
-            <div className="relative w-full max-w-[480px] aspect-square mx-auto animate-hero-drop" style={{ "--hero-delay": "180ms" } as React.CSSProperties}>
+            <div className="relative w-full max-w-[480px] aspect-square mx-auto group">
+              {/* Pulsing rings */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full border-2 border-amber-500/25 animate-pulse-ring pointer-events-none" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[580px] h-[580px] rounded-full border-2 border-amber-500/25 animate-pulse-ring pointer-events-none" style={{ animationDelay: "1.3s" }} />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] rounded-full border-2 border-amber-500/25 animate-pulse-ring pointer-events-none" style={{ animationDelay: "2.6s" }} />
+
               {/* Main Circular Image */}
-              <div className="w-full h-full rounded-full border-[6px] border-accent/80 overflow-hidden shadow-souk relative z-10 transition-transform duration-700 hover:scale-105" style={{boxShadow: "0 0 40px -10px var(--color-sabra)"}}>
+              <div className="w-full h-full rounded-full border-[4px] border-amber-500 overflow-hidden relative z-10 transition-transform duration-400 group-hover:scale-[1.02]" style={{boxShadow: "0 0 60px rgba(217, 119, 6, 0.3), 0 20px 60px rgba(0,0,0,0.3)"}}>
                 <img
                   src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&q=80&w=1000"
                   alt="Artisanat marocain"
@@ -264,37 +217,42 @@ function HomePage() {
                 />
               </div>
 
-              {/* Floating Pill 1 (Top Left) */}
-              <div className="absolute top-10 -left-12 z-20 animate-float bg-white rounded-full shadow-xl pl-3 pr-6 py-3 flex items-center gap-4 w-max">
-                <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden shrink-0">
-                  <img src="https://i.pravatar.cc/100?img=47" alt="User" className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <p className="text-[15px] font-bold text-[#1a2b3c]">"Magnifique zellige !"</p>
-                  <div className="flex text-[#dea54b] text-sm mt-0.5">★★★★★</div>
+              {/* Floating Card 1 */}
+              <div className="absolute top-[5%] -left-8 z-20 animate-float bg-white/95 backdrop-blur-lg rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-white/30 px-5 py-4 flex items-center gap-3 w-max text-sm font-semibold text-gray-900 transition-all duration-400 hover:scale-105 hover:shadow-[0_15px_50px_rgba(0,0,0,0.2)]" style={{ animationDelay: "0s", animationDuration: "6s" }}>
+                <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=100&h=100&fit=crop" alt="Client" className="w-11 h-11 rounded-full object-cover border-2 border-amber-500 shrink-0" />
+                <div className="leading-[1.4]">
+                  <p>"Magnifique zellige !"</p>
+                  <small className="text-slate-500 text-[0.75rem] font-normal">⭐⭐⭐⭐⭐ Amina, Casa</small>
                 </div>
               </div>
 
-              {/* Floating Pill 2 (Center Left) */}
-              <div className="absolute top-1/2 -translate-y-1/2 -left-20 z-20 animate-float-reverse bg-white rounded-full shadow-xl px-6 py-3.5 flex items-center gap-3 w-max" style={{ animationDelay: "1s" }}>
-                <span className="text-2xl drop-shadow-sm">🔥</span>
-                <div>
-                  <p className="text-[15px] font-bold text-[#1a2b3c]">+1,200 vues</p>
-                  <p className="text-xs text-gray-500 font-medium">cette semaine</p>
+              {/* Floating Card 2 */}
+              <div className="absolute bottom-[15%] -right-10 z-20 animate-float-reverse bg-white/95 backdrop-blur-lg rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-white/30 px-5 py-4 flex items-center gap-3 w-max text-sm font-semibold text-gray-900 transition-all duration-400 hover:scale-105 hover:shadow-[0_15px_50px_rgba(0,0,0,0.2)]" style={{ animationDelay: "1s", animationDuration: "7s" }}>
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center text-[1.3rem] shrink-0 bg-gradient-to-br from-amber-100 to-amber-200">🔥</div>
+                <div className="leading-[1.4]">
+                  <p>+1,200 ventes</p>
+                  <small className="text-slate-500 text-[0.75rem] font-normal">ce mois-ci</small>
                 </div>
               </div>
 
-              {/* Floating Pill 3 (Bottom Right) */}
-              <div className="absolute bottom-20 -right-12 z-20 animate-float bg-white rounded-full shadow-xl px-6 py-3.5 flex flex-col justify-center gap-0.5 w-max" style={{ animationDelay: "2s" }}>
-                <p className="text-[15px] font-bold text-[#1a2b3c] text-right">"Livraison ultra rapide"</p>
-                <div className="flex items-center justify-end gap-2">
-                  <div className="flex text-[#dea54b] text-xs">★★★★★</div>
-                  <span className="text-xs text-gray-600 font-medium">Youssef, Rabat</span>
+              {/* Floating Card 3 */}
+              <div className="absolute top-[55%] -left-[60px] z-20 animate-float bg-white/95 backdrop-blur-lg rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-white/30 px-5 py-4 flex items-center gap-3 w-max text-sm font-semibold text-gray-900 transition-all duration-400 hover:scale-105 hover:shadow-[0_15px_50px_rgba(0,0,0,0.2)]" style={{ animationDelay: "2s", animationDuration: "5s" }}>
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center text-[1.3rem] shrink-0 bg-gradient-to-br from-blue-100 to-blue-200">⭐</div>
+                <div className="leading-[1.4]">
+                  <p>"Livraison ultra rapide"</p>
+                  <small className="text-slate-500 text-[0.75rem] font-normal">Youssef, Rabat</small>
                 </div>
               </div>
 
-              {/* Floating Icon (Bottom Right) */}
-              
+              {/* Floating Card 4 */}
+              <div className="absolute top-[20%] -right-5 z-20 animate-float-reverse bg-white/95 backdrop-blur-lg rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-white/30 px-5 py-4 flex items-center gap-3 w-max text-sm font-semibold text-gray-900 transition-all duration-400 hover:scale-105 hover:shadow-[0_15px_50px_rgba(0,0,0,0.2)]" style={{ animationDelay: "0.5s", animationDuration: "6s" }}>
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Client" className="w-11 h-11 rounded-full object-cover border-2 border-amber-500 shrink-0" />
+                <div className="leading-[1.4]">
+                  <p>"Authentique !"</p>
+                  <small className="text-slate-500 text-[0.75rem] font-normal">⭐⭐⭐⭐⭐ Leila, Tanger</small>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

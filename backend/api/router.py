@@ -38,6 +38,7 @@ def process_image_generation(generation_id: int):
                 aspect_ratio=generation.aspect_ratio,
                 num_inference_steps=generation.num_inference_steps,
                 guidance_scale=generation.guidance_scale,
+                num_images=generation.num_images,
                 seed=generation.seed
             )
         )
