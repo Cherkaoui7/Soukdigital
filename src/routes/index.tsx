@@ -249,49 +249,52 @@ function HomePage() {
           </div>
 
           {/* RIGHT — images */}
-          <div className="relative hidden lg:block">
-            <div className="absolute -inset-10 rounded-3xl bg-accent/5 blur-3xl" aria-hidden />
-            <div className="grid grid-cols-2 gap-4">
-              <div
-                className="relative animate-hero-drop group overflow-hidden rounded-2xl shadow-2xl"
-                style={{ "--hero-delay": "180ms" } as React.CSSProperties}
-              >
+          <div className="relative hidden lg:flex items-center justify-center">
+            {/* Background Glow */}
+            <div className="absolute inset-0 rounded-full bg-accent/20 blur-[100px]" aria-hidden />
+            
+            <div className="relative w-full max-w-[480px] aspect-square mx-auto animate-hero-drop" style={{ "--hero-delay": "180ms" } as React.CSSProperties}>
+              {/* Main Circular Image */}
+              <div className="w-full h-full rounded-full border-[6px] border-accent/80 overflow-hidden shadow-souk relative z-10 transition-transform duration-700 hover:scale-105" style={{boxShadow: "0 0 40px -10px var(--color-sabra)"}}>
                 <img
-                  src="/images/hero-weaver.svg"
-                  alt="Artisane tissant un tapis"
-                  className="aspect-3/4 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&q=80&w=1000"
+                  alt="Artisanat marocain"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute bottom-3 left-3 right-3 rounded-xl bg-black/40 px-3 py-2 backdrop-blur-sm">
-                  <p className="text-xs font-semibold text-white">Tapis Beni Ouarain</p>
-                  <p className="text-[10px] text-white/60">Azilal, Maroc</p>
+              </div>
+
+              {/* Floating Pill 1 (Top Left) */}
+              <div className="absolute top-10 -left-12 z-20 animate-float bg-white rounded-full shadow-xl pl-3 pr-6 py-3 flex items-center gap-4 w-max">
+                <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden shrink-0">
+                  <img src="https://i.pravatar.cc/100?img=47" alt="User" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <p className="text-[15px] font-bold text-[#1a2b3c]">"Magnifique zellige !"</p>
+                  <div className="flex text-[#dea54b] text-sm mt-0.5">★★★★★</div>
                 </div>
               </div>
-              <div
-                className="relative mt-10 animate-hero-drop group overflow-hidden rounded-2xl shadow-2xl"
-                style={{ "--hero-delay": "340ms" } as React.CSSProperties}
-              >
-                <img
-                  src="/images/hero-potter.svg"
-                  alt="Artisan potier marocain"
-                  className="aspect-3/4 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute bottom-3 left-3 right-3 rounded-xl bg-black/40 px-3 py-2 backdrop-blur-sm">
-                  <p className="text-xs font-semibold text-white">Poterie de Safi</p>
-                  <p className="text-[10px] text-white/60">Safi, Maroc</p>
+
+              {/* Floating Pill 2 (Center Left) */}
+              <div className="absolute top-1/2 -translate-y-1/2 -left-20 z-20 animate-float-reverse bg-white rounded-full shadow-xl px-6 py-3.5 flex items-center gap-3 w-max" style={{ animationDelay: "1s" }}>
+                <span className="text-2xl drop-shadow-sm">🔥</span>
+                <div>
+                  <p className="text-[15px] font-bold text-[#1a2b3c]">+1,200 vues</p>
+                  <p className="text-xs text-gray-500 font-medium">cette semaine</p>
                 </div>
               </div>
-            </div>
-            {/* Badge 100% Made in Morocco */}
-            <div
-              className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full border border-accent/30 bg-black/40 px-4 py-2 backdrop-blur-sm shadow-lg animate-hero-drop"
-              style={{ "--hero-delay": "500ms" } as React.CSSProperties}
-            >
-              <span className="text-base">🇲🇦</span>
-              <span className="text-xs font-bold text-white tracking-wide">
-                100% Made in Morocco
-              </span>
+
+              {/* Floating Pill 3 (Bottom Right) */}
+              <div className="absolute bottom-20 -right-12 z-20 animate-float bg-white rounded-full shadow-xl px-6 py-3.5 flex flex-col justify-center gap-0.5 w-max" style={{ animationDelay: "2s" }}>
+                <p className="text-[15px] font-bold text-[#1a2b3c] text-right">"Livraison ultra rapide"</p>
+                <div className="flex items-center justify-end gap-2">
+                  <div className="flex text-[#dea54b] text-xs">★★★★★</div>
+                  <span className="text-xs text-gray-600 font-medium">Youssef, Rabat</span>
+                </div>
+              </div>
+
+              {/* Floating Icon (Bottom Right) */}
+              
             </div>
           </div>
         </div>

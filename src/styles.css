@@ -252,6 +252,16 @@
     box-shadow: 0 0 0 12px color-mix(in oklab, var(--sabra) 0%, transparent);
   }
 }
+@keyframes float {
+  0% { transform: translateY(-10px); }
+  50% { transform: translateY(10px); }
+  100% { transform: translateY(-10px); }
+}
+@keyframes float-reverse {
+  0% { transform: translateY(10px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(10px); }
+}
 
 @utility animate-souk-in {
   animation: souk-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -261,6 +271,12 @@
 }
 @utility animate-zellige-spin {
   animation: souk-zellige-spin 22s linear infinite;
+}
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+@utility animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
 }
 
 @utility shimmer-souk {
