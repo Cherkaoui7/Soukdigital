@@ -28,13 +28,15 @@ export default defineConfig({
     host: '::',
     watch: {
       ignored: [
-        '**/venv/**',
-        '**/.venv/**',
-        '**/backend/**',
-        '**/.git/**',
-        '**/.tanstack/**',
-        '**/.output/**',
-        '**/souk_ai.db'
+        "**/venv/**",
+        "**/.venv/**",
+        "**/backend/**",
+        "**/.git/**",
+        "**/.output/**",
+        "**/dist/**",
+        "**/build/**",
+        "**/node_modules/**",
+        "**/souk_ai.db"
       ]
     }
   },
