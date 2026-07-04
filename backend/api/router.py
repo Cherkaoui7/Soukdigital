@@ -127,3 +127,27 @@ async def remove_background(file: UploadFile = File(...)):
         return {"url": url, "success": True}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Background removal failed: {str(e)}")
+
+from fastapi import Form
+
+@router.post("/upscale-image")
+async def upscale_image(file: UploadFile = File(...), scale: int = Form(4)):
+    """
+    Upscale image using Real-ESRGAN.
+    """
+    if not file.content_type.startswith("image/"):
+        raise HTTPException(status_code=400, detail="File must be an image")
+        
+    image_bytes = await file.read()
+    
+    try:
+        # Run AI service to upscale image
+        result_bytes = await ai_service.upscale_image(image_bytes, scale=scale)
+        
+        # Save locally using storage_service
+        url = storage_service.upload_image_bytes(result_bytes)
+        
+        return {"url": url, "success": True}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Image upscaling failed: {str(e)}")
+

@@ -55,5 +55,68 @@ class AIService:
         result_bytes = await loop.run_in_executor(None, process)
         return result_bytes
 
+    # Global cache for the upscaler model
+    _upscaler_model = None
+
+    async def upscale_image(self, image_bytes: bytes, scale: int = 4) -> bytes:
+        """
+        Upscales an image using Real-ESRGAN (High Quality x4plus).
+        """
+        import cv2
+        import numpy as np
+        import os
+        import requests
+        from realesrgan import RealESRGANer
+        from basicsr.archs.rrdbnet_arch import RRDBNet
+        import asyncio
+        
+        loop = asyncio.get_event_loop()
+        
+        def process():
+            # 1. Load image from bytes
+            image_array = np.frombuffer(image_bytes, np.uint8)
+            img = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
+            if img is None:
+                raise Exception("Failed to decode image.")
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            
+            # 2. Setup model if not already cached
+            if self.__class__._upscaler_model is None:
+                model_name = 'RealESRGAN_x4plus'
+                model_path = f'weights/{model_name}.pth'
+                
+                if not os.path.exists(model_path):
+                    os.makedirs("weights", exist_ok=True)
+                    url = f"https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/{model_name}.pth"
+                    r = requests.get(url, stream=True)
+                    with open(model_path, 'wb') as f:
+                        for chunk in r.iter_content(chunk_size=8192):
+                            if chunk:
+                                f.write(chunk)
+                                
+                device = 'cuda' if cv2.cuda.getCudaEnabledDeviceCount() > 0 else 'cpu'
+                # Initialize high-quality RRDBNet model
+                model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4)
+                
+                self.__class__._upscaler_model = RealESRGANer(
+                    scale=4, 
+                    model_path=model_path,
+                    model=model,
+                    tile=0,
+                    tile_pad=10,
+                    pre_pad=0,
+                    half=False # Use True if running out of memory on GPU
+                )
+            
+            # 4. Process image
+            output, _ = self.__class__._upscaler_model.enhance(img, outscale=scale)
+            
+            # 5. Convert back to bytes
+            output = cv2.cvtColor(output, cv2.COLOR_RGB2BGR)
+            _, buffer = cv2.imencode('.png', output)
+            return buffer.tobytes()
+            
+        return await loop.run_in_executor(None, process)
+
 import urllib.parse
 ai_service = AIService()

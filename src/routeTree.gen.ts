@@ -24,6 +24,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SuiviTrackingRouteImport } from './routes/suivi.$tracking'
 import { Route as ProduitsSlugRouteImport } from './routes/produits.$slug'
 import { Route as ArtisansSlugRouteImport } from './routes/artisans.$slug'
+import { Route as AiStudioUpscalerRouteImport } from './routes/ai-studio.upscaler'
 import { Route as AiStudioImageGeneratorRouteImport } from './routes/ai-studio.image-generator'
 import { Route as AiStudioBackgroundRemoverRouteImport } from './routes/ai-studio.background-remover'
 import { Route as PaiementCmiOrderIdRouteImport } from './routes/paiement.cmi.$orderId'
@@ -104,6 +105,11 @@ const ArtisansSlugRoute = ArtisansSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ArtisansRoute,
 } as any)
+const AiStudioUpscalerRoute = AiStudioUpscalerRouteImport.update({
+  id: '/upscaler',
+  path: '/upscaler',
+  getParentRoute: () => AiStudioRoute,
+} as any)
 const AiStudioImageGeneratorRoute = AiStudioImageGeneratorRouteImport.update({
   id: '/image-generator',
   path: '/image-generator',
@@ -141,6 +147,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ai-studio/background-remover': typeof AiStudioBackgroundRemoverRoute
   '/ai-studio/image-generator': typeof AiStudioImageGeneratorRoute
+  '/ai-studio/upscaler': typeof AiStudioUpscalerRoute
   '/artisans/$slug': typeof ArtisansSlugRoute
   '/produits/$slug': typeof ProduitsSlugRoute
   '/suivi/$tracking': typeof SuiviTrackingRoute
@@ -162,6 +169,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ai-studio/background-remover': typeof AiStudioBackgroundRemoverRoute
   '/ai-studio/image-generator': typeof AiStudioImageGeneratorRoute
+  '/ai-studio/upscaler': typeof AiStudioUpscalerRoute
   '/artisans/$slug': typeof ArtisansSlugRoute
   '/produits/$slug': typeof ProduitsSlugRoute
   '/suivi/$tracking': typeof SuiviTrackingRoute
@@ -184,6 +192,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ai-studio/background-remover': typeof AiStudioBackgroundRemoverRoute
   '/ai-studio/image-generator': typeof AiStudioImageGeneratorRoute
+  '/ai-studio/upscaler': typeof AiStudioUpscalerRoute
   '/artisans/$slug': typeof ArtisansSlugRoute
   '/produits/$slug': typeof ProduitsSlugRoute
   '/suivi/$tracking': typeof SuiviTrackingRoute
@@ -207,6 +216,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ai-studio/background-remover'
     | '/ai-studio/image-generator'
+    | '/ai-studio/upscaler'
     | '/artisans/$slug'
     | '/produits/$slug'
     | '/suivi/$tracking'
@@ -228,6 +238,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ai-studio/background-remover'
     | '/ai-studio/image-generator'
+    | '/ai-studio/upscaler'
     | '/artisans/$slug'
     | '/produits/$slug'
     | '/suivi/$tracking'
@@ -249,6 +260,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ai-studio/background-remover'
     | '/ai-studio/image-generator'
+    | '/ai-studio/upscaler'
     | '/artisans/$slug'
     | '/produits/$slug'
     | '/suivi/$tracking'
@@ -381,6 +393,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArtisansSlugRouteImport
       parentRoute: typeof ArtisansRoute
     }
+    '/ai-studio/upscaler': {
+      id: '/ai-studio/upscaler'
+      path: '/upscaler'
+      fullPath: '/ai-studio/upscaler'
+      preLoaderRoute: typeof AiStudioUpscalerRouteImport
+      parentRoute: typeof AiStudioRoute
+    }
     '/ai-studio/image-generator': {
       id: '/ai-studio/image-generator'
       path: '/image-generator'
@@ -415,11 +434,13 @@ declare module '@tanstack/react-router' {
 interface AiStudioRouteChildren {
   AiStudioBackgroundRemoverRoute: typeof AiStudioBackgroundRemoverRoute
   AiStudioImageGeneratorRoute: typeof AiStudioImageGeneratorRoute
+  AiStudioUpscalerRoute: typeof AiStudioUpscalerRoute
 }
 
 const AiStudioRouteChildren: AiStudioRouteChildren = {
   AiStudioBackgroundRemoverRoute: AiStudioBackgroundRemoverRoute,
   AiStudioImageGeneratorRoute: AiStudioImageGeneratorRoute,
+  AiStudioUpscalerRoute: AiStudioUpscalerRoute,
 }
 
 const AiStudioRouteWithChildren = AiStudioRoute._addFileChildren(
