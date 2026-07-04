@@ -27,7 +27,12 @@ class MockupService:
         # 1. Load Template
         template_path = os.path.join(self.templates_dir, f"{template_id}.jpg")
         if not os.path.exists(template_path):
-            raise FileNotFoundError(f"Template {template_id} not found.")
+            # Check if it's a custom template uploaded by the user
+            custom_path = os.path.join(self.upload_dir, template_id)
+            if os.path.exists(custom_path):
+                template_path = custom_path
+            else:
+                raise FileNotFoundError(f"Template {template_id} not found.")
             
         bg = Image.open(template_path).convert("RGBA")
         bg_w, bg_h = bg.size

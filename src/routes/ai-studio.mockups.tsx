@@ -30,6 +30,39 @@ function MockupsComponent() {
   const [error, setError] = useState<string | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
+  const [customTemplates, setCustomTemplates] = useState<{id: string, name: string, thumb: string}[]>([])
+  const templateInputRef = useRef<HTMLInputElement>(null)
+
+  const handleTemplateUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0]
+      const formData = new FormData()
+      formData.append('file', file)
+      
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/upload-custom-template', {
+          method: 'POST',
+          body: formData,
+        })
+        
+        if (!response.ok) throw new Error('Erreur upload décor')
+        
+        const data = await response.json()
+        const newTemplate = {
+          id: data.id,
+          name: 'Décor Perso',
+          thumb: `http://127.0.0.1:8000${data.url}`
+        }
+        
+        setCustomTemplates(prev => [...prev, newTemplate])
+        setActiveTemplate(data.id)
+      } catch (err) {
+        console.error(err)
+        setError("Impossible d'importer le décor personnalisé.")
+      }
+    }
+  }
+
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0]
@@ -92,6 +125,8 @@ function MockupsComponent() {
     }
   }
 
+  const allTemplates = [...TEMPLATES, ...customTemplates]
+
   return (
     <div className="p-6 h-full flex flex-col">
       <div className="max-w-[1400px] mx-auto w-full space-y-6 flex-1 flex flex-col">
@@ -121,7 +156,7 @@ function MockupsComponent() {
               <div>
                 <h3 className="text-sm font-medium text-white/80 mb-3 uppercase tracking-wider">1. Choisir un décor</h3>
                 <div className="grid grid-cols-3 gap-3">
-                  {TEMPLATES.map(t => (
+                  {allTemplates.map(t => (
                     <button
                       key={t.id}
                       onClick={() => setActiveTemplate(t.id)}
@@ -135,6 +170,15 @@ function MockupsComponent() {
                       </div>
                     </button>
                   ))}
+                  
+                  <button
+                    onClick={() => templateInputRef.current?.click()}
+                    className="relative aspect-square rounded-xl overflow-hidden border-2 border-dashed border-white/20 hover:border-majorelle/50 hover:bg-white/5 flex flex-col items-center justify-center transition-all group"
+                  >
+                    <Upload className="w-6 h-6 text-muted-foreground group-hover:text-majorelle mb-1" />
+                    <span className="text-xs text-muted-foreground group-hover:text-white">Importer</span>
+                    <input type="file" ref={templateInputRef} className="hidden" accept="image/*" onChange={handleTemplateUpload} />
+                  </button>
                 </div>
               </div>
 
