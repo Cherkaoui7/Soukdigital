@@ -218,38 +218,29 @@ function HomePage() {
               </div>
 
               {/* Floating Card 1 */}
-              <div className="absolute top-[5%] -left-8 z-20 animate-float bg-white/95 backdrop-blur-lg rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-white/30 px-5 py-4 flex items-center gap-3 w-max text-sm font-semibold text-gray-900 transition-all duration-400 hover:scale-105 hover:shadow-[0_15px_50px_rgba(0,0,0,0.2)]" style={{ animationDelay: "0s", animationDuration: "6s" }}>
-                <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=100&h=100&fit=crop" alt="Client" className="w-11 h-11 rounded-full object-cover border-2 border-amber-500 shrink-0" />
+              <div className="float-item float-1">
+                <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=100&h=100&fit=crop" alt="Client" />
                 <div className="leading-[1.4]">
                   <p>"Magnifique zellige !"</p>
-                  <small className="text-slate-500 text-[0.75rem] font-normal">⭐⭐⭐⭐⭐ Amina, Casa</small>
+                  <small className="text-slate-500 font-normal">⭐⭐⭐⭐⭐ Amina, Casa</small>
                 </div>
               </div>
 
               {/* Floating Card 2 */}
-              <div className="absolute bottom-[15%] -right-10 z-20 animate-float-reverse bg-white/95 backdrop-blur-lg rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-white/30 px-5 py-4 flex items-center gap-3 w-max text-sm font-semibold text-gray-900 transition-all duration-400 hover:scale-105 hover:shadow-[0_15px_50px_rgba(0,0,0,0.2)]" style={{ animationDelay: "1s", animationDuration: "7s" }}>
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center text-[1.3rem] shrink-0 bg-gradient-to-br from-amber-100 to-amber-200">🔥</div>
+              <div className="float-item float-2">
+                <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center text-[1.3rem] shrink-0 bg-gradient-to-br from-amber-100 to-amber-200">🔥</div>
                 <div className="leading-[1.4]">
                   <p>+1,200 ventes</p>
-                  <small className="text-slate-500 text-[0.75rem] font-normal">ce mois-ci</small>
+                  <small className="text-slate-500 font-normal">ce mois-ci</small>
                 </div>
               </div>
 
               {/* Floating Card 3 */}
-              <div className="absolute top-[55%] -left-[60px] z-20 animate-float bg-white/95 backdrop-blur-lg rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-white/30 px-5 py-4 flex items-center gap-3 w-max text-sm font-semibold text-gray-900 transition-all duration-400 hover:scale-105 hover:shadow-[0_15px_50px_rgba(0,0,0,0.2)]" style={{ animationDelay: "2s", animationDuration: "5s" }}>
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center text-[1.3rem] shrink-0 bg-gradient-to-br from-blue-100 to-blue-200">⭐</div>
+              <div className="float-item float-3">
+                <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center text-[1.3rem] shrink-0 bg-gradient-to-br from-blue-100 to-blue-200">⭐</div>
                 <div className="leading-[1.4]">
                   <p>"Livraison ultra rapide"</p>
-                  <small className="text-slate-500 text-[0.75rem] font-normal">Youssef, Rabat</small>
-                </div>
-              </div>
-
-              {/* Floating Card 4 */}
-              <div className="absolute top-[20%] -right-5 z-20 animate-float-reverse bg-white/95 backdrop-blur-lg rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-white/30 px-5 py-4 flex items-center gap-3 w-max text-sm font-semibold text-gray-900 transition-all duration-400 hover:scale-105 hover:shadow-[0_15px_50px_rgba(0,0,0,0.2)]" style={{ animationDelay: "0.5s", animationDuration: "6s" }}>
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Client" className="w-11 h-11 rounded-full object-cover border-2 border-amber-500 shrink-0" />
-                <div className="leading-[1.4]">
-                  <p>"Authentique !"</p>
-                  <small className="text-slate-500 text-[0.75rem] font-normal">⭐⭐⭐⭐⭐ Leila, Tanger</small>
+                  <small className="text-slate-500 font-normal">Youssef, Rabat</small>
                 </div>
               </div>
 

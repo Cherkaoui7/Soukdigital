@@ -1,3 +1,4 @@
+console.log("Evaluating server.ts top!");
 import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
@@ -10,10 +11,17 @@ type ServerEntry = {
 let serverEntryPromise: Promise<ServerEntry> | undefined;
 
 async function getServerEntry(): Promise<ServerEntry> {
+  console.log("Fetching server entry...");
   if (!serverEntryPromise) {
     serverEntryPromise = import("@tanstack/react-start/server-entry").then(
-      (m) => (m.default ?? m) as ServerEntry,
-    );
+      (m) => {
+        console.log("Server entry loaded.");
+        return (m.default ?? m) as ServerEntry;
+      }
+    ).catch(e => {
+        console.error("Failed to load server entry", e);
+        throw e;
+    });
   }
   return serverEntryPromise;
 }
@@ -44,14 +52,17 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+console.log("server.ts module executed!");
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
+    console.log("fetch() called in server.ts!");
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
     } catch (error) {
-      console.error(error);
+      console.error("Fetch error:", error);
       return new Response(renderErrorPage(), {
         status: 500,
         headers: { "content-type": "text/html; charset=utf-8" },
