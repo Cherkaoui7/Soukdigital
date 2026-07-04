@@ -1,5 +1,5 @@
 import { createFileRoute, Outlet, Link } from '@tanstack/react-router'
-import { Sparkles, Image as ImageIcon, Wand2, LayoutTemplate } from 'lucide-react'
+import { Sparkles, Image as ImageIcon, Wand2, LayoutTemplate, Code2 } from 'lucide-react'
 
 export const Route = createFileRoute('/ai-studio')({
   component: AIStudioLayout,
@@ -11,6 +11,7 @@ function AIStudioLayout() {
     { name: 'Background Remover', icon: Wand2, path: '/ai-studio/background-remover' },
     { name: 'Upscaler', icon: Sparkles, path: '/ai-studio/upscaler' },
     { name: 'Mockups', icon: LayoutTemplate, path: '/ai-studio/mockups' },
+    { name: 'Codex Coder', icon: Code2, path: '/ai-studio/codex' },
   ]
 
   return (

@@ -57,7 +57,7 @@ export const broadcastPush = createServerFn({ method: "POST" })
     if (!isAdmin) throw new Error("Forbidden");
 
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { default: webpush } = await import("web-push");
+    const { default: webpush } = await import(/* @vite-ignore */ "web-push");
 
     webpush.setVapidDetails(
       process.env.VAPID_SUBJECT || "mailto:hello@souk-digital.ma",
