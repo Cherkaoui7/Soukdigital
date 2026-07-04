@@ -104,3 +104,26 @@ def list_generations(skip: int = 0, limit: int = 20, db: Session = Depends(get_d
     """
     generations = db.query(ImageGeneration).order_by(ImageGeneration.created_at.desc()).offset(skip).limit(limit).all()
     return generations
+
+from fastapi import UploadFile, File
+
+@router.post("/remove-background")
+async def remove_background(file: UploadFile = File(...)):
+    """
+    Remove background from uploaded image.
+    """
+    if not file.content_type.startswith("image/"):
+        raise HTTPException(status_code=400, detail="File must be an image")
+        
+    image_bytes = await file.read()
+    
+    try:
+        # Run AI service to remove background
+        result_bytes = await ai_service.remove_background(image_bytes)
+        
+        # Save locally using storage_service
+        url = storage_service.upload_image_bytes(result_bytes)
+        
+        return {"url": url, "success": True}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Background removal failed: {str(e)}")

@@ -1,62 +1,59 @@
 import os
-import fal_client
 import httpx
 from backend.core.config import settings
 
-# Ensure fal_client uses the provided key
-os.environ["FAL_KEY"] = settings.FAL_KEY
-
 class AIService:
-    def map_aspect_ratio(self, ratio: str) -> str:
+    def map_aspect_ratio(self, ratio: str) -> tuple[int, int]:
         mapping = {
-            "1:1": "square_hd",
-            "16:9": "landscape_16_9",
-            "9:16": "portrait_16_9",
-            "4:5": "portrait_4_5",
-            "3:2": "landscape_3_2",
-            "2:3": "portrait_3_2"
+            "1:1": (1024, 1024),
+            "16:9": (1024, 576),
+            "9:16": (576, 1024),
+            "4:5": (800, 1000),
+            "3:2": (1024, 683),
+            "2:3": (683, 1024)
         }
-        return mapping.get(ratio, "square_hd")
+        return mapping.get(ratio, (1024, 1024))
 
     async def generate_image(self, prompt: str, style: str, aspect_ratio: str, num_inference_steps: int, guidance_scale: float, seed: int = None) -> list[bytes]:
         """
-        Calls Fal.ai API (Flux Dev model) to generate an image.
+        Calls Pollinations.ai (Free alternative) to generate an image.
         Returns a list of image bytes.
         """
         full_prompt = prompt
         if style:
             full_prompt = f"{prompt}, in {style} style"
 
-        arguments = {
-            "prompt": full_prompt,
-            "image_size": self.map_aspect_ratio(aspect_ratio),
-            "num_inference_steps": num_inference_steps,
-            "guidance_scale": guidance_scale,
-            "sync_mode": True,
-        }
-        if seed:
-            arguments["seed"] = seed
-
-        # Using fal-ai/flux/dev as the default high quality model
-        # Using synchronous submission since this is already running in a Celery worker
-        result = fal_client.subscribe(
-            "fal-ai/flux/dev",
-            arguments=arguments,
-            with_logs=True
-        )
-
-        image_urls = []
-        if 'images' in result:
-            image_urls = [img['url'] for img in result['images']]
+        width, height = self.map_aspect_ratio(aspect_ratio)
         
-        # Download images as bytes to store them in MinIO
-        image_bytes_list = []
-        async with httpx.AsyncClient() as client:
-            for url in image_urls:
-                resp = await client.get(url)
-                if resp.status_code == 200:
-                    image_bytes_list.append(resp.content)
+        url = f"https://image.pollinations.ai/prompt/{urllib.parse.quote(full_prompt)}?width={width}&height={height}&nologo=True"
+        if seed:
+            url += f"&seed={seed}"
+            
+        async with httpx.AsyncClient(timeout=60.0) as client:
+            resp = await client.get(url, headers={'User-Agent': 'Mozilla/5.0 SoukDigitalApp'})
+            if resp.status_code == 200:
+                return [resp.content]
+            else:
+                raise Exception(f"Failed to generate image from pollinations.ai (status: {resp.status_code})")
 
-        return image_bytes_list
+    async def remove_background(self, image_bytes: bytes) -> bytes:
+        """
+        Removes the background from an image using rembg.
+        """
+        import rembg
+        
+        # Run rembg synchronously but in an executor to avoid blocking the event loop
+        import asyncio
+        loop = asyncio.get_event_loop()
+        
+        # We need to run it in a threadpool
+        def process():
+            # Using new_session to cache the model across calls if possible,
+            # but simplest is just rembg.remove()
+            return rembg.remove(image_bytes)
+            
+        result_bytes = await loop.run_in_executor(None, process)
+        return result_bytes
 
+import urllib.parse
 ai_service = AIService()

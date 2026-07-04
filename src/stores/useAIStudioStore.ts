@@ -19,6 +19,8 @@ interface AIStudioState {
   setIsGenerating: (status: boolean) => void;
   currentTaskId: string | null;
   setCurrentTaskId: (id: string | null) => void;
+  resultUrls: string[] | null;
+  setResultUrls: (urls: string[] | null) => void;
 }
 
 const defaultSettings: GenerationSettings = {
@@ -41,4 +43,6 @@ export const useAIStudioStore = create<AIStudioState>((set) => ({
   setIsGenerating: (status) => set({ isGenerating: status }),
   currentTaskId: null,
   setCurrentTaskId: (id) => set({ currentTaskId: id }),
+  resultUrls: null,
+  setResultUrls: (urls) => set({ resultUrls: urls }),
 }))

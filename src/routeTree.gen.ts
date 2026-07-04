@@ -25,6 +25,7 @@ import { Route as SuiviTrackingRouteImport } from './routes/suivi.$tracking'
 import { Route as ProduitsSlugRouteImport } from './routes/produits.$slug'
 import { Route as ArtisansSlugRouteImport } from './routes/artisans.$slug'
 import { Route as AiStudioImageGeneratorRouteImport } from './routes/ai-studio.image-generator'
+import { Route as AiStudioBackgroundRemoverRouteImport } from './routes/ai-studio.background-remover'
 import { Route as PaiementCmiOrderIdRouteImport } from './routes/paiement.cmi.$orderId'
 import { Route as ApiOgProductSlugRouteImport } from './routes/api/og.product.$slug'
 
@@ -108,6 +109,12 @@ const AiStudioImageGeneratorRoute = AiStudioImageGeneratorRouteImport.update({
   path: '/image-generator',
   getParentRoute: () => AiStudioRoute,
 } as any)
+const AiStudioBackgroundRemoverRoute =
+  AiStudioBackgroundRemoverRouteImport.update({
+    id: '/background-remover',
+    path: '/background-remover',
+    getParentRoute: () => AiStudioRoute,
+  } as any)
 const PaiementCmiOrderIdRoute = PaiementCmiOrderIdRouteImport.update({
   id: '/paiement/cmi/$orderId',
   path: '/paiement/cmi/$orderId',
@@ -132,6 +139,7 @@ export interface FileRoutesByFullPath {
   '/panier': typeof PanierRoute
   '/produits': typeof ProduitsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ai-studio/background-remover': typeof AiStudioBackgroundRemoverRoute
   '/ai-studio/image-generator': typeof AiStudioImageGeneratorRoute
   '/artisans/$slug': typeof ArtisansSlugRoute
   '/produits/$slug': typeof ProduitsSlugRoute
@@ -152,6 +160,7 @@ export interface FileRoutesByTo {
   '/panier': typeof PanierRoute
   '/produits': typeof ProduitsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ai-studio/background-remover': typeof AiStudioBackgroundRemoverRoute
   '/ai-studio/image-generator': typeof AiStudioImageGeneratorRoute
   '/artisans/$slug': typeof ArtisansSlugRoute
   '/produits/$slug': typeof ProduitsSlugRoute
@@ -173,6 +182,7 @@ export interface FileRoutesById {
   '/panier': typeof PanierRoute
   '/produits': typeof ProduitsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ai-studio/background-remover': typeof AiStudioBackgroundRemoverRoute
   '/ai-studio/image-generator': typeof AiStudioImageGeneratorRoute
   '/artisans/$slug': typeof ArtisansSlugRoute
   '/produits/$slug': typeof ProduitsSlugRoute
@@ -195,6 +205,7 @@ export interface FileRouteTypes {
     | '/panier'
     | '/produits'
     | '/sitemap.xml'
+    | '/ai-studio/background-remover'
     | '/ai-studio/image-generator'
     | '/artisans/$slug'
     | '/produits/$slug'
@@ -215,6 +226,7 @@ export interface FileRouteTypes {
     | '/panier'
     | '/produits'
     | '/sitemap.xml'
+    | '/ai-studio/background-remover'
     | '/ai-studio/image-generator'
     | '/artisans/$slug'
     | '/produits/$slug'
@@ -235,6 +247,7 @@ export interface FileRouteTypes {
     | '/panier'
     | '/produits'
     | '/sitemap.xml'
+    | '/ai-studio/background-remover'
     | '/ai-studio/image-generator'
     | '/artisans/$slug'
     | '/produits/$slug'
@@ -375,6 +388,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AiStudioImageGeneratorRouteImport
       parentRoute: typeof AiStudioRoute
     }
+    '/ai-studio/background-remover': {
+      id: '/ai-studio/background-remover'
+      path: '/background-remover'
+      fullPath: '/ai-studio/background-remover'
+      preLoaderRoute: typeof AiStudioBackgroundRemoverRouteImport
+      parentRoute: typeof AiStudioRoute
+    }
     '/paiement/cmi/$orderId': {
       id: '/paiement/cmi/$orderId'
       path: '/paiement/cmi/$orderId'
@@ -393,10 +413,12 @@ declare module '@tanstack/react-router' {
 }
 
 interface AiStudioRouteChildren {
+  AiStudioBackgroundRemoverRoute: typeof AiStudioBackgroundRemoverRoute
   AiStudioImageGeneratorRoute: typeof AiStudioImageGeneratorRoute
 }
 
 const AiStudioRouteChildren: AiStudioRouteChildren = {
+  AiStudioBackgroundRemoverRoute: AiStudioBackgroundRemoverRoute,
   AiStudioImageGeneratorRoute: AiStudioImageGeneratorRoute,
 }
 
