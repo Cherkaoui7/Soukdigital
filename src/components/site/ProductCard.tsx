@@ -79,7 +79,7 @@ const getLocalFallback = (productName: string) => {
   if (n.includes("zellige") || n.includes("carreau")) return "/images/product-zellige.svg";
   if (n.includes("pouf")) return "/images/product-pouf.svg";
   if (n.includes("safran")) return "/images/product-safran.svg";
-  if (n.includes("amlou")) return "/images/product-amlou.svg";
+  if (n.includes("amlou")) return "/images/amlou_miel.jpg";
   return "/images/product-placeholder.svg";
 };
 
@@ -92,11 +92,12 @@ export function ProductCard({ product }: { product: Product }) {
   const story = getProductStory(name, product.origin_city, product.artisan_name);
   
   const fallbackSrc = getLocalFallback(name);
-  const [imgSrc, setImgSrc] = React.useState(product.image_url || fallbackSrc);
+  const initialSrc = name.toLowerCase().includes("amlou") ? fallbackSrc : (product.image_url || fallbackSrc);
+  const [imgSrc, setImgSrc] = React.useState(initialSrc);
 
   React.useEffect(() => {
-    setImgSrc(product.image_url || fallbackSrc);
-  }, [product.image_url, fallbackSrc]);
+    setImgSrc(name.toLowerCase().includes("amlou") ? fallbackSrc : (product.image_url || fallbackSrc));
+  }, [product.image_url, fallbackSrc, name]);
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl bg-card border border-border/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-souk">

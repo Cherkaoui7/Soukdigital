@@ -25,7 +25,7 @@ const getLocalFallback = (productName: string) => {
   if (n.includes("zellige") || n.includes("carreau")) return "/images/product-zellige.svg";
   if (n.includes("pouf")) return "/images/product-pouf.svg";
   if (n.includes("safran")) return "/images/product-safran.svg";
-  if (n.includes("amlou")) return "/images/product-amlou.svg";
+  if (n.includes("amlou")) return "/images/amlou_miel.jpg";
   return "/images/product-placeholder.svg";
 };
 
@@ -120,11 +120,12 @@ function ProductDetail() {
   const outOfStock = product.stock <= 0;
 
   const fallbackSrc = getLocalFallback(name);
-  const [imgSrc, setImgSrc] = useState(product.image_url || fallbackSrc);
+  const initialSrc = name.toLowerCase().includes("amlou") ? fallbackSrc : (product.image_url || fallbackSrc);
+  const [imgSrc, setImgSrc] = useState(initialSrc);
 
   useEffect(() => {
-    setImgSrc(product.image_url || fallbackSrc);
-  }, [product.image_url, fallbackSrc]);
+    setImgSrc(name.toLowerCase().includes("amlou") ? fallbackSrc : (product.image_url || fallbackSrc));
+  }, [product.image_url, fallbackSrc, name]);
 
   const jsonLd = {
     "@context": "https://schema.org",
