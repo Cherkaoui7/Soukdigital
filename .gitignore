@@ -52,3 +52,18 @@ nul
 .env.*
 
 !.env.example
+venv/
+.venv/
+backend/venv/
+
+dist/
+build/
+.output/
+
+node_modules/
+
+*.db
+*.sqlite
+*.sqlite3
+
+__pycache__/

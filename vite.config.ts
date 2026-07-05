@@ -28,15 +28,26 @@ export default defineConfig({
     host: '::',
     watch: {
       ignored: [
-        "**/venv/**",
-        "**/.venv/**",
-        "**/backend/**",
+        "**/node_modules/**",
         "**/.git/**",
         "**/.output/**",
         "**/dist/**",
         "**/build/**",
-        "**/node_modules/**",
-        "**/souk_ai.db"
+
+        "**/venv/**",
+        "**/.venv/**",
+        "**/__pycache__/**",
+
+        "**/*.pyc",
+        "**/*.pyo",
+
+        "**/*.db",
+        "**/*.sqlite",
+        "**/*.sqlite3",
+
+        "**/.pytest_cache/**",
+        "**/.mypy_cache/**",
+        "**/.ruff_cache/**"
       ]
     }
   },
