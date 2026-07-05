@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "@tanstack/react-router";
 import { formatPrice } from "@/lib/format";
 import { useI18n, localizedField, type Locale } from "@/lib/i18n";
@@ -66,6 +67,22 @@ function getProductStory(productName: string, originCity: string | null = null, 
   return { badge, badgeBg, materials, manufacturingTime, artisan };
 }
 
+const getLocalFallback = (productName: string) => {
+  const n = productName.toLowerCase();
+  if (n.includes("tapis")) return "/images/product-tapis.svg";
+  if (n.includes("caftan")) return "/images/product-caftan.svg";
+  if (n.includes("collier") || n.includes("bijou") || n.includes("bracelet")) return "/images/product-collier.svg";
+  if (n.includes("lanterne") || n.includes("bougie") || n.includes("lustre")) return "/images/product-lanterne.svg";
+  if (n.includes("babouche") || n.includes("chaussure")) return "/images/product-babouche.svg";
+  if (n.includes("argan") || n.includes("cosmétique")) return "/images/product-argan.svg";
+  if (n.includes("thé") || n.includes("théière") || n.includes("verre")) return "/images/product-teapot.svg";
+  if (n.includes("zellige") || n.includes("carreau")) return "/images/product-zellige.svg";
+  if (n.includes("pouf")) return "/images/product-pouf.svg";
+  if (n.includes("safran")) return "/images/product-safran.svg";
+  if (n.includes("amlou")) return "/images/product-amlou.svg";
+  return "/images/product-placeholder.svg";
+};
+
 export function ProductCard({ product }: { product: Product }) {
   const { t, locale } = useI18n();
   const { add } = useCart();
@@ -73,25 +90,28 @@ export function ProductCard({ product }: { product: Product }) {
   const outOfStock = product.stock <= 0;
 
   const story = getProductStory(name, product.origin_city, product.artisan_name);
+  
+  const fallbackSrc = getLocalFallback(name);
+  const [imgSrc, setImgSrc] = React.useState(product.image_url || fallbackSrc);
+
+  React.useEffect(() => {
+    setImgSrc(product.image_url || fallbackSrc);
+  }, [product.image_url, fallbackSrc]);
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl bg-card border border-border/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-souk">
       <div className="relative block aspect-[4/5] overflow-hidden bg-muted">
-        {product.image_url ? (
-          // eslint-disable-next-line jsx-a11y/img-redundant-alt
-          <img
-            src={product.image_url}
-            alt={name}
-            loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-        ) : (
-          <img
-            src="/images/product-placeholder.svg"
-            alt={name}
-            className="h-full w-full object-cover"
-          />
-        )}
+        <img
+          src={imgSrc}
+          alt={name}
+          onError={() => {
+            if (imgSrc !== fallbackSrc) {
+              setImgSrc(fallbackSrc);
+            }
+          }}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
         
         {/* Dynamic Story Badge */}
         <span className={`absolute top-3 start-3 rounded-full px-2.5 py-1 text-[11px] font-bold tracking-wide backdrop-blur-sm shadow-sm ${story.badgeBg}`}>

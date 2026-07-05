@@ -126,35 +126,35 @@ function HomePage() {
   const { t, locale } = useI18n();
   const [activeCategoryTab, setActiveCategoryTab] = React.useState("all");
 
-  // Hero slides setup
+  // Hero slides setup (Now pointing to local images for reliable offline rendering)
   const heroSlides = [
     {
-      url: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&q=80&w=1000",
+      url: "/images/fes.jpg",
       title: "Fontaine Zellige à Fès",
     },
     {
-      url: "https://images.unsplash.com/photo-1597212618440-806262de474b?auto=format&fit=crop&q=80&w=1000",
+      url: "/images/marrakech.jpg",
       title: "Riad à Marrakech",
     },
     {
-      url: "https://images.unsplash.com/photo-1548786811-dd6e453ccca7?auto=format&fit=crop&q=80&w=1000",
+      url: "/images/Chefchaouen.jpg",
       title: "Ruelle Bleue de Chefchaouen",
     },
     {
-      url: "https://images.unsplash.com/photo-1509316975850-ff9c5edd0cd9?auto=format&fit=crop&q=80&w=1000",
+      url: "/images/Ouarzazate.jpg",
       title: "Sahara dunes",
     },
     {
-      url: "https://images.unsplash.com/photo-1564507592937-25994a9015b2?auto=format&fit=crop&q=80&w=1000",
+      url: "/images/Essaouira.jpg",
       title: "Remparts d'Essaouira",
     },
     {
-      url: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=1000",
-      title: "Montagnes de l'Atlas",
+      url: "/images/Rabat.jpg",
+      title: "Monuments Historiques de Rabat",
     },
     {
-      url: "https://images.unsplash.com/photo-1582234372722-50d7ccc30e5a?auto=format&fit=crop&q=80&w=1000",
-      title: "Artisans du Cuivre à Fès",
+      url: "/images/Casablanca.jpg",
+      title: "Mosquée Hassan II à Casablanca",
     }
   ];
 
@@ -179,16 +179,16 @@ function HomePage() {
 
   // Immersive Photos mapping for Categories
   const categoryImages: Record<string, string> = {
-    caftans: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=500&q=80",
-    tapis: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=500&q=80",
-    bijoux: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80",
-    decoration: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=500&q=80",
-    deco: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=500&q=80",
-    "huile-dargan": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=500&q=80",
-    babouches: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=500&q=80",
+    caftans: "/images/Casablanca.jpg",
+    tapis: "/images/marrakech.jpg",
+    bijoux: "/images/agadir.jpg",
+    decoration: "/images/fes.jpg",
+    deco: "/images/fes.jpg",
+    "huile-dargan": "/images/Essaouira.jpg",
+    babouches: "/images/safi.jpg",
   };
 
-  const fallbackCategoryImage = "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=500&q=80";
+  const fallbackCategoryImage = "/images/fes.jpg";
 
   // Featured query (Coups de cœur)
   const featuredQuery = useQuery({
@@ -223,13 +223,13 @@ function HomePage() {
     }).slice(0, 8);
   }, [featuredQuery.data, activeCategoryTab]);
 
-  // Complete 12 regions list
+  // Complete 12 regions list (mapped to downloaded images in public/images)
   const regions = [
     {
       id: "fes",
       name: "Fès-Meknès",
       title: "Fès",
-      image: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&q=80&w=400",
+      image: "/images/fes.jpg",
       artisans: 85,
       crafts: ["Zellige traditionnel", "Caftans brodés", "Cuir tanné végétal"],
       desc: "Capitale spirituelle et artisanale du Royaume, célèbre pour son quartier des tanneurs et l'extrême finesse de sa céramique émaillée.",
@@ -238,7 +238,7 @@ function HomePage() {
       id: "marrakech",
       name: "Marrakech-Safi",
       title: "Marrakech",
-      image: "https://images.unsplash.com/photo-1597212618440-806262de474b?auto=format&fit=crop&q=80&w=400",
+      image: "/images/marrakech.jpg",
       artisans: 120,
       crafts: ["Lanternes ciselées", "Babouches en cuir", "Fer forgé"],
       desc: "La ville ocre bouillonne de créativité. Les dinandiers de la place Souk El Kimakh façonnent le laiton en luminaires magiques.",
@@ -247,7 +247,7 @@ function HomePage() {
       id: "chefchaouen",
       name: "Tanger-Tétouan-Al Hoceïma",
       title: "Chefchaouen",
-      image: "https://images.unsplash.com/photo-1548786811-dd6e453ccca7?auto=format&fit=crop&q=80&w=400",
+      image: "/images/Chefchaouen.jpg",
       artisans: 45,
       crafts: ["Tissage en laine rhomboïdal", "Chapeaux traditionnels R'fya"],
       desc: "La perle bleue du Nord perpétue un tissage de laine rugueuse aux motifs berbères singuliers et des teintures éclatantes.",
@@ -256,7 +256,7 @@ function HomePage() {
       id: "essaouira",
       name: "Marrakech-Safi",
       title: "Essaouira",
-      image: "https://images.unsplash.com/photo-1564507592937-25994a9015b2?auto=format&fit=crop&q=80&w=400",
+      image: "/images/Essaouira.jpg",
       artisans: 35,
       crafts: ["Huile d'Argan pure", "Ebénisterie en Thuya", "Bijoux en argent"],
       desc: "Baignée par l'Atlantique, Essaouira est le berceau de l'or liquide (Argan) et des sculpteurs sur précieux bois de Thuya.",
@@ -265,7 +265,7 @@ function HomePage() {
       id: "tetouan",
       name: "Tanger-Tétouan-Al Hoceïma",
       title: "Tétouan",
-      image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=400",
+      image: "/images/Tétouane.jpg",
       artisans: 25,
       crafts: ["Broderie fine (Tarj)", "Céramique émaillée fine"],
       desc: "Héritière du savoir-faire andalou, Tétouan brille par sa broderie impériale et son art décoratif du bois peint (Zouak).",
@@ -274,7 +274,7 @@ function HomePage() {
       id: "safi",
       name: "Marrakech-Safi",
       title: "Safi",
-      image: "https://images.unsplash.com/photo-1610940908711-2e69888cc8b9?auto=format&fit=crop&q=80&w=400",
+      image: "/images/safi.jpg",
       artisans: 50,
       crafts: ["Poterie vernissée", "Céramique de Safi"],
       desc: "Capitale de la céramique marocaine, Safi utilise une argile unique pour cuire des pièces colorées de renommée mondiale.",
@@ -283,7 +283,7 @@ function HomePage() {
       id: "ouarzazate",
       name: "Drâa-Tafilalet",
       title: "Ouarzazate",
-      image: "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&q=80&w=400",
+      image: "/images/Ouarzazate.jpg",
       artisans: 30,
       crafts: ["Tapis de Taznakht", "Dagues d'argent"],
       desc: "Porte du Sahara, la région excelle dans le tissage de tapis de Taznakht aux colorants naturels intenses (safran, henné).",
@@ -292,7 +292,7 @@ function HomePage() {
       id: "agadir",
       name: "Souss-Massa",
       title: "Agadir",
-      image: "https://images.unsplash.com/photo-1551829141-8664b38271e1?auto=format&fit=crop&q=80&w=400",
+      image: "/images/agadir.jpg",
       artisans: 40,
       crafts: ["Huile d'Argan bio", "Bijoux traditionnels en argent"],
       desc: "Berceau de l'arganier et des coopératives féminines, la région brille aussi par les parures d'argent de Tiznit.",
@@ -301,7 +301,7 @@ function HomePage() {
       id: "atlas",
       name: "Béni Mellal-Khénifra",
       title: "Atlas",
-      image: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=400",
+      image: "/images/Chefchaouen.jpg",
       artisans: 75,
       crafts: ["Tapis berbère Azilal", "Tissage M'rirt en laine vierge"],
       desc: "Dans les hauteurs du Haut Atlas, les tisseuses expriment leur liberté artistique sur des tapis blancs parsemés de motifs colorés.",
@@ -310,7 +310,7 @@ function HomePage() {
       id: "dakhla",
       name: "Dakhla-Oued Ed-Dahab",
       title: "Dakhla",
-      image: "https://images.unsplash.com/photo-1509316975850-ff9c5edd0cd9?auto=format&fit=crop&q=80&w=400",
+      image: "/images/Dakhla.jpg",
       artisans: 15,
       crafts: ["Artisanat du désert", "Bijoux en coquillage & cuir"],
       desc: "Point de rencontre entre désert et océan, Dakhla cultive des pièces uniques faites de cuir saharien et de perles marines.",
@@ -319,7 +319,7 @@ function HomePage() {
       id: "rabat",
       name: "Rabat-Salé-Kénitra",
       title: "Rabat",
-      image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=400",
+      image: "/images/Rabat.jpg",
       artisans: 60,
       crafts: ["Poterie fine de Salé", "Tapis urbain de Rabat"],
       desc: "Capitale impériale abritant des tissages raffinés aux motifs géométriques complexes d'influence turque.",
@@ -328,7 +328,7 @@ function HomePage() {
       id: "casablanca",
       name: "Casablanca-Settat",
       title: "Casablanca",
-      image: "https://images.unsplash.com/photo-1541480601022-2308c0f02487?auto=format&fit=crop&q=80&w=400",
+      image: "/images/Casablanca.jpg",
       artisans: 95,
       crafts: ["Maroquinerie moderne", "Couture haute couture"],
       desc: "La métropole moderne allie techniques contemporaines et motifs ancestraux pour un artisanat d'exception.",
@@ -342,7 +342,7 @@ function HomePage() {
       title: "Maître dinandier",
       city: "Fès",
       exp: "35 ans",
-      image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=200",
+      image: "/images/fes.jpg",
       quote: "Chaque pièce est fabriquée à la main.",
     },
     {
@@ -350,7 +350,7 @@ function HomePage() {
       title: "Tisseuse de tapis",
       city: "Azilal",
       exp: "26 ans",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200",
+      image: "/images/Chefchaouen.jpg",
       quote: "Le tissage est notre héritage.",
     },
     {
@@ -358,7 +358,7 @@ function HomePage() {
       title: "Artisan du cuir",
       city: "Marrakech",
       exp: "20 ans",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200",
+      image: "/images/marrakech.jpg",
       quote: "Le cuir naturel raconte une vie.",
     },
     {
@@ -366,7 +366,7 @@ function HomePage() {
       title: "Artisane de zellige",
       city: "Fès",
       exp: "15 ans",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200",
+      image: "/images/Casablanca.jpg",
       quote: "Le zellige est de la poésie pure.",
     }
   ];
@@ -493,7 +493,7 @@ function HomePage() {
               {/* Floating Cards */}
               <div className="absolute -top-6 -right-6 z-20 bg-white/95 backdrop-blur-md border border-slate-100 px-5 py-4 rounded-2xl shadow-xl flex items-center gap-3.5 max-w-[280px]">
                 <img
-                  src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=100&h=100&fit=crop"
+                  src="/images/fes.jpg"
                   alt="Ahmed"
                   className="rounded-full border-2 border-amber-500 h-11 w-11 shrink-0 object-cover"
                 />
@@ -592,7 +592,7 @@ function HomePage() {
                     <div className="mt-6 flex justify-end gap-3">
                       <Link
                         to="/produits"
-                        search={{ search: region.title }}
+                        search={{ q: region.title }}
                         className="rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-xs font-semibold hover:bg-primary/90 transition-colors"
                       >
                         Voir les produits de la région
@@ -646,7 +646,7 @@ function HomePage() {
                       </p>
                       <Link
                         to="/produits"
-                        search={{ search: artisan.name }}
+                        search={{ q: artisan.name }}
                         className="mt-3.5 inline-flex items-center gap-1 text-[10px] font-bold text-secondary hover:underline"
                       >
                         Voir ses créations →
@@ -661,7 +661,7 @@ function HomePage() {
             <div className="relative">
               <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl relative aspect-[4/3.2] flex items-center justify-center">
                 <img
-                  src="https://images.unsplash.com/photo-1582234372722-50d7ccc30e5a?auto=format&fit=crop&q=80&w=800"
+                  src="/images/safi.jpg"
                   alt="Artisan video thumbnail"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
                 />
@@ -791,12 +791,12 @@ function HomePage() {
 
               <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {[
-                  { title: "Motif Marocain", path: "/ai-studio/image-generator", desc: "Motif zellige & arabesque", img: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=300&q=80" },
-                  { title: "Transformer photo", path: "/ai-studio/upscaler", desc: "Finition tadelakt & zellige", img: "https://images.unsplash.com/photo-1548786811-dd6e453ccca7?auto=format&fit=crop&w=300&q=80" },
-                  { title: "Créer tapis", path: "#rug-configurator", desc: "Dessinez votre tapis berbère", img: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=300&q=80" },
-                  { title: "Créer lanterne", path: "/ai-studio/image-generator", desc: "Projetez des ombres ajourées", img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=300&q=80" },
-                  { title: "Créer Caftan", path: "/ai-studio/image-generator", desc: "Broderies haute couture", img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=300&q=80" },
-                  { title: "Créer logo", path: "/ai-studio/mockups", desc: "Blason traditionnel d'artisan", img: "https://images.unsplash.com/photo-1582234372722-50d7ccc30e5a?auto=format&fit=crop&w=300&q=80" }
+                  { title: "Motif Marocain", path: "/ai-studio/image-generator", desc: "Motif zellige & arabesque", img: "/images/fes.jpg" },
+                  { title: "Transformer photo", path: "/ai-studio/upscaler", desc: "Finition tadelakt & zellige", img: "/images/Chefchaouen.jpg" },
+                  { title: "Créer tapis", path: "#rug-configurator", desc: "Dessinez votre tapis berbère", img: "/images/marrakech.jpg" },
+                  { title: "Créer lanterne", path: "/ai-studio/image-generator", desc: "Projetez des ombres ajourées", img: "/images/safi.jpg" },
+                  { title: "Créer Caftan", path: "/ai-studio/image-generator", desc: "Broderies haute couture", img: "/images/Casablanca.jpg" },
+                  { title: "Créer logo", path: "/ai-studio/mockups", desc: "Blason traditionnel d'artisan", img: "/images/Ouarzazate.jpg" }
                 ].map((item) => (
                   <Link
                     key={item.title}
@@ -1076,7 +1076,7 @@ function HomePage() {
       <section
         className="py-16 relative bg-[#120e26] border-b border-white/5 overflow-hidden flex items-center justify-center min-h-[220px]"
         style={{
-          backgroundImage: "linear-gradient(rgba(18, 14, 38, 0.85), rgba(18, 14, 38, 0.85)), url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=1400')",
+          backgroundImage: "linear-gradient(rgba(18, 14, 38, 0.85), rgba(18, 14, 38, 0.85)), url('/images/Rabat.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center 40%",
         }}
@@ -1133,12 +1133,12 @@ function HomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             {[
-              "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=250&q=80",
-              "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=250&q=80",
-              "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=250&q=80",
-              "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=250&q=80",
-              "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=250&q=80",
-              "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=250&q=80"
+              "/images/safi.jpg",
+              "/images/marrakech.jpg",
+              "/images/fes.jpg",
+              "/images/Chefchaouen.jpg",
+              "/images/agadir.jpg",
+              "/images/Essaouira.jpg"
             ].map((url, i) => (
               <a
                 key={i}
@@ -1176,25 +1176,25 @@ function HomePage() {
               {
                 title: "L'histoire du zellige marocain",
                 date: "15 Mai 2024",
-                image: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&q=80&w=400",
+                image: "/images/fes.jpg",
                 desc: "Un art géométrique ancestral né à Fès, qui illumine les palais et séduit l'architecture moderne.",
               },
               {
                 title: "Comment reconnaître un vrai tapis berbère ?",
                 date: "10 Mai 2024",
-                image: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&q=80&w=400",
+                image: "/images/marrakech.jpg",
                 desc: "Laine pure, nouage traditionnel, irrégularité créatrice... Apprenez les secrets des tisseuses de l'Atlas.",
               },
               {
                 title: "Le travail du cuir à Fès",
                 date: "05 Mai 2024",
-                image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=400",
+                image: "/images/Chefchaouen.jpg",
                 desc: "Immersion dans les tanneries millénaires de Chouara où le cuir est traité selon des recettes ancestrales.",
               },
               {
                 title: "Guide des coopératives artisanales au Maroc",
                 date: "01 Mai 2024",
-                image: "https://images.unsplash.com/photo-1582234372722-50d7ccc30e5a?auto=format&fit=crop&q=80&w=400",
+                image: "/images/Ouarzazate.jpg",
                 desc: "Comment l'organisation en coopérative aide les femmes artisanes du milieu rural à valoriser leur production.",
               }
             ].map((article) => (

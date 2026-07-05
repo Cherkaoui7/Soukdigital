@@ -1,6 +1,6 @@
+import React, { useState, useEffect } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
 import { ArrowLeft, MapPin, Sparkles, ShoppingBag } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -12,6 +12,22 @@ import { useI18n, localizedField, type Locale } from "@/lib/i18n";
 import { useAuth } from "@/lib/auth";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
+
+const getLocalFallback = (productName: string) => {
+  const n = productName.toLowerCase();
+  if (n.includes("tapis")) return "/images/product-tapis.svg";
+  if (n.includes("caftan")) return "/images/product-caftan.svg";
+  if (n.includes("collier") || n.includes("bijou") || n.includes("bracelet")) return "/images/product-collier.svg";
+  if (n.includes("lanterne") || n.includes("bougie") || n.includes("lustre")) return "/images/product-lanterne.svg";
+  if (n.includes("babouche") || n.includes("chaussure")) return "/images/product-babouche.svg";
+  if (n.includes("argan") || n.includes("cosmétique")) return "/images/product-argan.svg";
+  if (n.includes("thé") || n.includes("théière") || n.includes("verre")) return "/images/product-teapot.svg";
+  if (n.includes("zellige") || n.includes("carreau")) return "/images/product-zellige.svg";
+  if (n.includes("pouf")) return "/images/product-pouf.svg";
+  if (n.includes("safran")) return "/images/product-safran.svg";
+  if (n.includes("amlou")) return "/images/product-amlou.svg";
+  return "/images/product-placeholder.svg";
+};
 
 export const Route = createFileRoute("/produits/$slug")({
   component: ProductDetail,
@@ -103,12 +119,19 @@ function ProductDetail() {
   const description = localizedField(product, locale as Locale, "description");
   const outOfStock = product.stock <= 0;
 
+  const fallbackSrc = getLocalFallback(name);
+  const [imgSrc, setImgSrc] = useState(product.image_url || fallbackSrc);
+
+  useEffect(() => {
+    setImgSrc(product.image_url || fallbackSrc);
+  }, [product.image_url, fallbackSrc]);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name,
     description,
-    image: product.image_url ? [product.image_url] : undefined,
+    image: imgSrc ? [imgSrc] : undefined,
     brand: { "@type": "Brand", name: product.artisan?.name ?? "Souk Digital" },
     offers: {
       "@type": "Offer",
@@ -132,11 +155,16 @@ function ProductDetail() {
 
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 pb-16 lg:grid-cols-2">
         <div className="relative overflow-hidden rounded-3xl bg-card border border-border">
-          {product.image_url ? (
-            <img src={product.image_url} alt={name} className="w-full object-cover" />
-          ) : (
-            <div className="aspect-square w-full bg-muted" />
-          )}
+          <img
+            src={imgSrc}
+            alt={name}
+            onError={() => {
+              if (imgSrc !== fallbackSrc) {
+                setImgSrc(fallbackSrc);
+              }
+            }}
+            className="w-full object-cover"
+          />
           {product.old_price_mad && (
             <span className="absolute top-5 start-5 rounded-full bg-secondary px-3 py-1 text-xs font-bold text-secondary-foreground">
               PROMO
